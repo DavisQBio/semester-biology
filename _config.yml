@@ -11,7 +11,7 @@ permalink:        pretty
 # Setup
 title:            Data Carpentry for Biologists
 description:      'Teaching the tools to get computers to do cool science'
-url:              https://davisqbio.github.io/r_intro
+url:              https://davisqbio.github.io
 baseurl:          /r_intro
 email:            refurrow@ucdavis.edu
 feedbackurl:      
