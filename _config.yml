@@ -9,8 +9,8 @@ kramdown:
 permalink:        pretty
 
 # Setup
-title:            Data Carpentry for Biologists
-description:      'Teaching the tools to get computers to do cool science'
+title:            R for QBio
+description:      'Using R to analyze biology'
 url:              https://davisqbio.github.io/r_intro
 baseurl:          /r_intro
 email:            refurrow@ucdavis.edu
