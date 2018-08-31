@@ -8,7 +8,7 @@ output:
 
 
 ```{r, echo=FALSE, purl=FALSE}
-knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
+knitr::opts_chunk$set()
 ```
 
 ------------
@@ -127,7 +127,7 @@ developing packages, writing Shiny apps) that we will not cover during the
 workshop.
 
 
-```{r}
+```{r, echo=TRUE, eval=TRUE}
 x <- 7
 x
 ```

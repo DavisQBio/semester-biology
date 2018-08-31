@@ -72,3 +72,5 @@ We will use RStudio IDE to write code, navigate the files on our computer, inspe
 x <- 7
 x
 ```
+
+    ## [1] 7
