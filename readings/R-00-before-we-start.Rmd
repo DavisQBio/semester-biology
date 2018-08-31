@@ -1,7 +1,9 @@
 ---
 title: "Before we start"
 layout: page
-output: md_document
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 
