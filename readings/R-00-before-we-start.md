@@ -1,7 +1,3 @@
----
-title: "Before we start"
-layout: page
----
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -71,3 +67,8 @@ Let's start by learning about [RStudio](https://www.rstudio.com/), which is an I
 The RStudio IDE open-source product is free under the [Affero General Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html). The RStudio IDE is also available with a commercial license and priority email support from RStudio, Inc.
 
 We will use RStudio IDE to write code, navigate the files on our computer, inspect the variables we are going to create, and visualize the plots we will generate. RStudio can also be used for other things (e.g., version control, developing packages, writing Shiny apps) that we will not cover during the workshop.
+
+``` r
+x <- 7
+x
+```

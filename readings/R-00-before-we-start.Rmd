@@ -126,3 +126,8 @@ generate. RStudio can also be used for other things (e.g., version control,
 developing packages, writing Shiny apps) that we will not cover during the
 workshop.
 
+
+```{r}
+x <- 7
+x
+```
