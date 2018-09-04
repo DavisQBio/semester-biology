@@ -1,11 +1,3 @@
----
-layout: page
-element: reading
-title: Before We Start
-language: R
----
-
-
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -258,8 +250,8 @@ sessionInfo()
 
 ### Where to ask for help?
 
--   The person sitting next to you during the workshop. Don't hesitate to talk to your neighbor during the workshop, compare your answers, and ask for help. You might also be interested in organizing regular meetings following the workshop to keep learning from each other.
--   Your friendly colleagues: if you know someone with more experience than you, they might be able and willing to help you.
+-   The person sitting next to you. Learning goes faster when you check in with neighbors, compare answers, and ask for help.
+-   Your friendly peers: if you know someone with more experience than you, they might be able and willing to help you.
 -   [Stack Overflow](http://stackoverflow.com/questions/tagged/r): if your question hasn't been answered before and is well crafted, chances are you will get an answer in less than 5 min. Remember to follow their guidelines on [how to ask a good question](http://stackoverflow.com/help/how-to-ask).
 -   The [R-help mailing list](https://stat.ethz.ch/mailman/listinfo/r-help): it is read by a lot of people (including most of the R core team), a lot of people post to it, but the tone can be pretty dry, and it is not always very welcoming to new users. If your question is valid, you are likely to get an answer very fast but don't expect that it will come with smiley faces. Also, here more than anywhere else, be sure to use correct vocabulary (otherwise you might get an answer pointing to the misuse of your words rather than answering your question). You will also have more success if your question is about a base function rather than a specific package.
 -   If your question is about a specific package, see if there is a mailing list for it. Usually it's included in the DESCRIPTION file of the package that can be accessed using `packageDescription("name-of-package")`. You may also want to try to email the author of the package directly, or open an issue on the code repository (e.g., GitHub).
@@ -270,8 +262,8 @@ sessionInfo()
 -   The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R mailing lists.
 -   [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html) useful guidelines
 -   [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/) has quite comprehensive advice on how to ask programming questions.
--   The [reprex](https://cran.rstudio.com/web/packages/reprex/) package is very helpful to create reproducible examples when asking for help. The \[rOpenSci community call "How to ask questions so they get answered"\], [Github link](https://github.com/ropensci/commcalls/issues/14) and [video recording](https://vimeo.com/208749032) includes a presentation of the reprex package and of its philosophy.
+-   The [reprex](https://cran.rstudio.com/web/packages/reprex/) package is very helpful to create reproducible examples when asking for help. The rOpenSci community call "How to ask questions so they get answered", [Github link](https://github.com/ropensci/commcalls/issues/14) and [video recording](https://vimeo.com/208749032) includes a presentation of the reprex package and of its philosophy.
 
 <p style="text-align: right; font-size: small;">
-Page built on: ð 2018-09-04 â ð¢ 12:59:35
+Page built on: 2018-09-04 at 13:08:58
 </p>

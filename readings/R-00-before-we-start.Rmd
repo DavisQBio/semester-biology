@@ -416,11 +416,9 @@ sessionInfo()
 
 ### Where to ask for help?
 
-* The person sitting next to you during the workshop. Don't hesitate to talk to
-  your neighbor during the workshop, compare your answers, and ask for
-  help. You might also be interested in organizing regular meetings following
-  the workshop to keep learning from each other.
-* Your friendly colleagues: if you know someone with more experience than you,
+* The person sitting next to you. Learning goes faster when you check in with
+  neighbors, compare answers, and ask for help.  
+* Your friendly peers: if you know someone with more experience than you,
   they might be able and willing to help you.
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/r): if your question
   hasn't been answered before and is well crafted, chances are you will get an
@@ -451,7 +449,7 @@ sessionInfo()
   useful guidelines
 * [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
   has quite comprehensive advice on how to ask programming questions.
-* The [reprex](https://cran.rstudio.com/web/packages/reprex/) package is very helpful to create reproducible examples when asking for help. The [rOpenSci community call "How to ask questions so they get answered"], [Github link](https://github.com/ropensci/commcalls/issues/14) and [video recording](https://vimeo.com/208749032) includes a presentation of the reprex package and of its philosophy.
+* The [reprex](https://cran.rstudio.com/web/packages/reprex/) package is very helpful to create reproducible examples when asking for help. The rOpenSci community call "How to ask questions so they get answered", [Github link](https://github.com/ropensci/commcalls/issues/14) and [video recording](https://vimeo.com/208749032) includes a presentation of the reprex package and of its philosophy.
 
 ```{r, child="_page_built_on.Rmd"}
 ```
