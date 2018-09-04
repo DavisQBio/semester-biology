@@ -5,7 +5,7 @@ layout: default
 
 Here you'll get practice working with biological data, focusing on data structure and
 programming for data manipulation, analysis, and visualization. These materials
-are modified from the Data Carpentry courses [Data Carpentry for Biologists](http://datacarpentry.org/semester-biology) and [R for Data Analysis and Visualization of Ecological Data](https://datacarpentry.org/R-ecology-lesson).  
+are modified from the Data Carpentry courses [Data Carpentry for Biologists](http://datacarpentry.org/semester-biology) and [R for Data Analysis and Visualization of Ecological Data](https://datacarpentry.org/R-ecology-lesson/).  
 
 
 : <a href="{{ site.baseurl }}/computer-setup">
