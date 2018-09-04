@@ -1,3 +1,10 @@
+---
+layout: page
+element: reading
+title: Before We Start
+language: R
+---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives

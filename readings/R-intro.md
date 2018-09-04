@@ -18,5 +18,5 @@ language: R
 * Readings
 
   * [Getting Started](R-00-before-we-start)
-  * [Introduction to R](http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
-  * [Starting with data (**only through "Inspecting data.frame Objects"**)](http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html)
+  * [Introduction to R](R-01-intro-to-r)
+  * [Starting with data (**only through "Inspecting data.frame Objects"**)](R-02-starting-with-data)
