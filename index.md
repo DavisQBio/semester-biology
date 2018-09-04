@@ -5,7 +5,7 @@ layout: default
 Here you'll get practice working with biological data, focusing on data structure and
 programming for data manipulation, analysis, and visualization. These materials
 are modified from the Data Carpentry courses <a href="http://datacarpentry.org/semester-biology">Data Carpentry for Biologists</a> 
-and <a href="https://datacarpentry.org/R-ecology-lesson/">R for data analysis and visualization of Ecological Data</a>.  
+and <a href="https://datacarpentry.org/R-ecology-lesson/">R for Data Analysis and Visualization of Ecological Data</a>.  
 
 For Students
 : <a href="{{ site.baseurl}}/schedule">
@@ -18,17 +18,3 @@ For Students
   <i class="fa fa-play-circle fa-fw"></i> Self-Guided Start-Up Guide</a>
 : <a href="{{ site.baseurl}}/materials/datasets">
   <i class="fa fa-download fa-fw"></i> Datasets</a>
-
-For Instructors
-: <a href="{{ site.baseurl}}/readings">
-  <i class="fa fa-book fa-fw"></i> Readings</a>
-: <a href="{{ site.baseurl}}/lectures">
-  <i class="fa fa-comment fa-fw"></i> Lectures</a>
-: <a href="{{ site.baseurl}}/materials">
-  <i class="fa fa-list-alt fa-fw"></i> Lecture Materials</a>
-: <a href="{{ site.baseurl}}/assignments">
-  <i class="fa fa-keyboard-o fa-fw"></i> Assignments</a>
-: <a href="{{ site.baseurl}}/exercises">
-  <i class="fa fa-magic fa-fw"></i> Exercises</a>
-: <a href="{{ site.baseurl}}/docs">
-  <i class="fa fa-question-circle fa-fw"></i> Course Development Help</a>
