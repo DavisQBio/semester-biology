@@ -3,11 +3,6 @@ layout: page
 title: Readings
 ---
 
-### SQL
-
-* [Data Entry and Storage](SQL-data)
-* [Database Queries](SQL-queries)
-
 ### R
 
 * [Introduction to R and RStudio](R-intro)
@@ -22,7 +17,3 @@ title: Readings
 * [Low-level Database Management Libraries](R-sql)
 * [Advanced Topics](R-advanced)
 * [Additional Resources](R-additional)
-
-### Git
-
-* [Git with R](R-git)
