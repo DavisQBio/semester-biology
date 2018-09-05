@@ -48,10 +48,6 @@ thing! So, if you want to redo your analysis because you collected more data,
 you don't have to remember which button you clicked in which order to obtain
 your results; you just have to run your script again.
 
-Working with scripts makes the steps you used in your analysis clear, and the
-code you write can be inspected by someone else who can give you feedback and
-spot mistakes.
-
 Working with scripts forces you to have a deeper understanding of what you are
 doing, and facilitates your learning and comprehension of the methods you use.
 
@@ -59,13 +55,6 @@ doing, and facilitates your learning and comprehension of the methods you use.
 
 Reproducibility is when someone else (including your future self) can obtain the
 same results from the same dataset when using the same analysis.
-
-R integrates with other tools to generate manuscripts from your code. If you
-collect more data, or fix a mistake in your dataset, the figures and the
-statistical tests in your manuscript are updated automatically.
-
-An increasing number of journals and funding agencies expect analyses to be
-reproducible, so knowing R will give you an edge with these requirements.
 
 
 ### R is interdisciplinary and extensible
@@ -98,8 +87,10 @@ aspect of your graph to convey most effectively the message from your data.
 
 ### R has a large and welcoming community
 
-Thousands of people use R daily. Many of them are willing to help you through
-mailing lists and websites such as [Stack Overflow](https://stackoverflow.com/), or on the [RStudio community](https://community.rstudio.com/).
+Thousands of people use R daily, including data scientists and researchers in
+biology and statistics. Many of them are willing to help you through mailing 
+lists and websites such as [Stack Overflow](https://stackoverflow.com/), or on 
+the [RStudio community](https://community.rstudio.com/).
 
 
 ### Not only is R free, but it is also open-source and cross-platform
@@ -127,7 +118,7 @@ developing packages, writing Shiny apps) that we will not cover during the
 workshop.
 
 
-![RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Console, Files/Plots/Packages/Help/Viewer.](../img/rstudio-screenshot.png)
+![RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.](../img/rstudio-screenshot.png)
 
 RStudio is divided into 4 "Panes": the **Source** for your scripts and documents
 (top-left, in the default layout), your **Environment/History** (top-right),

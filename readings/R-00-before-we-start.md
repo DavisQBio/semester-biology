@@ -1,3 +1,10 @@
+---
+layout: page
+element: reading
+title: Before We Start
+language: R
+---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -23,17 +30,11 @@ Why learn R?
 
 The learning curve might be steeper than with other software, but with R, the results of your analysis do not rely on remembering a succession of pointing and clicking, but instead on a series of written commands, and that's a good thing! So, if you want to redo your analysis because you collected more data, you don't have to remember which button you clicked in which order to obtain your results; you just have to run your script again.
 
-Working with scripts makes the steps you used in your analysis clear, and the code you write can be inspected by someone else who can give you feedback and spot mistakes.
-
 Working with scripts forces you to have a deeper understanding of what you are doing, and facilitates your learning and comprehension of the methods you use.
 
 ### R code is great for reproducibility
 
 Reproducibility is when someone else (including your future self) can obtain the same results from the same dataset when using the same analysis.
-
-R integrates with other tools to generate manuscripts from your code. If you collect more data, or fix a mistake in your dataset, the figures and the statistical tests in your manuscript are updated automatically.
-
-An increasing number of journals and funding agencies expect analyses to be reproducible, so knowing R will give you an edge with these requirements.
 
 ### R is interdisciplinary and extensible
 
@@ -53,7 +54,7 @@ The plotting functionalities in R are endless, and allow you to adjust any aspec
 
 ### R has a large and welcoming community
 
-Thousands of people use R daily. Many of them are willing to help you through mailing lists and websites such as [Stack Overflow](https://stackoverflow.com/), or on the [RStudio community](https://community.rstudio.com/).
+Thousands of people use R daily, including data scientists and researchers in biology and statistics. Many of them are willing to help you through mailing lists and websites such as [Stack Overflow](https://stackoverflow.com/), or on the [RStudio community](https://community.rstudio.com/).
 
 ### Not only is R free, but it is also open-source and cross-platform
 
@@ -68,7 +69,7 @@ The RStudio IDE open-source product is free under the [Affero General Public Lic
 
 We will use RStudio IDE to write code, navigate the files on our computer, inspect the variables we are going to create, and visualize the plots we will generate. RStudio can also be used for other things (e.g., version control, developing packages, writing Shiny apps) that we will not cover during the workshop.
 
-![RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Console, Files/Plots/Packages/Help/Viewer.](../img/rstudio-screenshot.png)
+![RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.](../img/rstudio-screenshot.png)
 
 RStudio is divided into 4 "Panes": the **Source** for your scripts and documents (top-left, in the default layout), your **Environment/History** (top-right), your **Files/Plots/Packages/Help/Viewer** (bottom-right), and the R **Console** (bottom-left). The placement of these panes and their content can be customized (see menu, Tools -&gt; Global Options -&gt; Pane Layout).
 
@@ -265,5 +266,5 @@ sessionInfo()
 -   The [reprex](https://cran.rstudio.com/web/packages/reprex/) package is very helpful to create reproducible examples when asking for help. The rOpenSci community call "How to ask questions so they get answered", [Github link](https://github.com/ropensci/commcalls/issues/14) and [video recording](https://vimeo.com/208749032) includes a presentation of the reprex package and of its philosophy.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-04 at 13:08:58
+Page built on: 2018-09-05 at 16:13:02
 </p>
