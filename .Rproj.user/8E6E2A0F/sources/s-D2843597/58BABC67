@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1536253123443.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "467097488",
+    "id" : "58BABC67",
+    "lastKnownWriteTime" : 1536260543,
+    "last_content_update" : 1536260543730,
+    "path" : "C:/Users/Rob Furrow/Dropbox/GitHub/r_intro/readings/E-01-growth-rates.Rmd",
+    "project_path" : "readings/E-01-growth-rates.Rmd",
+    "properties" : {
+        "cursorPosition" : "6,3",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
