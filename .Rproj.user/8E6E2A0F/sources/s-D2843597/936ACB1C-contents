@@ -93,7 +93,7 @@ library(ggplot2)
 ggplot(antibiotic,aes(x=time,y=value))+geom_point()
 ```
 
-![](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![c](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 With one short line of code, we made a pretty nice plot. A few notes about what I entered into the ggplot() function. I first entered the data frame (our matrix, antibiotic). Then I entered the *aesthetics* using `aes()`, specifying that the x-axis
 represents variable *time* and the y-axis represents *value*. These names need to exactly match the variable names from our data frame.
@@ -104,7 +104,7 @@ So, it looks okay, but we've obscured the information about antibiotic concentra
 ggplot(antibiotic,aes(x=time,y=value,color=conc))+geom_point()
 ```
 
-![](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![a](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 Hmmm, that doesn't look great. We could dive into the nitty gritty of specifying custom color scales. The automatic scale doesn't work well when some values are very close together while others are spread apart. We could transform the data. Or we could use a little hack -- it turns out that `ggplot()` works better in these cases when the variable is a discrete (or factor) scale, not a continuous scale. Don't stress if this feels confusing, but let's just try turning the concentrations into a discrete factor variable instead.
 
@@ -112,7 +112,7 @@ Hmmm, that doesn't look great. We could dive into the nitty gritty of specifying
 ggplot(antibiotic,aes(x=time,y=value,color=factor(conc)))+geom_point()
 ```
 
-![](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![b](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-11-1.png)
 
 That's a bit easier to read. Now we can clearly see the different replicates within a single concentration, and we can distinguish pretty well between the concentration gradients.
 
