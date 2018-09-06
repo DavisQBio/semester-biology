@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r, echo=FALSE, purl=FALSE}
-knitr::opts_chunk$set()
+knitr::opts_chunk$set(fig.cap="figure")
 ```
 
 ------------
@@ -59,7 +59,7 @@ models to experimental growth rate data. From the examples at the bottom it look
 like they've included some data sets.  They work with the data *bactgrowth* in 
 this example.  If you want to know what data are included in a package, the
 data() function can help you.
-```{r}
+```{r, eval=FALSE}
 data(package = "growthrates")
 ```
 
