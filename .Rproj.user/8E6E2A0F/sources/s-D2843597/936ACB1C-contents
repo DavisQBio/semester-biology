@@ -52,8 +52,6 @@ So we can see that there are two datasets: *bactgrowth* and *antibiotic*. It tur
 ?antibiotic
 ```
 
-    ## starting httpd help server ... done
-
 We can see that these data are growth rates for the bacterium [Pseudomonas putida](https://en.wikipedia.org/wiki/Pseudomonas_putida), grown at different concentrations of the antibiotic tetracycline. This is an interesting bacterium; it may prove useful for clearing polluted soils of some byproducts of petroleum refining. Even though we've loaded the package *growthrates*, we still need to load the data. Here the data() function comes into play again.
 
 ``` r
@@ -95,7 +93,7 @@ library(ggplot2)
 ggplot(antibiotic,aes(x=time,y=value))+geom_point()
 ```
 
-![Image1](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 With one short line of code, we made a pretty nice plot. A few notes about what I entered into the ggplot() function. I first entered the data frame (our matrix, antibiotic). Then I entered the *aesthetics* using `aes()`, specifying that the x-axis
 represents variable *time* and the y-axis represents *value*. These names need to exactly match the variable names from our data frame.
@@ -124,5 +122,5 @@ That's a bit easier to read. Now we can clearly see the different replicates wit
 > How is concentration affecting growth rates? Are there any outliers? Is this growth linear? Exponential? How would you describe it?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-06 at 13:06:48
+Page built on: 2018-09-06 at 13:10:51
 </p>

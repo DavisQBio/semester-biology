@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "1810710169",
     "id" : "C8BC17D6",
-    "lastKnownWriteTime" : 1536260641,
-    "last_content_update" : 1536260641956,
+    "lastKnownWriteTime" : 1536264712,
+    "last_content_update" : 1536264712510,
     "path" : "C:/Users/Rob Furrow/Dropbox/GitHub/r_intro/readings/R-00-before-we-start.md",
     "project_path" : "readings/R-00-before-we-start.md",
     "properties" : {
-        "cursorPosition" : "3,22",
-        "scrollLine" : "0"
+        "cursorPosition" : "267,74",
+        "scrollLine" : "259"
     },
     "relative_order" : 8,
     "source_on_save" : false,

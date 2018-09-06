@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "467097488",
+    "hash" : "0",
     "id" : "58BABC67",
-    "lastKnownWriteTime" : 1536260543,
-    "last_content_update" : 1536264401055,
+    "lastKnownWriteTime" : 1536264632,
+    "last_content_update" : 1536264632455,
     "path" : "C:/Users/Rob Furrow/Dropbox/GitHub/r_intro/readings/E-01-growth-rates.Rmd",
     "project_path" : "readings/E-01-growth-rates.Rmd",
     "properties" : {
-        "cursorPosition" : "145,62",
-        "scrollLine" : "134"
+        "cursorPosition" : "69,17",
+        "scrollLine" : "59"
     },
     "relative_order" : 2,
     "source_on_save" : false,

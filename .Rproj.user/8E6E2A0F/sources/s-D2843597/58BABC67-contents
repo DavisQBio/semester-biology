@@ -67,7 +67,7 @@ So we can see that there are two datasets: *bactgrowth* and *antibiotic*.  It
 turns out that *bactgrowth* is an extremely messy dataset that the package authors
 included to show how their model-fitting works on tricky data.  *antibiotic* is 
 a bit easier to interpret.  Let's use the ? function to see what these data are.
-```{r}
+```{r, eval=FALSE}
 ?antibiotic
 ```
 We can see that these data are growth rates for the bacterium [Pseudomonas putida](https://en.wikipedia.org/wiki/Pseudomonas_putida), grown at different 
