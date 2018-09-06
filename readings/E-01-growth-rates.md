@@ -4,6 +4,7 @@ element: reading
 title: Loading and plotting growth rate data
 language: R
 ---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -130,5 +131,5 @@ That's a bit easier to read. Now we can clearly see the different replicates wit
 > How is concentration affecting growth rates? Are there any outliers? Is this growth linear? Exponential? How would you describe it?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-06 at 12:02:28
+Page built on: 2018-09-06 at 12:32:24
 </p>
