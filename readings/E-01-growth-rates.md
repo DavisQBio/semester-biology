@@ -1,10 +1,3 @@
----
-layout: page
-element: reading
-title: Loading and plotting growth rate data
-language: R
----
-
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -102,7 +95,7 @@ library(ggplot2)
 ggplot(antibiotic,aes(x=time,y=value))+geom_point()
 ```
 
-![](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![Image1](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 With one short line of code, we made a pretty nice plot. A few notes about what I entered into the ggplot() function. I first entered the data frame (our matrix, antibiotic). Then I entered the *aesthetics* using `aes()`, specifying that the x-axis
 represents variable *time* and the y-axis represents *value*. These names need to exactly match the variable names from our data frame.
@@ -131,5 +124,5 @@ That's a bit easier to read. Now we can clearly see the different replicates wit
 > How is concentration affecting growth rates? Are there any outliers? Is this growth linear? Exponential? How would you describe it?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-06 at 12:32:24
+Page built on: 2018-09-06 at 13:06:48
 </p>
