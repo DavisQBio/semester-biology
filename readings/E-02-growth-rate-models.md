@@ -154,6 +154,6 @@ p
 ![figure](E-02-growth-rate-models_files/figure-markdown/unnamed-chunk-5-1.png)
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-11 at 15:17:11
+Page built on: 2018-09-11 at 15:18:53
 </p>
 
