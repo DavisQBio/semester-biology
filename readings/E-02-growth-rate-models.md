@@ -79,7 +79,7 @@ Okay, so how do we model this? If you're currently taking BIS 23a or a similar c
 The simplest model is often the best. If it fits the data well, then you can have clear interpretations and predictions. Let's start with basic, exponential growth and see how it looks. Fundamentally, the exponential model is based on the assumption that a population's growth rate is proportional the current population size. In other words, even though each individual reproduces at a similar rate, on average, the actual rate of new offspring will go up as the population increases. For humans, there are many factors that make the global population growth different from exponential.
 [Our World in Data](https://ourworldindata.org/world-population-growth) has a nice deep dive into human population growth trends.
 
-But for bacteria, particularly at small population sizes, the exponential model might fit well. In mathematical terms, our assumption of proportional growth rate can be translated into an equation as $\\frac{dN}{dt} = rN$. Here *N* is the population size, *t* is the time variable, and *r* is a parameter to represent the growth rate. You can think of *r* as a parameter that represents net growth, incorporating both births and deaths. If a population is decreasing, it's totally possible that *r* could be negative, when births are occurring less often than deaths. To put the equation into words, the change in population as a particular moment equals the growth rate *r* times the population size *N*.
+But for bacteria, particularly at small population sizes, the exponential model might fit well. In mathematical terms, our assumption of proportional growth rate can be translated into an equation as $\frac{dN}{dt} = rN$. Here *N* is the population size, *t* is the time variable, and *r* is a parameter to represent the growth rate. You can think of *r* as a parameter that represents net growth, incorporating both births and deaths. If a population is decreasing, it's totally possible that *r* could be negative, when births are occurring less often than deaths. To put the equation into words, the change in population as a particular moment equals the growth rate *r* times the population size *N*.
 
 This is not a course on differential equations. But it turns out that the solution to this equation is pleasantly simple: *N*(*t*)=*e*<sup>*r**t*</sup>*N*(0). So the population at some time *t* is a function of *N*(0), the intial population, times *e*<sup>*r**t*</sup>. So *N*(*t*) is an expontential function of *t*, hence we call this the exponential model.
 
@@ -91,7 +91,9 @@ Visualizing the exponential model
 To plot the function, we can generate model output by taking a vector of time points, and applying the function to each one. It feels confusing at first, but it's surprisingly simple to do.
 
 ``` r
-antibiotic_0 <- mutate(antibiotic_0, model_output = exp(0.57*time)*0.01)
+r <- 0.57
+N0 <- 0.01
+antibiotic_0 <- mutate(antibiotic_0, model_output = exp(r*time)*N0)
 p <- ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
 p <- p + geom_line(aes(y=model_output), color = "red")
 p <- p + ylim(c(0,1))
@@ -104,12 +106,16 @@ p
 
 The code above might look scary, so let's walk through it. I first updated the dataframe `antibiotic_0`. The `mutate()` function in `dplyr` allows you to create a new column as a function of other columns. So I used the time column and applied the exponential function from above. Note I used 0.01 as the *N*(0), based on the inspection of the data. And I used *r* = 0.57 because I explored and found that that value of *r* fit the data well for early time steps.
 
-But... this model is definitely not fitting the data for later time.
+But... this model is definitely not fitting the data at later times.
 
 #### Exploration -- model parameters
 
-> \*We got the data to fit fairly well at early time steps, but then it was way off for later times. Can you find *r* and *N*(0) to fit the data better&gt; Explore a little bit by changing the values in the line of code with the `mutate()` function. I suspect you won't ever find a great fit. Why not?
+> \*We got the data to fit fairly well at early time steps, but then it was way off for later times. Can you find *r* and *N*(0) to fit the data better&gt; Explore a little bit by changing the value of the varaibles *r* and *N*0 in the code above, and re-running the plot. I suspect you won't ever find a great fit. Why not?
+
+Okay, our basic exponential model was not up to the task of explaining these data. But we do know of another model (also reviewed on the [Khan](https://www.khanacademy.org/science/biology/ecology/population-growth-and-regulation/a/exponential-logistic-growth) page) to try. This is called the logistic model. Instead of assuming that the population will *always* grow at a rate proportional to population size, we now consider that at some point the population growth may slow down. There may be constraints on resources like food, water, or space that prevent neverending population growth. A first take on this might start with our similar equation $\frac{dN}{dt} = rN$, but add a second factor that will take $\frac{dN}{dt}$ towards 0 as *N* reaches some maximum population size *K*. Note: in ecology this parameter *K* is often called the *carrying capacity*. Let's try out this updated equation: $\frac{dN}{dt} = rN(1-\frac{N}{K})$. Now when *N* is much smaller than *K*, we basically have the familiar exponential growth. But as *N* gets close in value to *K*, then the term $(1-\frac{N}{K})$ gets close to 0, and population growth will slow to a halt.
+
+This is the population *growth* that's slowing. The population won't die out, it will just level at a value of *K*. Okay, let's plot this. The solution to this different equation is more complicated. I'll get you started, but you'll need to fiddle around to find the best choices of parameters.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-11 at 15:34:47
+Page built on: 2018-09-11 at 15:49:03
 </p>
