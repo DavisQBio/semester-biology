@@ -111,6 +111,22 @@ p <- p + ylim(c(0,1))
 p
 ```
 
+The code above might look scary, so let's walk through it.  I first updated the
+dataframe `antibiotic_0`.  The `mutate()` function in `dplyr` allows you to create
+a new column as a function of other columns.  So I used the time column and applied
+the exponential function from above.  Note I used 0.01 as the $N(0)$, based on the 
+inspection of the data.  And I used $r = 0.57$ because I explored and found that
+that value of $r$ fit the data well for early time steps.
+
+But... this model is definitely not fitting the data for later time.
+
+#### Exploration -- model parameters
+
+> *We got the data to fit fairly well at early time steps, but then it was 
+> way off for later times. Can you find $r$ and $N(0)$ to fit the data better>
+> Explore a little bit by changing the values in the line of code with the 
+> `mutate()` function.
+> I suspect you won't ever find a great fit.  Why not?
 
 
 ```{r, child="../_page_built_on.Rmd"}
