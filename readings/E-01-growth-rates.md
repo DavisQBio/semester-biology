@@ -1,3 +1,9 @@
+---
+layout: page
+title: Plotting growth rate data
+language: R
+---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives

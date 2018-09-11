@@ -1,6 +1,5 @@
 ---
 layout: page
-element: reading
 title: Before we start
 language: R
 ---
@@ -264,8 +263,6 @@ sessionInfo()
 -   [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html) useful guidelines
 -   [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/) has quite comprehensive advice on how to ask programming questions.
 -   The [reprex](https://cran.rstudio.com/web/packages/reprex/) package is very helpful to create reproducible examples when asking for help. The rOpenSci community call "How to ask questions so they get answered", [Github link](https://github.com/ropensci/commcalls/issues/14) and [video recording](https://vimeo.com/208749032) includes a presentation of the reprex package and of its philosophy.
-
-![](E-01-growth-rates_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 <p style="text-align: right; font-size: small;">
 Page built on: 2018-09-06 at 10:15:15

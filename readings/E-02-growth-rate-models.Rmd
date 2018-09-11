@@ -1,0 +1,62 @@
+---
+title: "Modeling growth rates"
+layout: page
+output:
+  md_document:
+    variant: markdown_github
+---
+
+```{r, echo=FALSE, purl=FALSE}
+knitr::opts_chunk$set(fig.cap="figure")
+```
+
+------------
+
+> ### Learning Objectives
+>
+> * Work with growth rate data to explore mathematical growth models.
+> * Manipulate model parameters to build intuition.
+
+------------
+
+As always, you can download [a script with nothing but the R code here](../scripts/E-02-growth-rate-models.R).  
+
+## Loading the growth rate data.
+
+You can remind yourself of these data by reviewing the [previous reading](../readings/E-01-growth-rates).  Let's quickly load these data again.
+
+```{r, eval=TRUE}
+library(growthrates)
+data(antibiotic)
+str(antibiotic)
+```
+
+
+Okay, here's the same quick summary of our data that we saw before.  Let's pull
+up that final plot as well.  
+
+```{r eval=TRUE}
+library(ggplot2)
+ggplot(antibiotic,aes(x=time,y=value,color=factor(conc)))+geom_point()
+```
+
+Wow, these look like some pretty well-behaved data!  The replicates at the same 
+antibiotic concentration are pretty similar to each other, while bacteria grown 
+at increasing antibiotic concentrations show decreasing growth rates.  Trying to
+build a model to include time and antibiotic concentration is a bit above our paygrade
+right now.  Let's just focus on a single concentration; why not start at 0. The package
+`dplyr` has some nice tools for quickly filtering data to particular subsets. Don't
+forget to install it first!
+
+```{r eval=TRUE}
+library(dplyr)
+antibiotic_0 <- filter(antibiotic, conc == 0)
+ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
+```
+
+Okay, we have a few things to unpack.  First, we got a suprise message when we 
+loaded `dplyr`.  
+
+
+```{r, child="../_page_built_on.Rmd"}
+```

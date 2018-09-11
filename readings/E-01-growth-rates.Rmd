@@ -160,7 +160,7 @@ ggplot(antibiotic,aes(x=time,y=value,color=factor(conc)))+geom_point()
 
 That's a bit easier to read.  Now we can clearly see the different replicates within
 a single concentration, and we can distinguish pretty well between the concentration
-gradients. 
+gradients.
 
 #### Thought question -- interpreting the data
 > Let's practice interpreting these graphs. What is the plot above showing us?  
