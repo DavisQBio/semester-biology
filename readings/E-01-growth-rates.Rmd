@@ -79,7 +79,7 @@ load the data.  Here the data() function comes into play again.
 data(antibiotic)
 ```
 
-#### Advanced note -- the diverse outputs of a single function.
+#### Advanced note -- the diverse outputs of a single function
 *You may be surprised that the data() function could yield a list of data, or 
 load a particular data set, depending on the arguments you enter. Many functions 
 in R can take a range of arguments, and the output many depend on what arguments
