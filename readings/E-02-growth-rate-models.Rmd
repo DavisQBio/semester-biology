@@ -83,14 +83,14 @@ a nice deep dive into human population growth trends.
 
 But for bacteria, particularly at small population sizes, the exponential model
 might fit well. In mathematical terms, our assumption of proportional growth rate
-can be translated into an equation as $\frac{dN}{dt} = rN$.  Here $N$ is the population
-size, $t$ is the time variable, and $r$ is a parameter to represent the growth rate.
-You can think of $r$ as a parameter that represents net growth, incorporating both births
+can be translated into an equation as $$\frac{dN}{dt} = rN$$.  Here $$N$$ is the population
+size, $$t$$ is the time variable, and $$r$$ is a parameter to represent the growth rate.
+You can think of $$r$$ as a parameter that represents net growth, incorporating both births
 and deaths.  If a population is decreasing, it's totally possible that $r$ could be 
 negative, when births are occurring less often than deaths. To put the equation into words, the change in population as a particular moment equals the growth rate $r$ times the population size $N$.
 
 This is not a course on differential equations. But it turns out that the solution 
-to this equation is pleasantly simple: $N(t) = e^{rt}N(0)$. So the population at 
+to this equation is pleasantly simple: $$N(t) = e^{rt}N(0)$$. So the population at 
 some time $t$ is a function of $N(0)$, the intial population, times $e^{rt}$.  So
 $N(t)$ is an expontential function of $t$, hence we call this the exponential model.
 
