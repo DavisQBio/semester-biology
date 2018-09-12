@@ -615,7 +615,8 @@ atomic vector.
 >     `heights` vector.
 >
 > 3.  Use R to figure out how many people in the set are taller than 67
->     inches. <details><summary>Answer</summary>
+>     inches. 
+>     <details><summary>Answer</summary>
 >     <p>
 >     ``` {.r}
 >     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
