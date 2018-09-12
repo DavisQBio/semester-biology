@@ -3,7 +3,7 @@ title: "Modeling growth rates"
 layout: page
 output:
   md_document:
-    variant: markdown_github
+    variant: markdown
 ---
 
 ```{r, echo=FALSE, purl=FALSE}
@@ -92,7 +92,7 @@ negative, when births are occurring less often than deaths. To put the equation 
 This is not a course on differential equations. But it turns out that the solution 
 to this equation is pleasantly simple: $$N(t) = e^{rt}N(0)$$. So the population at 
 some time $t$ is a function of $N(0)$, the intial population, times $e^{rt}$.  So
-$N(t)$ is an expontential function of $t$, hence we call this the exponential model.
+$N(t)$ is an exponential function of $t$, hence we call this the exponential model.
 
 But does it fit our data well? This next step will get you used to the typical way
 that we visualize models in R.
