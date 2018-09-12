@@ -454,28 +454,28 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 >
 > 2.  Use the function `median()` to calculate the median of the `heights` vector.
 >
-> 3.  Use R to figure out how many people in the set are taller than 67 inches. 
->     <details><summary>Answer</summary>
->     <p>
->     We can even put code in.
+> 3.  Use R to figure out how many people in the set are taller than 67 inches.
 >
->     ``` r
->     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
->     # 1.
->     heights_no_na <- heights[!is.na(heights)]
->     # or
->     heights_no_na <- na.omit(heights)
->     # 2.
->     median(heights, na.rm = TRUE)
->     # 3.
->     heights_above_67 <- heights_no_na[heights_no_na > 67]
->     length(heights_above_67)
->     ```
->     </p>
->     </details>
->
+
+> <details><summary>Answer</summary>
+> <p>
+> ``` r
+> heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+> # 1.
+> heights_no_na <- heights[!is.na(heights)]
+> # or
+> heights_no_na <- na.omit(heights)
+> # 2.
+> median(heights, na.rm = TRUE)
+> # 3.
+> heights_above_67 <- heights_no_na[heights_no_na > 67]
+> length(heights_above_67)
+> ```
+> </p>
+> </details>
+
 Now that we have learned how to write scripts, and the basics of R's data structures, we are ready to start working with some data, and learn about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-12 at 16:27:57
+Page built on: 2018-09-12 at 16:37:32
 </p>
