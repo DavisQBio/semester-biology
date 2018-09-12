@@ -21,8 +21,6 @@ again.
 library(growthrates)
 ```
 
-    ## Warning: package 'growthrates' was built under R version 3.5.1
-
     ## Loading required package: lattice
 
     ## Loading required package: deSolve
@@ -129,9 +127,10 @@ times the population size $N$.
 
 This is not a course on differential equations. But it turns out that
 the solution to this equation is pleasantly simple:
-$$N(t) = e^{rt}N(0)$$. So the population at some time $t$ is a function
-of $N(0)$, the intial population, times $e^{rt}$. So $N(t)$ is an
-exponential function of $t$, hence we call this the exponential model.
+$$N(t) = e^{rt}N(0)$$. So the population at some time $$t$$ is a
+function of $$N(0)$$, the intial population, times $$e^{rt}$$. So
+$$N(t)$$ is an exponential function of $$t$$, hence we call this the
+exponential model.
 
 But does it fit our data well? This next step will get you used to the
 typical way that we visualize models in R.
@@ -161,19 +160,19 @@ The code above might look scary, so let's walk through it. I first
 updated the dataframe `antibiotic_0`. The `mutate()` function in `dplyr`
 allows you to create a new column as a function of other columns. So I
 used the time column and applied the exponential function from above.
-Note I used 0.01 as the $N(0)$, based on the inspection of the data. And
-I used $r = 0.57$ because I explored and found that that value of $r$
-fit the data well for early time steps.
+Note I used 0.01 as the $$N(0)$$, based on the inspection of the data.
+And I used $$r = 0.57$$ because I explored and found that that value of
+$$r$$ fit the data well for early time steps.
 
 But... this model is definitely not fitting the data at later times.
 
 #### Exploration -- model parameters
 
-> \*We got the data to fit fairly well at early time steps, but then it
-> was way off for later times. Can you find $r$ and $N(0)$ to fit the
-> data better&gt; Explore a little bit by changing the value of the
-> varaibles $r$ and $N0$ in the code above, and re-running the plot. I
-> suspect you won't ever find a great fit. Why not?
+> *We got the data to fit fairly well at early time steps, but then it
+> was way off for later times. Can you find $$r$$ and $$N(0)$$ to fit
+> the data better&gt; Explore a little bit by changing the value of the
+> varaibles $$r$$ and $$N0$$ in the code above, and re-running the plot.
+> I suspect you won't ever find a great fit. Why not?*
 
 Okay, our basic exponential model was not up to the task of explaining
 these data. But we do know of another model (also reviewed on the
@@ -183,23 +182,27 @@ that the population will *always* grow at a rate proportional to
 population size, we now consider that at some point the population
 growth may slow down. There may be constraints on resources like food,
 water, or space that prevent neverending population growth. A first take
-on this might start with our similar equation $\frac{dN}{dt} = rN$, but
-add a second factor that will take $\frac{dN}{dt}$ towards 0 as $N$
-reaches some maximum population size $K$. Note: in ecology this
-parameter $K$ is often called the *carrying capacity*. Let's try out
-this updated equation: $\frac{dN}{dt} = rN(1-\frac{N}{K})$. Now when $N$
-is much smaller than $K$, we basically have the familiar exponential
-growth. But as $N$ gets close in value to $K$, then the term
-$(1-\frac{N}{K})$ gets close to 0, and population growth will slow to a
-halt.
+on this might start with our similar equation $$\frac{dN}{dt} = rN$$,
+but add a second factor that will take $$\frac{dN}{dt}$$ towards 0 as
+$$N$$ reaches some maximum population size $$K$$. Note: in ecology this
+parameter $$K$$ is often called the *carrying capacity*. Let's try out
+this updated equation: $$\frac{dN}{dt} = rN(1-\frac{N}{K})$$. Now when
+$$N$$ is much smaller than $$K$$, we basically have the familiar
+exponential growth. But as $$N$$ gets close in value to $$K$$, then the
+term $$(1-\frac{N}{K})$$ gets close to 0, and population growth will
+slow to a halt.
 
 This is the population *growth* that's slowing. The population won't die
-out, it will just level at a value of $K$. Okay, let's plot this. The
-solution to this different equation is more complicated. I'll get you
-started, but you'll need to fiddle around to find the best choices of
-parameters.
+out, it will just level at a value of $$K$$. Okay, let's plot this. The
+solution to this equation is more complicated. One way to represent this
+solution is as
+\begin{equation}
+  N(t) = \frac{KN(0)}{N(0)+(K-N(0))e^{-rt}}
+\end{equation}
+I'll get you started, but you'll need to fiddle around to find the best
+choices of parameters.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-11 at 17:28:55
+Page built on: 2018-09-12 at 10:44:31
 </p>
 
