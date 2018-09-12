@@ -3,8 +3,9 @@ layout: page
 title: Course Materials
 ---
 
-Many of these readings expect you to be installing R and RStudio, and installing additional
-packages in R that have useful functions.  If this is not possible, please check in 
+Many of these readings expect you to have installed R and RStudio, and to be
+installing additional packages in R that have useful functions.  
+If this is not possible, please check in 
 with your instructor. You may be able to use a browser-based version of R to follow
 along, for example with [RStudio Cloud](https://rstudio.cloud/).
 
