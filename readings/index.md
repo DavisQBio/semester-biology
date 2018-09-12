@@ -4,5 +4,8 @@ title: Readings
 ---
 
 
-* [Visualizing Growth Rates](E-01-growth-rates)
-* [Exploring Growth Rate Models](E-02-growth-rate-models)
+* [Before We Start](R-00-before-we-start)
+* [Intro to R](R-01-intro-to-r)
+* [Starting with Data](R-02-starting-with-data)
+* [Using the dplyr Package](R-03-dplyr)
+* [Visualizing Data with ggplot](R-04-visualization-ggplot2)
