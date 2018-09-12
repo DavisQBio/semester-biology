@@ -458,6 +458,7 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 >     <details><summary>Answer</summary>
 >     <p>
 >     We can even put code in.
+>
 >     ``` r
 >     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 >     # 1.
@@ -470,7 +471,6 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 >     heights_above_67 <- heights_no_na[heights_no_na > 67]
 >     length(heights_above_67)
 >     ```
->
 >     </p>
 >     </details>
 >
