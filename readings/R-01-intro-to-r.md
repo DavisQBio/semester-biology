@@ -615,9 +615,8 @@ atomic vector.
 >     `heights` vector.
 >
 > 3.  Use R to figure out how many people in the set are taller than 67
->     inches.\
->     <details><summary>Answer</summary>
->
+>     inches. <details><summary>Answer</summary>
+>     <blockquote>
 >     ``` {.r}
 >     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 >     # 1.
@@ -631,6 +630,7 @@ atomic vector.
 >     length(heights_above_67)
 >     ```
 >
+>     </blockquote>
 >     </details>
 >
 Now that we have learned how to write scripts, and the basics of R's
@@ -638,6 +638,6 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-12 at 16:01:26
+Page built on: 2018-09-12 at 16:14:05
 </p>
 
