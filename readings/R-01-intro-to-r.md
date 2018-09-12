@@ -459,6 +459,7 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 
 > <details><summary>Answer</summary>
 > <p>
+> 
 > ``` r
 > heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 > # 1.
