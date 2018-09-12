@@ -337,8 +337,8 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >     (or double), integer, and logical. But what happens if we try to
 >     mix these types in a single vector?
 >
-> <details><summary> Answer </summary> R implicitly converts them to all
-> be the same type. </details>
+> <details><summary> Answer </summary> *R implicitly converts them to
+> all be the same type.* </details>
 >
 > -   What will happen in each of these examples? (hint: use `class()`
 >     to check the data type of your objects):
