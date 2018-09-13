@@ -346,7 +346,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >
 > -   Why do you think it happens?
 >
->     <details><summary>Answer</summary>
+>     <details><summary>Answer </summary>
 >
 >     Vectors can be of only one data type. R tries to convert (coerce)
 >     the content of this vector to find a "common denominator" that
@@ -562,5 +562,5 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 12:49:25
+Page built on: 2018-09-13 at 13:00:36
 </p>
