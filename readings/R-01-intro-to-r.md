@@ -282,8 +282,8 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >
 > -   We’ve seen that atomic vectors can be of type character, numeric
 >     (or double), integer, and logical. But what happens if we try to
->     mix these types in a single vector? Try it out.
->     <details><summary markdown='span'> Answer </summary>
+>     mix these types in a single vector? Try it out. <details><summary>
+>     Answer </summary>
 >
 >     *R implicitly converts them to all be the same type.*
 >
@@ -475,5 +475,5 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 11:36:05
+Page built on: 2018-09-13 at 11:39:41
 </p>
