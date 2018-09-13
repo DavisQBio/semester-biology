@@ -1,9 +1,3 @@
----
-layout: page
-title: Before we start
-language: R
----
-
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -140,7 +134,7 @@ How to learn more?
 
 The material we cover during this class will give you an initial taste of how you can use R to analyze data for your own research. However, later on you may need to learn more to do advanced operations such as cleaning your dataset, using statistical methods, or creating beautiful graphics. The best way to become proficient and efficient at R, as with any other tool, is to use it to address your own questions of interest. As a beginner, it can feel daunting to have to write a script from scratch, and given that many people make their code available online, modifying existing code to suit your purpose might make it easier for you to get started.
 
-<img src="../img/kitten-try-things.jpg" width="400px" style="display: block; margin: auto;" />
+![Kitten trying things.](../img/kitten-try-things.jpg)
 
 Seeking help
 ------------
@@ -265,5 +259,5 @@ sessionInfo()
 -   The [reprex](https://cran.rstudio.com/web/packages/reprex/) package is very helpful to create reproducible examples when asking for help. The rOpenSci community call "How to ask questions so they get answered", [Github link](https://github.com/ropensci/commcalls/issues/14) and [video recording](https://vimeo.com/208749032) includes a presentation of the reprex package and of its philosophy.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-06 at 10:15:15
+Page built on: 2018-09-13 at 14:19:47
 </p>

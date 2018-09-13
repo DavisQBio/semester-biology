@@ -292,5 +292,5 @@ we just defined above.
 > why our logistic model isn't perfect?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 11:38:11
+Page built on: 2018-09-13 at 14:20:46
 </p>
