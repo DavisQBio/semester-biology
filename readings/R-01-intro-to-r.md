@@ -320,18 +320,16 @@ Vectors are one of the many **data structures** that R uses. Other
 important ones are lists (`list`), matrices (`matrix`), data frames
 (`data.frame`), factors (`factor`) and arrays (`array`).
 
-We’ve seen that atomic vectors can be of type character, numeric (or
-double), integer, and logical. But what happens if we try to mix these
-types in a single vector? Try it out. <details><summary>Answer</summary>
-*R implicitly converts them to all be the same type.* </details>
-
 > ### Challenge
 >
-> We’ve seen that atomic vectors can be of type character, numeric (or
-> double), integer, and logical. But what happens if we try to mix these
-> types in a single vector? Try it out.
-> <details><summary>Answer</summary> *R implicitly converts them to all
-> be the same type.* </details>
+> -   We’ve seen that atomic vectors can be of type character, numeric
+>     (or double), integer, and logical. But what happens if we try to
+>     mix these types in a single vector? Try it out.
+>     <details><summary>Answer</summary>
+>
+>     *R implicitly converts them to all be the same type.*
+>
+>     </details>
 >
 > -   What will happen in each of these examples? (hint: use `class()`
 >     to check the data type of your objects):
@@ -344,9 +342,12 @@ types in a single vector? Try it out. <details><summary>Answer</summary>
 >     ```
 >
 > -   Why do you think it happens? <details><summary>Answer</summary>
+>
 >     *Vectors can be of only one data type. R tries to convert (coerce)
 >     the content of this vector to find a "common denominator" that
->     doesn't lose any information.* </details>
+>     doesn't lose any information.*
+>
+>     </details>
 >
 > -   How many values in `combined_logical` are `"TRUE"` (as a
 >     character) in the following example:
@@ -357,15 +358,15 @@ types in a single vector? Try it out. <details><summary>Answer</summary>
 >     combined_logical <- c(num_logical, char_logical)
 >     ```
 >
-> <details><summary>Answer</summary> Only one. There is no memory of
-> past data types, and the coercion happens the first time the vector is
-> evaluated. Therefore, the `TRUE` in `num_logical` gets converted into
-> a `1` before it gets converted into `"1"` in `combined_logical`.
-> </details>
+>     <details><summary>Answer</summary>
 >
-> This can be confusing -- whenever you're working with a variety of
-> data types watch out for issues arising from these coercions.
-
+>     Only one. There is no memory of past data types, and the coercion
+>     happens the first time the vector is evaluated. Therefore, the
+>     `TRUE` in `num_logical` gets converted into a `1` before it gets
+>     converted into `"1"` in `combined_logical`.
+>
+>     </details>
+>
 Subsetting vectors
 ------------------
 
@@ -447,10 +448,14 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 > ### Challenge (optional)
 >
 > -   Can you figure out why `"four" > "five"` returns `TRUE`?
->     <details><summary>Answer</summary> When using "&gt;" or "&lt;" on
->     strings, R compares their alphabetical order. Here "four" comes
->     after "five", and therefore is "greater than" it. </details>
-
+>     <details><summary>Answer</summary>
+>
+>     When using "&gt;" or "&lt;" on strings, R compares their
+>     alphabetical order. Here "four" comes after "five", and therefore
+>     is "greater than" it.
+>
+>     </details>
+>
 Missing data
 ------------
 
@@ -537,6 +542,6 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 11:07:40
+Page built on: 2018-09-13 at 11:16:13
 </p>
 
