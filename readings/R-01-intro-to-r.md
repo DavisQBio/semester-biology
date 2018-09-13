@@ -365,8 +365,8 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >
 >     Only one. There is no memory of past data types, and the coercion
 >     happens the first time the vector is evaluated. Therefore, the
->     TRUE in num\_logical gets converted into a 1 before it gets
->     converted into "1" in combined\_logical.
+>     `TRUE` in `num_logical` gets converted into a 1 before it gets
+>     converted into "1" in `combined_logical`.
 >
 >     </details>
 >
@@ -562,5 +562,5 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 13:03:12
+Page built on: 2018-09-13 at 13:08:36
 </p>
