@@ -340,7 +340,7 @@ factors (`factor`) and arrays (`array`).
 >
 >       <details><summary>Answer</summary>
 >
->       R implicitly converts them all to be the same type.
+>       *R implicitly converts them all to be the same type.*
 >
 >       </details>
 >
@@ -356,14 +356,15 @@ factors (`factor`) and arrays (`array`).
 >
 > * Why do you think it happens?
 >     
->     <details><summary>Answer
-</summary>
+>       <details><summary>Answer
+>       </summary>
 >
->     Vectors can be of only one data type. R tries to
->     convert (coerce) the content of this vector to find a "common
->     denominator" that doesn't lose any information.
+>       *Vectors can be of only one data type. R tries to
+>       convert (coerce) the content of this vector to find a "common
+>       denominator" that doesn't lose any information.*
 >
->     </details>
+>       </details>
+>
 >
 > * How many values in `combined_logical` are `"TRUE"` (as a character) in the
 >   following example:
@@ -374,14 +375,14 @@ factors (`factor`) and arrays (`array`).
 >     combined_logical <- c(num_logical, char_logical)
 >     ```
 >
->     <details><summary>Answer</summary>
+>       <details><summary>Answer</summary>
 >
->     Only one. There is no memory of past data types, and the coercion happens the
->     first time the vector is evaluated. Therefore, the TRUE in num\_logical
->     gets converted into a 1 before it gets converted into "1" in
->     combined\_logical.
+>       Only one. There is no memory of past data types, and the coercion happens the
+>       first time the vector is evaluated. Therefore, the TRUE in num_logical
+>       gets converted into a 1 before it gets converted into "1" in
+>       combined_logical.
 >
->     </details>
+>       </details>
 
 
 
@@ -408,6 +409,8 @@ tricky <- c(1, 2, 3, "4")
 ## _coercion_. These conversions happen according to a hierarchy,
 ## whereby some types get preferentially coerced into other types. 
 ```
+
+
 
 ## Subsetting vectors
 

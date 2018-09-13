@@ -332,7 +332,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >
 >     <details><summary>Answer</summary>
 >
->     R implicitly converts them all to be the same type.
+>     *R implicitly converts them all to be the same type.*
 >
 >     </details>
 >
@@ -348,9 +348,9 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >
 >     <details><summary>Answer </summary>
 >
->     Vectors can be of only one data type. R tries to convert (coerce)
+>     *Vectors can be of only one data type. R tries to convert (coerce)
 >     the content of this vector to find a "common denominator" that
->     doesn't lose any information.
+>     doesn't lose any information.*
 >
 >     </details>
 >
@@ -562,5 +562,5 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 13:00:36
+Page built on: 2018-09-13 at 13:03:12
 </p>
