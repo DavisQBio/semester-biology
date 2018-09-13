@@ -5,7 +5,8 @@ title: About
 
 #### Primary Contributors
 
-Course materials have been modified by Robert Furrow, based on the Data Carpentry 
+Course materials have been modified or created by Robert Furrow.  The explorations are designed
+by Robert Furrow, while the readings are based on the Data Carpentry 
 course [R for Data Analysis and Visualization of Ecological Data](https://datacarpentry.org/R-ecology-lesson/). The site's style and structure are modified 
 from the [Data Carpentry for Biologists](http://datacarpentry.org/semester-biology).
 Here are links to the details on the [contributers to R for Data Analysis and Visulization of Ecological Data](http://datacarpentry.org/R-ecology-lesson/CITATION) and the 
@@ -16,3 +17,7 @@ Here are links to the details on the [contributers to R for Data Analysis and Vi
 
 The site is built using [Jekyll](http://jekyllrb.com/) with the [Hyde](http://hyde.getpoole.com/) theme from [Poole](http://getpoole.com/) 
 and icons from [Font Awesome](http://fontawesome.io) by Dave Gandy.
+
+#### Contact
+
+If you have any questions, please contact Robert Furrow: refurrow AT ucdavis DOT edu.

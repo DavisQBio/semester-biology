@@ -151,8 +151,8 @@ uncomment a paragraph: after selecting the lines you want to comment,
 press at the same time on your keyboard <kbd>Ctrl</kbd> +
 <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment out one
 line, you can put the cursor at any location of that line (i.e. no need
-to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd>
-+ <kbd>C</kbd>.
+to select the whole line), then press the same key combination:
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.
 
 > ### Challenge
 >
@@ -611,6 +611,6 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 14:30:01
+Page built on: 2018-09-13 at 14:43:20
 </p>
 
