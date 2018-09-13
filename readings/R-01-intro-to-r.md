@@ -347,7 +347,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >         char_logical <- c("a", "b", "c", TRUE)
 >         combined_logical <- c(num_logical, char_logical)
 >
-> [Answers](answers/R01C1)
+> [Answers](../answers/R01C1)
 
 Subsetting vectors
 ------------------
@@ -438,9 +438,8 @@ if any of the elements of a search vector are found:
 > ### Challenge (optional)
 >
 > -   Can you figure out why `"four" > "five"` returns `TRUE`?
->     <details><summary>Answer</summary> When using "&gt;" or "&lt;" on
->     strings, R compares their alphabetical order. Here "four" comes
->     after "five", and therefore is "greater than" it. </details>
+>
+> [Answer](../answers/R01C2)
 
 Missing data
 ------------
@@ -509,37 +508,14 @@ atomic vector.
 >     `heights` vector.
 >
 > 3.  Use R to figure out how many people in the set are taller than 67
->     inches. <details><summary markdown='span'> Answer </summary>
+>     inches.
 >
->         heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
->
->
->         # 1.
->
->         heights_no_na <- heights[!is.na(heights)] 
->
->         # or
->
->         heights_no_na <- na.omit(heights)
->
->
->         # 2.
->
->         median(heights, na.rm = TRUE)
->
->
->         # 3.
->
->         heights_above_67 <- heights_no_na[heights_no_na > 67]
->
->         length(heights_above_67)
->
->     </details>
->
+> [Answers](../answers/R01C3)
+
 Now that we have learned how to write scripts, and the basics of R's
 data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 14:02:22
+Page built on: 2018-09-13 at 14:12:02
 </p>
