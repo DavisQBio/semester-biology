@@ -278,10 +278,9 @@ Vectors are one of the many **data structures** that R uses. Other
 important ones are lists (`list`), matrices (`matrix`), data frames
 (`data.frame`), factors (`factor`) and arrays (`array`).
 
-<details><summary>Answer</summary>
+<details><summary>Answer </summary>
 
-<emph>R implicitly converts them to all be the same type.</emph>
-</details>
+*R implicitly converts them to all be the same type.* </details>
 
 > ### Challenge
 >
@@ -480,5 +479,5 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 12:02:33
+Page built on: 2018-09-13 at 12:04:41
 </p>
