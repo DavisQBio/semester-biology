@@ -4,6 +4,7 @@ highlighter:      rouge
 
 kramdown:
   input:          GFM
+  parse_block_html: true
 
 # Permalinks
 permalink:        pretty
