@@ -14,6 +14,12 @@
 
 ------------------------------------------------------------------------
 
+    ## Warning: package 'tidyverse' was built under R version 3.5.1
+
+    ## Warning: package 'readr' was built under R version 3.5.1
+
+    ## Warning: package 'forcats' was built under R version 3.5.1
+
 Creating objects in R
 ---------------------
 
@@ -21,15 +27,8 @@ You can get output from R simply by typing math in the console:
 
 ``` r
 3 + 5
-```
-
-    ## [1] 8
-
-``` r
 12 / 7
 ```
-
-    ## [1] 1.714286
 
 However, to do useful and interesting things, we need to assign *values* to *objects*. To create an object, we need to give it a name followed by the assignment operator `<-`, and the value we want to give it:
 
@@ -52,15 +51,8 @@ When assigning a value to an object, R does not print anything. You can force R 
 ``` r
 weight_kg <- 55    # doesn't print anything
 (weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
-```
-
-    ## [1] 55
-
-``` r
 weight_kg          # and so does typing the name of the object
 ```
-
-    ## [1] 55
 
 Now that R has `weight_kg` in memory, we can do arithmetic with it. For instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):
 
@@ -68,16 +60,12 @@ Now that R has `weight_kg` in memory, we can do arithmetic with it. For instance
 2.2 * weight_kg
 ```
 
-    ## [1] 121
-
 We can also change an object's value by assigning it a new one:
 
 ``` r
 weight_kg <- 57.5
 2.2 * weight_kg
 ```
-
-    ## [1] 126.5
 
 This means that assigning a value to one object does not change the values of other objects For example, let's store the animal's weight in pounds in a new object, `weight_lb`:
 
@@ -129,16 +117,11 @@ Let's try a function that can take multiple arguments: `round()`.
 round(3.14159)
 ```
 
-    ## [1] 3
-
 Here, we've called `round()` with just one argument, `3.14159`, and it has returned the value `3`. That's because the default is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the `round` function. We can use `args(round)` or look at the help for this function using `?round`.
 
 ``` r
 args(round)
 ```
-
-    ## function (x, digits = 0) 
-    ## NULL
 
 ``` r
 ?round
@@ -150,23 +133,17 @@ We see that if we want a different number of digits, we can type `digits=2` or h
 round(3.14159, digits = 2)
 ```
 
-    ## [1] 3.14
-
 If you provide the arguments in the exact same order as they are defined you don't have to name them:
 
 ``` r
 round(3.14159, 2)
 ```
 
-    ## [1] 3.14
-
 And if you do name the arguments, you can switch their order:
 
 ``` r
 round(digits = 2, x = 3.14159)
 ```
-
-    ## [1] 3.14
 
 It's good practice to put the non-optional arguments (like the number you're rounding) first in your function call, and to specify the names of all optional arguments. If you don't, someone reading your code might have to look up the definition of a function with unfamiliar arguments to understand what you're doing.
 
@@ -180,8 +157,6 @@ weight_g <- c(50, 60, 65, 82)
 weight_g
 ```
 
-    ## [1] 50 60 65 82
-
 A vector can also contain characters:
 
 ``` r
@@ -189,51 +164,28 @@ animals <- c("mouse", "rat", "dog")
 animals
 ```
 
-    ## [1] "mouse" "rat"   "dog"
-
 The quotes around "mouse", "rat", etc. are essential here. Without the quotes R will assume there are objects called `mouse`, `rat` and `dog`. As these objects don't exist in R's memory, there will be an error message.
 
 There are many functions that allow you to inspect the content of a vector. `length()` tells you how many elements are in a particular vector:
 
 ``` r
 length(weight_g)
-```
-
-    ## [1] 4
-
-``` r
 length(animals)
 ```
-
-    ## [1] 3
 
 An important feature of a vector, is that all of the elements are the same type of data. The function `class()` indicates the class (the type of element) of an object:
 
 ``` r
 class(weight_g)
-```
-
-    ## [1] "numeric"
-
-``` r
 class(animals)
 ```
-
-    ## [1] "character"
 
 The function `str()` provides an overview of the structure of an object and its elements. It is a useful function when working with large and complex objects:
 
 ``` r
 str(weight_g)
-```
-
-    ##  num [1:4] 50 60 65 82
-
-``` r
 str(animals)
 ```
-
-    ##  chr [1:3] "mouse" "rat" "dog"
 
 You can use the `c()` function to add other elements to your vector:
 
@@ -242,8 +194,6 @@ weight_g <- c(weight_g, 90) # add to the end of the vector
 weight_g <- c(30, weight_g) # add to the beginning of the vector
 weight_g
 ```
-
-    ## [1] 30 50 60 65 82 90
 
 In the first line, we take the original vector `weight_g`, add the value `90` to the end of it, and save the result back into `weight_g`. Then we add the value `30` to the beginning, again saving the result back into `weight_g`.
 
@@ -295,15 +245,8 @@ If we want to extract one or several values from a vector, we must provide one o
 ``` r
 animals <- c("mouse", "rat", "dog", "cat")
 animals[2]
-```
-
-    ## [1] "rat"
-
-``` r
 animals[c(3, 2)]
 ```
-
-    ## [1] "dog" "rat"
 
 We can also repeat the indices to create an object with more elements than the original one:
 
@@ -311,8 +254,6 @@ We can also repeat the indices to create an object with more elements than the o
 more_animals <- animals[c(1, 2, 3, 2, 1, 4)]
 more_animals
 ```
-
-    ## [1] "mouse" "rat"   "dog"   "rat"   "mouse" "cat"
 
 R indices start at 1. Programming languages like Fortran, MATLAB, Julia, and R start counting at 1, because that's what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that's simpler for computers to do.
 
@@ -325,22 +266,13 @@ weight_g <- c(21, 34, 39, 54, 55)
 weight_g[c(TRUE, FALSE, TRUE, TRUE, FALSE)]
 ```
 
-    ## [1] 21 39 54
-
 Typically, these logical vectors are not typed by hand, but are the output of other functions or logical tests. For instance, if you wanted to select only the values above 50:
 
 ``` r
 weight_g > 50    # will return logicals with TRUE for the indices that meet the condition
-```
-
-    ## [1] FALSE FALSE FALSE  TRUE  TRUE
-
-``` r
 ## so we can use this to select only the values above 50
 weight_g[weight_g > 50]
 ```
-
-    ## [1] 54 55
 
 You can combine multiple tests using `&` (both conditions are true, AND) or `|` (at least one of the conditions is true, OR):
 
@@ -348,13 +280,13 @@ You can combine multiple tests using `&` (both conditions are true, AND) or `|` 
 weight_g[weight_g < 30 | weight_g > 50]
 ```
 
-    ## [1] 21 54 55
+    #> [1] 21 54 55
 
 ``` r
 weight_g[weight_g >= 30 & weight_g == 21]
 ```
 
-    ## numeric(0)
+    #> numeric(0)
 
 Here, `<` stands for "less than", `>` for "greater than", `>=` for "greater than or equal to", and `==` for "equal to". The double equal sign `==` is a test for numerical equality between the left and right hand sides, and should not be confused with the single `=` sign, which performs variable assignment (similar to `<-`).
 
@@ -363,21 +295,9 @@ A common task is to search for certain strings in a vector. One could use the "o
 ``` r
 animals <- c("mouse", "rat", "dog", "cat")
 animals[animals == "cat" | animals == "rat"] # returns both rat and cat
-```
-
-    ## [1] "rat" "cat"
-
-``` r
 animals %in% c("rat", "cat", "dog", "duck", "goat")
-```
-
-    ## [1] FALSE  TRUE  TRUE  TRUE
-
-``` r
 animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 ```
-
-    ## [1] "rat" "dog" "cat"
 
 > ### Challenge (optional)
 >
@@ -393,54 +313,23 @@ When doing operations on numbers, most functions will return `NA` if the data yo
 ``` r
 heights <- c(2, 4, 4, NA, 6)
 mean(heights)
-```
-
-    ## [1] NA
-
-``` r
 max(heights)
-```
-
-    ## [1] NA
-
-``` r
 mean(heights, na.rm = TRUE)
-```
-
-    ## [1] 4
-
-``` r
 max(heights, na.rm = TRUE)
 ```
-
-    ## [1] 6
 
 If your data include missing values, you may want to become familiar with the functions `is.na()`, `na.omit()`, and `complete.cases()`. See below for examples.
 
 ``` r
 ## Extract those elements which are not missing values.
 heights[!is.na(heights)]
-```
 
-    ## [1] 2 4 4 6
-
-``` r
 ## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
 na.omit(heights)
-```
 
-    ## [1] 2 4 4 6
-    ## attr(,"na.action")
-    ## [1] 4
-    ## attr(,"class")
-    ## [1] "omit"
-
-``` r
 ## Extract those elements which are complete cases. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
 heights[complete.cases(heights)]
 ```
-
-    ## [1] 2 4 4 6
 
 Recall that you can use the `typeof()` function to find the type of your atomic vector.
 
@@ -454,12 +343,34 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 >
 > 2.  Use the function `median()` to calculate the median of the `heights` vector.
 >
-> 3.  Use R to figure out how many people in the set are taller than 67 inches. <details><summary>Answer</summary>
+> 3.  Use R to figure out how many people in the set are taller than 67 inches.
+>     <div class="accordion">
+>     <h3 class="toc-ignore">
+>     Answer
+>     </h3>
+>     <div style="background: #fff;">
 >
-> `heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)` `heights_no_na <- heights[!is.na(heights)]` `heights_no_na <- na.omit(heights)` `median(heights, na.rm = TRUE)` `heights_above_67 <- heights_no_na[heights_no_na > 67]` `length(heights_above_67)` </details>
+> ``` r
+> heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+>
+> # 1.
+> heights_no_na <- heights[!is.na(heights)] 
+> # or
+> heights_no_na <- na.omit(heights)
+>
+> # 2.
+> median(heights, na.rm = TRUE)
+>
+> # 3.
+> heights_above_67 <- heights_no_na[heights_no_na > 67]
+> length(heights_above_67)
+> ```
+>
+> </div>
+> </div>
 
 Now that we have learned how to write scripts, and the basics of R's data structures, we are ready to start working with some data, and learn about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-12 at 16:48:58
+Page built on: 2018-09-12 at 17:18:53
 </p>
