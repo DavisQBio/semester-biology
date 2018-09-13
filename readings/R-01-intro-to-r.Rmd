@@ -541,7 +541,10 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 > 2. Use the function `median()` to calculate the median of the `heights` vector.
 >
 > 3. Use R to figure out how many people in the set are taller than 67 inches.
->     <details><summary>Answer</summary>
+>     <details>
+>     <summary>
+>
+>     Answer</summary>
 >     
 >     ```{r, eval=FALSE}
 >
