@@ -77,8 +77,7 @@ and see how it looks. Fundamentally, the exponential model is based on the assum
 that a population's growth rate is proportional the current population size. In other 
 words, even though each individual reproduces at a similar rate, on average, the actual 
 rate of new offspring will go up as the population increases.  For humans, there are 
-many factors that make the global population growth different from exponential.  
-[Our World in Data](https://ourworldindata.org/world-population-growth) has 
+many factors that make the global population growth different from exponential. [Our World in Data](https://ourworldindata.org/world-population-growth) has 
 a nice deep dive into human population growth trends.
 
 But for bacteria, particularly at small population sizes, the exponential model
@@ -86,8 +85,8 @@ might fit well. In mathematical terms, our assumption of proportional growth rat
 can be translated into an equation as $$\frac{dN}{dt} = rN$$.  Here $$N$$ is the population
 size, $$t$$ is the time variable, and $$r$$ is a parameter to represent the growth rate.
 You can think of $$r$$ as a parameter that represents net growth, incorporating both births
-and deaths.  If a population is decreasing, it's totally possible that $r$ could be 
-negative, when births are occurring less often than deaths. To put the equation into words, the change in population as a particular moment equals the growth rate $r$ times the population size $N$.
+and deaths.  If a population is decreasing, it's totally possible that $$r$$ could be 
+negative, when births are occurring less often than deaths. To put the equation into words, the change in population as a particular moment equals the growth rate $$r$$ times the population size $$N$$.
 
 This is not a course on differential equations. But it turns out that the solution 
 to this equation is pleasantly simple: $$N(t) = e^{rt}N_0$$. The population at 

@@ -109,9 +109,9 @@ proportional the current population size. In other words, even though
 each individual reproduces at a similar rate, on average, the actual
 rate of new offspring will go up as the population increases. For
 humans, there are many factors that make the global population growth
-different from exponential.\
-[Our World in Data](https://ourworldindata.org/world-population-growth)
-has a nice deep dive into human population growth trends.
+different from exponential. [Our World in
+Data](https://ourworldindata.org/world-population-growth) has a nice
+deep dive into human population growth trends.
 
 But for bacteria, particularly at small population sizes, the
 exponential model might fit well. In mathematical terms, our assumption
@@ -120,10 +120,10 @@ $$\frac{dN}{dt} = rN$$. Here $$N$$ is the population size, $$t$$ is the
 time variable, and $$r$$ is a parameter to represent the growth rate.
 You can think of $$r$$ as a parameter that represents net growth,
 incorporating both births and deaths. If a population is decreasing,
-it's totally possible that $r$ could be negative, when births are
+it's totally possible that $$r$$ could be negative, when births are
 occurring less often than deaths. To put the equation into words, the
-change in population as a particular moment equals the growth rate $r$
-times the population size $N$.
+change in population as a particular moment equals the growth rate $$r$$
+times the population size $$N$$.
 
 This is not a course on differential equations. But it turns out that
 the solution to this equation is pleasantly simple:
@@ -260,6 +260,6 @@ we just defined above.
 > why our logistic model isn't perfect?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 14:23:24
+Page built on: 2018-09-13 at 14:27:45
 </p>
 
