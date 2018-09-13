@@ -20,15 +20,11 @@ Creating objects in R
 
 You can get output from R simply by typing math in the console:
 
-``` {.r}
-3 + 5
-```
+    3 + 5
 
     ## [1] 8
 
-``` {.r}
-12 / 7
-```
+    12 / 7
 
     ## [1] 1.714286
 
@@ -36,9 +32,7 @@ However, to do useful and interesting things, we need to assign *values*
 to *objects*. To create an object, we need to give it a name followed by
 the assignment operator `<-`, and the value we want to give it:
 
-``` {.r}
-weight_kg <- 55
-```
+    weight_kg <- 55
 
 `<-` is the assignment operator. It assigns values on the right to
 objects on the left. So, after executing `x <- 3`, the value of `x` is
@@ -93,16 +87,12 @@ When assigning a value to an object, R does not print anything. You can
 force R to print the value by using parentheses or by typing the object
 name:
 
-``` {.r}
-weight_kg <- 55    # doesn't print anything
-(weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
-```
+    weight_kg <- 55    # doesn't print anything
+    (weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
 
     ## [1] 55
 
-``` {.r}
-weight_kg          # and so does typing the name of the object
-```
+    weight_kg          # and so does typing the name of the object
 
     ## [1] 55
 
@@ -110,18 +100,14 @@ Now that R has `weight_kg` in memory, we can do arithmetic with it. For
 instance, we may want to convert this weight into pounds (weight in
 pounds is 2.2 times the weight in kg):
 
-``` {.r}
-2.2 * weight_kg
-```
+    2.2 * weight_kg
 
     ## [1] 121
 
 We can also change an object's value by assigning it a new one:
 
-``` {.r}
-weight_kg <- 57.5
-2.2 * weight_kg
-```
+    weight_kg <- 57.5
+    2.2 * weight_kg
 
     ## [1] 126.5
 
@@ -129,15 +115,11 @@ This means that assigning a value to one object does not change the
 values of other objects For example, let's store the animal's weight in
 pounds in a new object, `weight_lb`:
 
-``` {.r}
-weight_lb <- 2.2 * weight_kg
-```
+    weight_lb <- 2.2 * weight_kg
 
 and then change `weight_kg` to 100.
 
-``` {.r}
-weight_kg <- 100
-```
+    weight_kg <- 100
 
 What do you think is the current content of the object `weight_lb`?
 126.5 or 220?
@@ -158,13 +140,11 @@ to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd>
 >
 > What are the values after each statement in the following?
 >
-> ``` {.r}
-> mass <- 47.5            # mass?
-> age  <- 122             # age?
-> mass <- mass * 2.0      # mass?
-> age  <- age - 20        # age?
-> mass_index <- mass/age  # mass_index?
-> ```
+>     mass <- 47.5            # mass?
+>     age  <- 122             # age?
+>     mass <- mass * 2.0      # mass?
+>     age  <- age - 20        # age?
+>     mass_index <- mass/age  # mass_index?
 
 ### Functions and their arguments
 
@@ -178,9 +158,7 @@ must be a number, and the return value (in fact, the output) is the
 square root of that number. Executing a function ('running it') is
 called *calling* the function. An example of a function call is:
 
-``` {.r}
-b <- sqrt(a)
-```
+    b <- sqrt(a)
 
 Here, the value of `a` is given to the `sqrt()` function, the `sqrt()`
 function calculates the square root, and returns the value which is then
@@ -204,9 +182,7 @@ which will be used instead of the default.
 
 Let's try a function that can take multiple arguments: `round()`.
 
-``` {.r}
-round(3.14159)
-```
+    round(3.14159)
 
     ## [1] 3
 
@@ -216,40 +192,30 @@ the nearest whole number. If we want more digits we can see how to do
 that by getting information about the `round` function. We can use
 `args(round)` or look at the help for this function using `?round`.
 
-``` {.r}
-args(round)
-```
+    args(round)
 
     ## function (x, digits = 0) 
     ## NULL
 
-``` {.r}
-?round
-```
+    ?round
 
 We see that if we want a different number of digits, we can type
 `digits=2` or however many we want.
 
-``` {.r}
-round(3.14159, digits = 2)
-```
+    round(3.14159, digits = 2)
 
     ## [1] 3.14
 
 If you provide the arguments in the exact same order as they are defined
 you don't have to name them:
 
-``` {.r}
-round(3.14159, 2)
-```
+    round(3.14159, 2)
 
     ## [1] 3.14
 
 And if you do name the arguments, you can switch their order:
 
-``` {.r}
-round(digits = 2, x = 3.14159)
-```
+    round(digits = 2, x = 3.14159)
 
     ## [1] 3.14
 
@@ -268,19 +234,15 @@ can be either numbers or characters. We can assign a series of values to
 a vector using the `c()` function. For example we can create a vector of
 animal weights and assign it to a new object `weight_g`:
 
-``` {.r}
-weight_g <- c(50, 60, 65, 82)
-weight_g
-```
+    weight_g <- c(50, 60, 65, 82)
+    weight_g
 
     ## [1] 50 60 65 82
 
 A vector can also contain characters:
 
-``` {.r}
-animals <- c("mouse", "rat", "dog")
-animals
-```
+    animals <- c("mouse", "rat", "dog")
+    animals
 
     ## [1] "mouse" "rat"   "dog"
 
@@ -293,15 +255,11 @@ There are many functions that allow you to inspect the content of a
 vector. `length()` tells you how many elements are in a particular
 vector:
 
-``` {.r}
-length(weight_g)
-```
+    length(weight_g)
 
     ## [1] 4
 
-``` {.r}
-length(animals)
-```
+    length(animals)
 
     ## [1] 3
 
@@ -309,15 +267,11 @@ An important feature of a vector, is that all of the elements are the
 same type of data. The function `class()` indicates the class (the type
 of element) of an object:
 
-``` {.r}
-class(weight_g)
-```
+    class(weight_g)
 
     ## [1] "numeric"
 
-``` {.r}
-class(animals)
-```
+    class(animals)
 
     ## [1] "character"
 
@@ -325,25 +279,19 @@ The function `str()` provides an overview of the structure of an object
 and its elements. It is a useful function when working with large and
 complex objects:
 
-``` {.r}
-str(weight_g)
-```
+    str(weight_g)
 
     ##  num [1:4] 50 60 65 82
 
-``` {.r}
-str(animals)
-```
+    str(animals)
 
     ##  chr [1:3] "mouse" "rat" "dog"
 
 You can use the `c()` function to add other elements to your vector:
 
-``` {.r}
-weight_g <- c(weight_g, 90) # add to the end of the vector
-weight_g <- c(30, weight_g) # add to the beginning of the vector
-weight_g
-```
+    weight_g <- c(weight_g, 90) # add to the end of the vector
+    weight_g <- c(30, weight_g) # add to the beginning of the vector
+    weight_g
 
     ## [1] 30 50 60 65 82 90
 
@@ -391,12 +339,10 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > -   What will happen in each of these examples? (hint: use `class()`
 >     to check the data type of your objects):
 >
->     ``` {.r}
->     num_char <- c(1, 2, 3, "a")
->     num_logical <- c(1, 2, 3, TRUE)
->     char_logical <- c("a", "b", "c", TRUE)
->     tricky <- c(1, 2, 3, "4")
->     ```
+>         num_char <- c(1, 2, 3, "a")
+>         num_logical <- c(1, 2, 3, TRUE)
+>         char_logical <- c("a", "b", "c", TRUE)
+>         tricky <- c(1, 2, 3, "4")
 >
 > -   Why do you think it happens?
 >
@@ -411,11 +357,9 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > -   How many values in `combined_logical` are `"TRUE"` (as a
 >     character) in the following example:
 >
->     ``` {.r}
->     num_logical <- c(1, 2, 3, TRUE)
->     char_logical <- c("a", "b", "c", TRUE)
->     combined_logical <- c(num_logical, char_logical)
->     ```
+>         num_logical <- c(1, 2, 3, TRUE)
+>         char_logical <- c("a", "b", "c", TRUE)
+>         combined_logical <- c(num_logical, char_logical)
 >
 >     <details><summary>Answer</summary>
 >
@@ -432,26 +376,20 @@ Subsetting vectors
 If we want to extract one or several values from a vector, we must
 provide one or several indices in square brackets. For instance:
 
-``` {.r}
-animals <- c("mouse", "rat", "dog", "cat")
-animals[2]
-```
+    animals <- c("mouse", "rat", "dog", "cat")
+    animals[2]
 
     ## [1] "rat"
 
-``` {.r}
-animals[c(3, 2)]
-```
+    animals[c(3, 2)]
 
     ## [1] "dog" "rat"
 
 We can also repeat the indices to create an object with more elements
 than the original one:
 
-``` {.r}
-more_animals <- animals[c(1, 2, 3, 2, 1, 4)]
-more_animals
-```
+    more_animals <- animals[c(1, 2, 3, 2, 1, 4)]
+    more_animals
 
     ## [1] "mouse" "rat"   "dog"   "rat"   "mouse" "cat"
 
@@ -465,10 +403,8 @@ count from 0 because that's simpler for computers to do.
 Another common way of subsetting is by using a logical vector. `TRUE`
 will select the element with the same index, while `FALSE` will not:
 
-``` {.r}
-weight_g <- c(21, 34, 39, 54, 55)
-weight_g[c(TRUE, FALSE, TRUE, TRUE, FALSE)]
-```
+    weight_g <- c(21, 34, 39, 54, 55)
+    weight_g[c(TRUE, FALSE, TRUE, TRUE, FALSE)]
 
     ## [1] 21 39 54
 
@@ -476,31 +412,23 @@ Typically, these logical vectors are not typed by hand, but are the
 output of other functions or logical tests. For instance, if you wanted
 to select only the values above 50:
 
-``` {.r}
-weight_g > 50    # will return logicals with TRUE for the indices that meet the condition
-```
+    weight_g > 50    # will return logicals with TRUE for the indices that meet the condition
 
     ## [1] FALSE FALSE FALSE  TRUE  TRUE
 
-``` {.r}
-## so we can use this to select only the values above 50
-weight_g[weight_g > 50]
-```
+    ## so we can use this to select only the values above 50
+    weight_g[weight_g > 50]
 
     ## [1] 54 55
 
 You can combine multiple tests using `&` (both conditions are true, AND)
 or `|` (at least one of the conditions is true, OR):
 
-``` {.r}
-weight_g[weight_g < 30 | weight_g > 50]
-```
+    weight_g[weight_g < 30 | weight_g > 50]
 
     ## [1] 21 54 55
 
-``` {.r}
-weight_g[weight_g >= 30 & weight_g == 21]
-```
+    weight_g[weight_g >= 30 & weight_g == 21]
 
     ## numeric(0)
 
@@ -515,22 +443,16 @@ use the "or" operator `|` to test for equality to multiple values, but
 this can quickly become tedious. The function `%in%` allows you to test
 if any of the elements of a search vector are found:
 
-``` {.r}
-animals <- c("mouse", "rat", "dog", "cat")
-animals[animals == "cat" | animals == "rat"] # returns both rat and cat
-```
+    animals <- c("mouse", "rat", "dog", "cat")
+    animals[animals == "cat" | animals == "rat"] # returns both rat and cat
 
     ## [1] "rat" "cat"
 
-``` {.r}
-animals %in% c("rat", "cat", "dog", "duck", "goat")
-```
+    animals %in% c("rat", "cat", "dog", "duck", "goat")
 
     ## [1] FALSE  TRUE  TRUE  TRUE
 
-``` {.r}
-animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
-```
+    animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 
     ## [1] "rat" "dog" "cat"
 
@@ -554,28 +476,20 @@ harder to overlook the cases where you are dealing with missing data.
 You can add the argument `na.rm=TRUE` to calculate the result while
 ignoring the missing values.
 
-``` {.r}
-heights <- c(2, 4, 4, NA, 6)
-mean(heights)
-```
+    heights <- c(2, 4, 4, NA, 6)
+    mean(heights)
 
     ## [1] NA
 
-``` {.r}
-max(heights)
-```
+    max(heights)
 
     ## [1] NA
 
-``` {.r}
-mean(heights, na.rm = TRUE)
-```
+    mean(heights, na.rm = TRUE)
 
     ## [1] 4
 
-``` {.r}
-max(heights, na.rm = TRUE)
-```
+    max(heights, na.rm = TRUE)
 
     ## [1] 6
 
@@ -583,17 +497,13 @@ If your data include missing values, you may want to become familiar
 with the functions `is.na()`, `na.omit()`, and `complete.cases()`. See
 below for examples.
 
-``` {.r}
-## Extract those elements which are not missing values.
-heights[!is.na(heights)]
-```
+    ## Extract those elements which are not missing values.
+    heights[!is.na(heights)]
 
     ## [1] 2 4 4 6
 
-``` {.r}
-## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
-na.omit(heights)
-```
+    ## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
+    na.omit(heights)
 
     ## [1] 2 4 4 6
     ## attr(,"na.action")
@@ -601,10 +511,8 @@ na.omit(heights)
     ## attr(,"class")
     ## [1] "omit"
 
-``` {.r}
-## Extract those elements which are complete cases. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
-heights[complete.cases(heights)]
-```
+    ## Extract those elements which are complete cases. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
+    heights[complete.cases(heights)]
 
     ## [1] 2 4 4 6
 
@@ -616,9 +524,7 @@ atomic vector.
 > 1.  Using this vector of heights in inches, create a new vector with
 >     the NAs removed.
 >
->     ``` {.r}
->     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
->     ```
+>         heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 >
 > 2.  Use the function `median()` to calculate the median of the
 >     `heights` vector.
@@ -626,30 +532,28 @@ atomic vector.
 > 3.  Use R to figure out how many people in the set are taller than 67
 >     inches. <details><summary markdown='span'> Answer </summary>
 >
->     ``` {.r}
->     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+>         heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 >
 >
->     # 1.
+>         # 1.
 >
->     heights_no_na <- heights[!is.na(heights)] 
+>         heights_no_na <- heights[!is.na(heights)] 
 >
->     # or
+>         # or
 >
->     heights_no_na <- na.omit(heights)
->
->
->     # 2.
->
->     median(heights, na.rm = TRUE)
+>         heights_no_na <- na.omit(heights)
 >
 >
->     # 3.
+>         # 2.
 >
->     heights_above_67 <- heights_no_na[heights_no_na > 67]
+>         median(heights, na.rm = TRUE)
 >
->     length(heights_above_67)
->     ```
+>
+>         # 3.
+>
+>         heights_above_67 <- heights_no_na[heights_no_na > 67]
+>
+>         length(heights_above_67)
 >
 >     </details>
 >
@@ -658,6 +562,5 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 13:16:32
+Page built on: 2018-09-13 at 13:20:27
 </p>
-
