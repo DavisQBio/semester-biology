@@ -325,7 +325,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > -   We’ve seen that atomic vectors can be of type character, numeric
 >     (or double), integer, and logical. But what happens if we try to
 >     mix these types in a single vector? Try it out.
->     <details><summary markdown='span'>Answer</summary>
+>     <details><summary markdown='span'> Answer </summary>
 >
 >     *R implicitly converts them to all be the same type.*
 >
@@ -341,7 +341,8 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >     tricky <- c(1, 2, 3, "4")
 >     ```
 >
-> -   Why do you think it happens? <details><summary>Answer</summary>
+> -   Why do you think it happens? <details><summary markdown='span'>
+>     Answer </summary>
 >
 >     *Vectors can be of only one data type. R tries to convert (coerce)
 >     the content of this vector to find a "common denominator" that
@@ -358,12 +359,12 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >     combined_logical <- c(num_logical, char_logical)
 >     ```
 >
->     <details><summary>Answer</summary>
+>     <details><summary markdown='span'> Answer </summary>
 >
->     Only one. There is no memory of past data types, and the coercion
+>     *Only one. There is no memory of past data types, and the coercion
 >     happens the first time the vector is evaluated. Therefore, the
 >     `TRUE` in `num_logical` gets converted into a `1` before it gets
->     converted into `"1"` in `combined_logical`.
+>     converted into `"1"` in `combined_logical`.*
 >
 >     </details>
 >
@@ -448,7 +449,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 > ### Challenge (optional)
 >
 > -   Can you figure out why `"four" > "five"` returns `TRUE`?
->     <details><summary>Answer</summary>
+>     <details><summary markdown='span'> Answer </summary>
 >
 >     When using "&gt;" or "&lt;" on strings, R compares their
 >     alphabetical order. Here "four" comes after "five", and therefore
@@ -542,6 +543,6 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 11:24:09
+Page built on: 2018-09-13 at 11:27:54
 </p>
 
