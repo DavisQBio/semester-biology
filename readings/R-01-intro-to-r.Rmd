@@ -139,8 +139,7 @@ RStudio makes it easy to comment or uncomment a paragraph: after selecting the
 lines you  want to comment, press at the same time on your keyboard
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment
 out one line, you can put the cursor at any location of that line (i.e. no need 
-to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + 
-<kbd>C</kbd>.
+to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.
 
 
 > ### Challenge
@@ -340,7 +339,7 @@ factors (`factor`) and arrays (`array`).
 >   a single vector? Try it out.
 >
 >     <details><summary>Answer</summary>
->     **R implicitly converts them all to be the same type.**
+>     R implicitly converts them all to be the same type.
 >     </details>
 >
 > * What will happen in each of these examples? (hint: use `class()`
@@ -354,12 +353,11 @@ factors (`factor`) and arrays (`array`).
 >     ```
 >
 > * Why do you think it happens?
->     <details><summary markdown='span'> Answer </summary>
->
->     *Vectors can be of only one data type. R tries to
->     convert (coerce) the content of this vector to find a "common
->     denominator" that doesn't lose any information.*
 >     
+>     <details><summary>Answer</summary>
+>     Vectors can be of only one data type. R tries to
+>     convert (coerce) the content of this vector to find a "common
+>     denominator" that doesn't lose any information.
 >     </details>
 >
 > * How many values in `combined_logical` are `"TRUE"` (as a character) in the
@@ -371,13 +369,11 @@ factors (`factor`) and arrays (`array`).
 >     combined_logical <- c(num_logical, char_logical)
 >     ```
 >
->     <details><summary markdown='span'> Answer </summary>
->
->     _Only one. There is no memory of past data types, and the coercion happens the
+>     <details><summary>Answer</summary>
+>     Only one. There is no memory of past data types, and the coercion happens the
 >     first time the vector is evaluated. Therefore, the `TRUE` in `num_logical`
 >     gets converted into a `1` before it gets converted into `"1"` in
->     `combined_logical`._
->
+>     `combined_logical`.
 >     </details>
 
 
@@ -479,11 +475,9 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 > ### Challenge (optional)
 >
 > * Can you figure out why `"four" > "five"` returns `TRUE`?
->     <details><summary markdown='span'> Answer </summary>
->     
+>     <details><summary>Answer</summary>
 >     When using ">" or "<" on strings, R compares their alphabetical order. 
 >     Here "four" comes after "five", and therefore is "greater than" it.
->
 >     </details>
 
 
