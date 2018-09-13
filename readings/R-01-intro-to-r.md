@@ -372,5 +372,5 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 Now that we have learned how to write scripts, and the basics of R's data structures, we are ready to start working with some data, and learn about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-12 at 17:18:53
+Page built on: 2018-09-12 at 17:48:11
 </p>
