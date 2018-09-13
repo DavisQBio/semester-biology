@@ -278,12 +278,16 @@ Vectors are one of the many **data structures** that R uses. Other
 important ones are lists (`list`), matrices (`matrix`), data frames
 (`data.frame`), factors (`factor`) and arrays (`array`).
 
+<details><summary>Answer</summary>
+
+*R implicitly converts them to all be the same type.* </details>
+
 > ### Challenge
 >
 > -   We’ve seen that atomic vectors can be of type character, numeric
 >     (or double), integer, and logical. But what happens if we try to
 >     mix these types in a single vector? Try it out.
->     <details><summary>Answer </summary>
+>     <details><summary>Answer</summary>
 >
 >     *R implicitly converts them to all be the same type.*
 >
@@ -475,5 +479,5 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 11:47:05
+Page built on: 2018-09-13 at 11:52:14
 </p>
