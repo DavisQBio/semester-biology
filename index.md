@@ -12,4 +12,6 @@ Materials
   <i class="fa fa-download fa-fw"></i> Setup</a>
 : <a href="{{ site.baseurl }}/readings">
   <i class="fa fa-book fa-fw"></i> Readings</a>
+: <a href="{{ site.baseurl }}/explorations">
+  <i class="fa fa-line-chart fa-fw"></i> Explorations</a>
 
