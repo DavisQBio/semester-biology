@@ -341,7 +341,7 @@ factors (`factor`) and arrays (`array`).
 > * We’ve seen that atomic vectors can be of type character,
 >   numeric (or double), integer, and logical. But what happens if we try to mix these types in
 >   a single vector? Try it out.
->     <details><summary>Answer</summary>
+>     <details><summary markdown='span'>Answer</summary>
 >     
 >     *R implicitly converts them to all be the same type.*
 >     
@@ -539,7 +539,7 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 > 2. Use the function `median()` to calculate the median of the `heights` vector.
 >
 > 3. Use R to figure out how many people in the set are taller than 67 inches.
->     <details><summary> Answer </summary>
+>     <details><summary markdown='span'> Answer </summary>
 >     
 >     ```{r, eval=FALSE}
 >

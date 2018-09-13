@@ -325,7 +325,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > -   We’ve seen that atomic vectors can be of type character, numeric
 >     (or double), integer, and logical. But what happens if we try to
 >     mix these types in a single vector? Try it out.
->     <details><summary>Answer</summary>
+>     <details><summary markdown='span'>Answer</summary>
 >
 >     *R implicitly converts them to all be the same type.*
 >
@@ -508,7 +508,7 @@ atomic vector.
 >     `heights` vector.
 >
 > 3.  Use R to figure out how many people in the set are taller than 67
->     inches. <details><summary> Answer </summary>
+>     inches. <details><summary markdown='span'> Answer </summary>
 >
 >     ``` {.r}
 >     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
@@ -542,6 +542,6 @@ data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 11:16:13
+Page built on: 2018-09-13 at 11:24:09
 </p>
 
