@@ -503,37 +503,41 @@ atomic vector.
 >     `heights` vector.
 >
 > 3.  Use R to figure out how many people in the set are taller than 67
->     inches.
->     <div class="accordion">
->     <h3 class="toc-ignore">
->     Answer
->     </h3>
->     <div style="background: #fff;">
+>     inches. <details><summary>Answer</summary>
+>     <blockquote>
+>     ``` {.r}
+>     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 >
-> ``` {.r}
-> heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 >
-> # 1.
-> heights_no_na <- heights[!is.na(heights)] 
-> # or
-> heights_no_na <- na.omit(heights)
+>     # 1.
 >
-> # 2.
-> median(heights, na.rm = TRUE)
+>     heights_no_na <- heights[!is.na(heights)] 
 >
-> # 3.
-> heights_above_67 <- heights_no_na[heights_no_na > 67]
-> length(heights_above_67)
-> ```
+>     # or
 >
-> </div>
-> </div>
-
+>     heights_no_na <- na.omit(heights)
+>
+>
+>     # 2.
+>
+>     median(heights, na.rm = TRUE)
+>
+>
+>     # 3.
+>
+>     heights_above_67 <- heights_no_na[heights_no_na > 67]
+>
+>     length(heights_above_67)
+>     ```
+>
+>     </blockquote>
+>     </details>
+>
 Now that we have learned how to write scripts, and the basics of R's
 data structures, we are ready to start working with some data, and learn
 about data frames.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 10:46:44
+Page built on: 2018-09-13 at 10:52:39
 </p>
 
