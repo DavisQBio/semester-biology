@@ -1,7 +1,9 @@
 ---
 title: "Modeling growth rates"
 layout: page
-output: md_document
+output: 
+    md_document:
+        variant: markdown
 ---
 
 ```{r, echo=FALSE, purl=FALSE}

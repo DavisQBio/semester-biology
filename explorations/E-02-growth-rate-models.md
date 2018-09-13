@@ -17,14 +17,18 @@ You can remind yourself of these data by reviewing the [previous
 reading](../readings/E-01-growth-rates). Let's quickly load these data
 again.
 
-    library(growthrates)
+``` {.r}
+library(growthrates)
+```
 
     ## Loading required package: lattice
 
     ## Loading required package: deSolve
 
-    data(antibiotic)
-    str(antibiotic)
+``` {.r}
+data(antibiotic)
+str(antibiotic)
+```
 
     ## 'data.frame':    2928 obs. of  5 variables:
     ##  $ time    : num  0 0.5 1 1.5 2 2.5 3 3.5 4 4.5 ...
@@ -36,10 +40,12 @@ again.
 Okay, here's the same quick summary of our data that we saw before.
 Let's pull up that final plot as well.
 
-    library(ggplot2)
-    ggplot(antibiotic,aes(x=time,y=value,color=factor(conc)))+geom_point()
+``` {.r}
+library(ggplot2)
+ggplot(antibiotic,aes(x=time,y=value,color=factor(conc)))+geom_point()
+```
 
-![figure](E-02-growth-rate-models_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+![figure](E-02-growth-rate-models_files/figure-markdown/unnamed-chunk-3-1.png)
 
 Wow, these look like some pretty well-behaved data! The replicates at
 the same antibiotic concentration are pretty similar to each other,
@@ -50,7 +56,9 @@ just focus on a single concentration; why not start at 0. The package
 `dplyr` has some nice tools for quickly filtering data to particular
 subsets. Don't forget to install it first!
 
-    library(dplyr)
+``` {.r}
+library(dplyr)
+```
 
     ## 
     ## Attaching package: 'dplyr'
@@ -63,10 +71,12 @@ subsets. Don't forget to install it first!
     ## 
     ##     intersect, setdiff, setequal, union
 
-    antibiotic_0 <- filter(antibiotic, conc == 0)
-    ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
+``` {.r}
+antibiotic_0 <- filter(antibiotic, conc == 0)
+ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
+```
 
-![figure](E-02-growth-rate-models_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+![figure](E-02-growth-rate-models_files/figure-markdown/unnamed-chunk-4-1.png)
 
 Okay, we have a few things to unpack. First, we got a suprise message
 when we loaded `dplyr`. It mentions some "objects" from other packages
@@ -99,42 +109,28 @@ proportional the current population size. In other words, even though
 each individual reproduces at a similar rate, on average, the actual
 rate of new offspring will go up as the population increases. For
 humans, there are many factors that make the global population growth
-different from exponential.  
+different from exponential.\
 [Our World in Data](https://ourworldindata.org/world-population-growth)
 has a nice deep dive into human population growth trends.
 
 But for bacteria, particularly at small population sizes, the
 exponential model might fit well. In mathematical terms, our assumption
 of proportional growth rate can be translated into an equation as
-$$\\frac{dN}{dt} = rN$$
-. Here
-*N*
- is the population size,
-*t*
- is the time variable, and
-*r*
- is a parameter to represent the growth rate. You can think of
-*r*
- as a parameter that represents net growth, incorporating both births
-and deaths. If a population is decreasing, it's totally possible that
-*r* could be negative, when births are occurring less often than deaths.
-To put the equation into words, the change in population as a particular
-moment equals the growth rate *r* times the population size *N*.
+$$\frac{dN}{dt} = rN$$. Here $$N$$ is the population size, $$t$$ is the
+time variable, and $$r$$ is a parameter to represent the growth rate.
+You can think of $$r$$ as a parameter that represents net growth,
+incorporating both births and deaths. If a population is decreasing,
+it's totally possible that $r$ could be negative, when births are
+occurring less often than deaths. To put the equation into words, the
+change in population as a particular moment equals the growth rate $r$
+times the population size $N$.
 
 This is not a course on differential equations. But it turns out that
 the solution to this equation is pleasantly simple:
-*N*(*t*)=*e*<sup>*r**t*</sup>*N*<sub>0</sub>
-. The population at some time
-*t*
- is a function of
-*N*<sub>0</sub>
-, the intial population at time 0, times
-*e*<sup>*r**t*</sup>
-. So
-*N*(*t*)
- is an exponential function of
-*t*
-, hence we call this the exponential model.
+$$N(t) = e^{rt}N_0$$. The population at some time $$t$$ is a function of
+$$N_0$$, the intial population at time 0, times $$e^{rt}$$. So $$N(t)$$
+is an exponential function of $$t$$, hence we call this the exponential
+model.
 
 But does it fit our data well? This next step will get you used to the
 typical way that we visualize models in R.
@@ -146,46 +142,37 @@ To plot the function, we can generate model output by taking a vector of
 time points, and applying the function to each one. It feels confusing
 at first, but it's surprisingly simple to do.
 
-    r <- 0.57
-    N0 <- 0.01
-    antibiotic_0 <- mutate(antibiotic_0, model_output = exp(r*time)*N0)
-    p <- ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
-    p <- p + geom_line(aes(y=model_output), color = "red")
-    p <- p + ylim(c(0,1))
-    p
+``` {.r}
+r <- 0.57
+N0 <- 0.01
+antibiotic_0 <- mutate(antibiotic_0, model_output = exp(r*time)*N0)
+p <- ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
+p <- p + geom_line(aes(y=model_output), color = "red")
+p <- p + ylim(c(0,1))
+p
+```
 
     ## Warning: Removed 176 rows containing missing values (geom_path).
 
-![figure](E-02-growth-rate-models_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+![figure](E-02-growth-rate-models_files/figure-markdown/unnamed-chunk-5-1.png)
 
 The code above might look scary, so let's walk through it. I first
 updated the dataframe `antibiotic_0`. The `mutate()` function in `dplyr`
 allows you to create a new column as a function of other columns. So I
 used the time column and applied the exponential function from above.
-Note I used 0.01 as the
-*N*<sub>0</sub>
-, based on a rough inspection of the data. And I used
-*r* = 0.57
- because I explored and found that that value of
-*r*
- fit the data well for early time steps.
+Note I used 0.01 as the $$N_0$$, based on a rough inspection of the
+data. And I used $$r = 0.57$$ because I explored and found that that
+value of $$r$$ fit the data well for early time steps.
 
 But... this model is definitely not fitting the data at later times.
 
 #### Exploration -- model parameters
 
 > *We got the data to fit fairly well at early time steps, but then it
-> was way off for later times. Can you find
-> *r*
->  and
-> *N*<sub>0</sub>
->  to fit the data better? Explore a little bit by changing the value of
-> the varaibles
-> *r*
->  and
-> *N*0
->  in the R code above, and re-running the plot. I suspect you won't
-> ever find a great fit. Why not?*
+> was way off for later times. Can you find $$r$$ and $$N_0$$ to fit the
+> data better? Explore a little bit by changing the value of the
+> varaibles $$r$$ and $$N0$$ in the R code above, and re-running the
+> plot. I suspect you won't ever find a great fit. Why not?*
 
 Okay, our basic exponential model was not up to the task of explaining
 these data. But we do know of another model (also reviewed on the
@@ -195,53 +182,30 @@ that the population will *always* grow at a rate proportional to
 population size, we now consider that at some point the population
 growth may slow down. There may be constraints on resources like food,
 water, or space that prevent neverending population growth. A first take
-on this might start with our similar equation
-$$\\frac{dN}{dt} = rN$$
-, but add a second factor that will take
-$$\\frac{dN}{dt}$$
- towards 0 as
-*N*
- reaches some maximum population size
-*K*
-. Note: in ecology this parameter
-*K*
- is often called the *carrying capacity*. Let's try out this updated
-equation:
-$$\\frac{dN}{dt} = rN(1-\\frac{N}{K})$$
-. Now when
-*N*
- is much smaller than
-*K*
-, we basically have the familiar exponential growth. But as
-*N*
- gets close in value to
-*K*
-, then the term
-$$(1-\\frac{N}{K})$$
- gets close to 0, and population growth will slow to a halt.
+on this might start with our similar equation $$\frac{dN}{dt} = rN$$,
+but add a second factor that will take $$\frac{dN}{dt}$$ towards 0 as
+$$N$$ reaches some maximum population size $$K$$. Note: in ecology this
+parameter $$K$$ is often called the *carrying capacity*. Let's try out
+this updated equation: $$\frac{dN}{dt} = rN(1-\frac{N}{K})$$. Now when
+$$N$$ is much smaller than $$K$$, we basically have the familiar
+exponential growth. But as $$N$$ gets close in value to $$K$$, then the
+term $$(1-\frac{N}{K})$$ gets close to 0, and population growth will
+slow to a halt.
 
 This is the population *growth* that's slowing. The population won't die
-out, it will just level at a value of
-*K*
-. Okay, let's plot this. The solution to this equation is more
-complicated. Here's one way to represent the solution.
+out, it will just level at a value of $$K$$. Okay, let's plot this. The
+solution to this equation is more complicated. Here's one way to
+represent the solution.
+\begin{equation}
+  N(t) = \frac{KN_0}{N_0+(K-N_0e^{-rt}}
+\end{equation}
 We have three parameters to fit to our data now: the starting population
-size
-*N*<sub>0</sub>
-, the carrying capacity
-*K*
-, and the "growth rate"
-*r*
-. I put "growth rate" in quotes, because we know that now the rate slows
-as population increases. Some people call
-*r*
- the *maximum growth rate* when they're talking about the logisitic
-model. This is because when
-*N*
- is very small, the growth will be at its maximum, and be approximately
-exponential with rate
-*r*
-.
+size $$N_0$$, the carrying capacity $$K$$, and the "growth rate" $$r$$.
+I put "growth rate" in quotes, because we know that now the rate slows
+as population increases. Some people call $$r$$ the *maximum growth
+rate* when they're talking about the logisitic model. This is because
+when $$N$$ is very small, the growth will be at its maximum, and be
+approximately exponential with rate $$r$$.
 
 #### Advanced trick -- defining your own functions
 
@@ -250,27 +214,31 @@ parameters, I'm going to define a new function `log_growth`, that takes
 an input `t` and parameters `K`, `r`, and `N0` and returns the output
 `N`, the population size at the input time `t` that was chosen.
 
-    log_growth <- function(t,K,r,N0)
-    {
-      N <- K*N0/(N0+(K-N0)*exp(-r*t))
-      return(N)
-    }
+``` {.r}
+log_growth <- function(t,K,r,N0)
+{
+  N <- K*N0/(N0+(K-N0)*exp(-r*t))
+  return(N)
+}
+```
 
 You need to run that chunk of code in your R session to load the new
 function. In your Global Environment (upper right of R Studio), you can
 scroll down to see that there's now a function called `log_growth`. The
 reason why we did this will become clear as we try some plotting.
 
-    K <- .75
-    r <- .57
-    N0 <- 0.01
-    antibiotic_0 <- mutate(antibiotic_0, model_logistic_output = log_growth(time,K,r,N0))
-    p <- ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
-    p <- p + geom_line(aes(y=model_logistic_output), color = "red")
-    p <- p + ylim(c(0,1))
-    p
+``` {.r}
+K <- .75
+r <- .57
+N0 <- 0.01
+antibiotic_0 <- mutate(antibiotic_0, model_logistic_output = log_growth(time,K,r,N0))
+p <- ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
+p <- p + geom_line(aes(y=model_logistic_output), color = "red")
+p <- p + ylim(c(0,1))
+p
+```
 
-![figure](E-02-growth-rate-models_files/figure-markdown_strict/unnamed-chunk-7-1.png)
+![figure](E-02-growth-rate-models_files/figure-markdown/unnamed-chunk-7-1.png)
 
 As always, let's unpack this code a bit. First I just chose some random,
 so-so options for `K`, `r`, and `N0`. Well, `N0` is still just the
@@ -292,5 +260,6 @@ we just defined above.
 > why our logistic model isn't perfect?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 14:20:46
+Page built on: 2018-09-13 at 14:23:24
 </p>
+

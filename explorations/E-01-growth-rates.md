@@ -24,7 +24,9 @@ don't have this package installed yet. In RStudio, install it with the
 install.packages() function, calling install.packages("growthrates").
 Now let's load it into our R session with library().
 
-    library(growthrates)
+``` {.r}
+library(growthrates)
+```
 
     ## Loading required package: lattice
 
@@ -37,14 +39,18 @@ package, it is better to check if they've installed, then load or
 install+load as necessary. Here's an example piece of code that does it.
 Don't stress if this feels too advanced.*
 
-    if(!require(growthrates)) install.packages("growthrates",repos = "http://cran.us.r-project.org")
+``` {.r}
+if(!require(growthrates)) install.packages("growthrates",repos = "http://cran.us.r-project.org")
+```
 
 Getting to know the new package and data
 ----------------------------------------
 
 Okay, so we've loaded the package. Let's look at the help file.
 
-    ?growthrates
+``` {.r}
+?growthrates
+```
 
 After you run that code, you see that this package has several functions
 to fit models to experimental growth rate data. From the examples at the
@@ -52,7 +58,9 @@ bottom it looks like they've included some data sets. They work with the
 data *bactgrowth* in this example. If you want to know what data are
 included in a package, the data() function can help you.
 
-    data(package = "growthrates")
+``` {.r}
+data(package = "growthrates")
+```
 
 So we can see that there are two datasets: *bactgrowth* and
 *antibiotic*. It turns out that *bactgrowth* is an extremely messy
@@ -60,7 +68,9 @@ dataset that the package authors included to show how their
 model-fitting works on tricky data. *antibiotic* is a bit easier to
 interpret. Let's use the ? function to see what these data are.
 
-    ?antibiotic
+``` {.r}
+?antibiotic
+```
 
 We can see that these data are growth rates for the bacterium
 [Pseudomonas putida](https://en.wikipedia.org/wiki/Pseudomonas_putida),
@@ -70,7 +80,9 @@ soils of some byproducts of petroleum refining. Even though we've loaded
 the package *growthrates*, we still need to load the data. Here the
 data() function comes into play again.
 
-    data(antibiotic)
+``` {.r}
+data(antibiotic)
+```
 
 #### Advanced note -- the diverse outputs of a single function
 
@@ -87,7 +99,9 @@ environment. Now we must figure out how it is organized. There are
 several functions that summarize a data set for easy reading. One
 particularly useful one is str().
 
-    str(antibiotic)
+``` {.r}
+str(antibiotic)
+```
 
     ## 'data.frame':    2928 obs. of  5 variables:
     ##  $ time    : num  0 0.5 1 1.5 2 2.5 3 3.5 4 4.5 ...
@@ -133,15 +147,17 @@ to fiddle with the code to start getting a feel for the syntax. You'll
 probably need to install the package *ggplot2*, unless you've already
 used it before.
 
-    library(ggplot2)
-    ggplot(antibiotic,aes(x=time,y=value))+geom_point()
+``` {.r}
+library(ggplot2)
+ggplot(antibiotic,aes(x=time,y=value))+geom_point()
+```
 
-![figure](E-01-growth-rates_files/figure-markdown_strict/unnamed-chunk-9-1.png)
+![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-9-1.png)
 
 With one short line of code, we made a pretty nice plot. A few notes
 about what I entered into the ggplot() function. I first entered the
 data frame (our matrix, antibiotic). Then I entered the *aesthetics*
-using `aes()`, specifying that the x-axis  
+using `aes()`, specifying that the x-axis\
 represents variable *time* and the y-axis represents *value*. These
 names need to exactly match the variable names from our data frame.
 
@@ -149,9 +165,11 @@ So, it looks okay, but we've obscured the information about antibiotic
 concentration. We can also specify color using `aes()`. Let's represent
 the concentrations using different colors.
 
-    ggplot(antibiotic,aes(x=time,y=value,color=conc))+geom_point()
+``` {.r}
+ggplot(antibiotic,aes(x=time,y=value,color=conc))+geom_point()
+```
 
-![figure](E-01-growth-rates_files/figure-markdown_strict/unnamed-chunk-10-1.png)
+![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-10-1.png)
 
 Hmmm, that doesn't look great. We could dive into the nitty gritty of
 specifying custom color scales. The automatic scale doesn't work well
@@ -162,9 +180,11 @@ discrete (or factor) scale, not a continuous scale. Don't stress if this
 feels confusing, but let's just try turning the concentrations into a
 discrete factor variable instead.
 
-    ggplot(antibiotic,aes(x=time,y=value,color=factor(conc)))+geom_point()
+``` {.r}
+ggplot(antibiotic,aes(x=time,y=value,color=factor(conc)))+geom_point()
+```
 
-![figure](E-01-growth-rates_files/figure-markdown_strict/unnamed-chunk-11-1.png)
+![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-11-1.png)
 
 That's a bit easier to read. Now we can clearly see the different
 replicates within a single concentration, and we can distinguish pretty
@@ -173,10 +193,11 @@ well between the concentration gradients.
 #### Thought question -- interpreting the data
 
 > Let's practice interpreting these graphs. What is the plot above
-> showing us?  
+> showing us?\
 > How is concentration affecting growth rates? Are there any outliers?
 > Is this growth linear? Exponential? How would you describe it?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 14:20:33
+Page built on: 2018-09-13 at 14:23:17
 </p>
+
