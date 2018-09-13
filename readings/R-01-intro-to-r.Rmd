@@ -4,11 +4,6 @@ layout: page
 output: md_document
 ---
 
-
-```{r, echo=FALSE, purl=FALSE, message = FALSE}
-source("setup.R")
-```
-
 ------------
 
 > ### Learning Objectives
