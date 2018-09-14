@@ -1,18 +1,22 @@
 ---
 title: "R-02 Answers"
 layout: page
-output: md_document
+output: 
+    md_document:
+        variant: markdown
 ---
+
 ```{r, echo=FALSE}
 surveys <- read.csv("../data/portal_data_joined.csv")
 ```
 
-Challenge
+[Back to reading](../)
 
 Based on the output of `str(surveys)`, can you answer the following questions?
- * What is the class of the object `surveys`?
- * How many rows and how many columns are in this object?
- * How many species have been recorded during these surveys?
+
+* What is the class of the object `surveys`?
+* How many rows and how many columns are in this object?
+* How many species have been recorded during these surveys?
 
 ```{r}
 str(surveys)
