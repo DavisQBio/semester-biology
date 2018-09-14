@@ -38,3 +38,5 @@ surveys <- read.csv("../data/portal_data_joined.csv")
 > ## 4.
 > surveys_head <- surveys[-(7:n_rows), ]
 > ```
+
+[Back to reading](../../R-02-starting-with-data)

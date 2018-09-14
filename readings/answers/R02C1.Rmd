@@ -10,8 +10,6 @@ output:
 surveys <- read.csv("../data/portal_data_joined.csv")
 ```
 
-[Back to reading](../)
-
 Based on the output of `str(surveys)`, can you answer the following questions?
 
 * What is the class of the object `surveys`?
@@ -24,3 +22,5 @@ str(surveys)
 ## * how many rows: 34786,  how many columns: 13
 ## * how many species: 48 (from the species_id column)
 ```
+
+[**Back to reading**](../../R-02-starting-with-data)
