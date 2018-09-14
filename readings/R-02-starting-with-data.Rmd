@@ -1,11 +1,14 @@
 ---
 title: "Starting with data"
-author: "Data Carpentry contributors"
-minutes: 20
+layout: page
+output: 
+    md_document:
+        variant: markdown
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE}
 source("setup.R")
+knitr::opts_chunk$set(fig.cap="figure")
 ```
 
 ------------
@@ -25,11 +28,12 @@ source("setup.R")
 
 ## Presentation of the Survey Data
 
-```{r, echo=FALSE, purl=TRUE}
+```{r, echo=FALSE}
 ### Presentation of the survey data
 ```
 
-We are studying the species repartition and weight of animals caught in plots in our study
+Let's work with some ecological data.  Here We are studying the species 
+and weight of animals caught in plots in our study
 area. The dataset is stored as a comma separated value (CSV) file.
 Each row holds information for a single animal, and the columns represent:
 
@@ -46,21 +50,27 @@ Each row holds information for a single animal, and the columns represent:
 | weight           | weight of the animal in grams      |
 | genus            | genus of animal                    |
 | species          | species of animal                  |
-| taxon             | e.g. Rodent, Reptile, Bird, Rabbit |
+| taxon            | e.g. Rodent, Reptile, Bird, Rabbit |
 | plot\_type       | type of plot                       |
 
 We are going to use the R function `download.file()` to download the CSV file
 that contains the survey data from figshare, and we will use `read.csv()` to
 load into memory the content of the CSV file as an object of class `data.frame`.
 
-```{r, eval=FALSE, purl=TRUE}
+```{r, eval=FALSE}
 download.file("https://ndownloader.figshare.com/files/2292169",
               "data/portal_data_joined.csv")
 ```
 
+Watch out.  We chose our destination as "data/portal_data_joined", but if you
+don't have a folder named "data" in your current working directory, then you will
+get an error.  You can either create a folder there, change your destination, or
+change your working directory to the place where you have your "data" folder for
+this project.  Recall that you can use `getwd()` to see your current working directory.
+
 You are now ready to load the data:
 
-```{r, eval=TRUE,  purl=FALSE}
+```{r, eval=TRUE}
 surveys <- read.csv("data/portal_data_joined.csv")
 ```
 
@@ -110,10 +120,10 @@ vectors, each column must contain a single type of data (e.g., characters, integ
 factors). For example, here is a figure depicting a data frame comprising a
 numeric, a character, and a logical vector.
 
-![](./img/data-frame.svg)
+![](../img/data-frame.svg)
 
 
-We can see this when inspecting the <b>str</b>ucture of a data frame
+We can see this when inspecting the **str**ucture of a data frame
 with the function `str()`:
 
 ```{r, purl=FALSE}
@@ -159,18 +169,11 @@ objects besides `data.frame`.
 > * How many rows and how many columns are in this object?
 > * How many species have been recorded during these surveys?
 >
-> ```{r, answer=TRUE, results="markup", purl=FALSE}
->
-> str(surveys)
->
-> ## * class: data frame
-> ## * how many rows: 34786,  how many columns: 13
-> ## * how many species: 48
->
-> ```
+> [Answers](../answers/R02C1)
 
 
-```{r, echo=FALSE, purl=TRUE}
+
+```{r, echo=FALSE}
 
 ## Challenge
 ## Based on the output of `str(surveys)`, can you answer the following questions?
@@ -184,7 +187,7 @@ objects besides `data.frame`.
 
 ## Indexing and subsetting data frames
 
-```{r, echo=FALSE, purl=TRUE}
+```{r, echo=FALSE}
 
 ## Indexing and subsetting data frames
 ```
@@ -197,7 +200,7 @@ that different ways of specifying these coordinates lead to results with
 different classes.
 
 
-```{r, purl=FALSE}
+```{r, eval=FALSE}
 # first element in the first column of the data frame (as a vector)
 surveys[1, 1]   
 # first element in the 6th column (as a vector)
@@ -219,14 +222,14 @@ or decreasing order, test `1:10` and `10:1` for instance.
 
 You can also exclude certain indices of a data frame using the "`-`" sign:
 
-```{r, purl=FALSE}
+```{r, eval=FALSE}
 surveys[, -1]          # The whole data frame, except the first column
 surveys[-c(7:34786), ] # Equivalent to head(surveys)
 ```
 
 Data frames can be subset by calling indices (as shown previously), but also by calling their column names directly:
 
-```{r, eval = FALSE, purl=FALSE}
+```{r, eval = FALSE}
 surveys["species_id"]       # Result is a data.frame
 surveys[, "species_id"]     # Result is a vector
 surveys[["species_id"]]     # Result is a vector
@@ -255,18 +258,8 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 >    `head(surveys)`, keeping just the first through 6th rows of the surveys
 >    dataset.
 >
-> ```{r, answer=TRUE, purl=FALSE}
-> ## 1.
-> surveys_200 <- surveys[200, ]
-> ## 2.
-> # Saving `n_rows` to improve readability and reduce duplication
-> n_rows <- nrow(surveys)
-> surveys_last <- surveys[n_rows, ]
-> ## 3.
-> surveys_middle <- surveys[n_rows / 2, ]
-> ## 4.
-> surveys_head <- surveys[-(7:n_rows), ]
-> ```
+> [Answers](../answers/R02C2)
+
 
 
 ```{r, echo=FALSE, purl=TRUE}
@@ -320,7 +313,7 @@ R will assign `1` to the level `"female"` and `2` to the level `"male"` (because
 `"male"`). You can see this by using the function `levels()` and you can find the
 number of levels using `nlevels()`:
 
-```{r, purl=FALSE}
+```{r}
 levels(sex)
 nlevels(sex)
 ```
@@ -415,7 +408,7 @@ head(sex)
 > ``` 
 
 
-```{r wrong-order, results='show', echo=FALSE, purl=TRUE}
+```{r}
 ## Challenges
 ##
 ## * Rename "F" and "M" to "female" and "male" respectively.
@@ -573,13 +566,13 @@ str(my_date)
 Now we apply this function to the surveys dataset. Create a character vector from the `year`, `month`, and `day` columns of
 `surveys` using `paste()`:
 
-```{r, purl=FALSE}
+```{r, eval=FALSE}
 paste(surveys$year, surveys$month, surveys$day, sep = "-")
 ```
 
 This character vector can be used as the argument for `ymd()`:
 
-```{r, purl=FALSE}
+```{r, eval=FALSE}
 ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
 ```
 

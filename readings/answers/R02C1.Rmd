@@ -1,0 +1,22 @@
+---
+title: "R-02 Answers"
+layout: page
+output: md_document
+---
+```{r, echo=FALSE}
+surveys <- read.csv("../data/portal_data_joined.csv")
+```
+
+Challenge
+
+Based on the output of `str(surveys)`, can you answer the following questions?
+ * What is the class of the object `surveys`?
+ * How many rows and how many columns are in this object?
+ * How many species have been recorded during these surveys?
+
+```{r}
+str(surveys)
+## * class: data frame
+## * how many rows: 34786,  how many columns: 13
+## * how many species: 48 (from the species_id column)
+```
