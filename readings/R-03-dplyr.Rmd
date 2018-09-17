@@ -15,7 +15,7 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
                                                       sep = "-")))
 ```
 
-### Manipulating and analyzing data with dplyr
+### Manipulating and analyzing data with tidyverse
 
 ------------
 
