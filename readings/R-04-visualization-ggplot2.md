@@ -1,13 +1,5 @@
-    ## -- Attaching packages ------------------------------------------------------------ tidyverse 1.2.1 --
-
-    ## v ggplot2 3.0.0     v purrr   0.2.5
-    ## v tibble  1.4.2     v dplyr   0.7.6
-    ## v tidyr   0.8.1     v stringr 1.3.1
-    ## v readr   1.1.1     v forcats 0.3.0
-
-    ## -- Conflicts --------------------------------------------------------------- tidyverse_conflicts() --
-    ## x dplyr::filter() masks stats::filter()
-    ## x dplyr::lag()    masks stats::lag()
+Data Visualization with **`ggplot2`**
+=====================================
 
 ------------------------------------------------------------------------
 
@@ -93,7 +85,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
   geom_point()
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/first-ggplot-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/unnamed-chunk-7-1.png)
 
 The `+` in the **`ggplot2`** package is particularly useful because it
 allows you to modify existing `ggplot` objects. This means you can
@@ -109,6 +101,8 @@ surveys_plot <- ggplot(data = surveys_complete,
 surveys_plot + 
     geom_point()
 ```
+
+![figure](R-04-visualization-ggplot2_files/figure-markdown/unnamed-chunk-8-1.png)
 
 **Notes**
 
@@ -173,8 +167,6 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
     geom_point()
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/create-ggplot-object-1.png)
-
 Then, we start modifying this plot to extract more information from it.
 For instance, we can add transparency (`alpha`) to avoid overplotting:
 
@@ -183,7 +175,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
     geom_point(alpha = 0.1)
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/adding-transparency-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/unnamed-chunk-14-1.png)
 
 We can also add colors for all the points:
 
@@ -192,7 +184,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
     geom_point(alpha = 0.1, color = "blue")
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/adding-colors-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/adding-colors-1.png)
 
 Or to color each species in the plot differently, you could use a vector
 as an input to the argument **color**. **`ggplot2`** will provide a
@@ -204,7 +196,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
     geom_point(alpha = 0.1, aes(color = species_id))
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/color-by-species-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/color-by-species-1.png)
 
 > ### Challenge
 >
@@ -217,7 +209,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 >    geom_point(aes(color = plot_type))
 > ```
 >
-> ![](R-04-visualization-ggplot2_files/figure-markdown/scatter-challenge-1.png)
+> ![figure](R-04-visualization-ggplot2_files/figure-markdown/scatter-challenge-1.png)
 
 Boxplot
 -------
@@ -230,7 +222,7 @@ ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
     geom_boxplot()
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/boxplot-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/boxplot-1.png)
 
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
@@ -241,7 +233,7 @@ ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
     geom_jitter(alpha = 0.3, color = "tomato")
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/boxplot-with-points-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/boxplot-with-points-1.png)
 
 Notice how the boxplot layer is behind the jitter layer? What do you
 need to change in the code to put the boxplot in front of the points
@@ -298,7 +290,7 @@ ggplot(data = yearly_counts, mapping = aes(x = year, y = n)) +
      geom_line()
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/first-time-series-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/first-time-series-1.png)
 
 Unfortunately, this does not work because we plotted data for all the
 species together. We need to tell ggplot to draw a line for each species
@@ -309,7 +301,7 @@ ggplot(data = yearly_counts, mapping = aes(x = year, y = n, group = species_id))
     geom_line()
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/time-series-by-species-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/time-series-by-species-1.png)
 
 We will be able to distinguish species in the plot if we add colors
 (using `color` also automatically groups the data):
@@ -319,7 +311,7 @@ ggplot(data = yearly_counts, mapping = aes(x = year, y = n, color = species_id))
     geom_line()
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/time-series-with-colors-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/time-series-with-colors-1.png)
 
 Faceting
 --------
@@ -334,7 +326,7 @@ ggplot(data = yearly_counts, mapping = aes(x = year, y = n)) +
     facet_wrap(~ species_id)
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/first-facet-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/first-facet-1.png)
 
 Now we would like to split the line in each plot by the sex of each
 individual measured. To do that we need to make counts in the data frame
@@ -354,7 +346,7 @@ We can now make the faceted plot by splitting further by sex using
      facet_wrap(~ species_id)
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/facet-by-species-and-sex-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/facet-by-species-and-sex-1.png)
 
 Usually plots with white background look more readable when printed. We
 can set the background to white using the function `theme_bw()`.
@@ -368,7 +360,7 @@ Additionally, you can remove the grid:
      theme(panel.grid = element_blank())
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/facet-by-species-and-sex-white-bg-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/facet-by-species-and-sex-white-bg-1.png)
 
 **`ggplot2`** themes
 --------------------
@@ -401,7 +393,7 @@ extend the capabilities of **`ggplot2`**, including additional themes.
 >    theme_bw()
 > ```
 >
-> ![](R-04-visualization-ggplot2_files/figure-markdown/average-weight-time-series-1.png)
+> ![figure](R-04-visualization-ggplot2_files/figure-markdown/average-weight-time-series-1.png)
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of
 dimensions to allow them to cleanly fit on one page. On the other hand,
@@ -423,7 +415,7 @@ ggplot(data = yearly_sex_weight,
     facet_grid(sex ~ .)
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/average-weight-time-facet-sex-rows-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/average-weight-time-facet-sex-rows-1.png)
 
 ``` {.r}
 # One row, facet by column
@@ -433,7 +425,7 @@ ggplot(data = yearly_sex_weight,
     facet_grid(. ~ sex)
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/average-weight-time-facet-sex-columns-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/average-weight-time-facet-sex-columns-1.png)
 
 Customization
 -------------
@@ -455,7 +447,7 @@ ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
     theme_bw()
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/number-species-year-with-right-labels-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/number-species-year-with-right-labels-1.png)
 
 The axes have more informative names, but their readability can be
 improved by increasing the font size:
@@ -471,7 +463,7 @@ ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
     theme(text=element_text(size = 16))
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/number-species-year-with-right-labels-xfont-size-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/number-species-year-with-right-labels-xfont-size-1.png)
 
 Note that it is also possible to change the fonts of your plots. If you
 are on Windows, you may have to install the [**`extrafont`**
@@ -497,7 +489,7 @@ ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
           text = element_text(size = 16))
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/number-species-year-with-theme-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/number-species-year-with-theme-1.png)
 
 If you like the changes you created better than the default theme, you
 can save them as an object to be able to easily apply them to other
@@ -512,7 +504,7 @@ ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
     grey_theme
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/number-species-year-with-right-labels-xfont-orientation-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/number-species-year-with-right-labels-xfont-orientation-1.png)
 
 > ### Challenge
 >
@@ -559,7 +551,7 @@ spp_count_plot <- ggplot(data = yearly_counts,
 grid.arrange(spp_weight_boxplot, spp_count_plot, ncol = 2, widths = c(4, 6))
 ```
 
-![](R-04-visualization-ggplot2_files/figure-markdown/gridarrange-example-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/gridarrange-example-1.png)
 
 In addition to the `ncol` and `nrow` arguments, used to make simple
 arrangements, there are tools for [constructing more complex
@@ -599,6 +591,6 @@ Note: The parameters `width` and `height` also determine the font size
 in the saved plot.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 14:11:36
+Page built on: 2018-09-17 at 14:29:48
 </p>
 

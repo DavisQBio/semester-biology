@@ -6,11 +6,13 @@ output:
         variant: markdown
 ---
 
+# Data Visualization with **`ggplot2`**
 
-```{r, echo=FALSE, purl=FALSE}
+```{r, echo=FALSE, purl=FALSE, message=FALSE,results=FALSE}
 source("setup.R")
 suppressWarnings(library(tidyverse))
 surveys_complete <- read_csv(file = "data_output/surveys_complete.csv", col_types = cols())
+knitr::opts_chunk$set(fig.cap="figure")
 ```
 
 ```{r, echo=FALSE, purl=TRUE}
@@ -89,7 +91,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length))
 To add a geom to the plot use the `+` operator. Because we have two continuous variables,
 let's use `geom_point()` first:
 
-```{r first-ggplot, purl=FALSE}
+```{r}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
   geom_point()
 ```
@@ -99,19 +101,12 @@ to modify existing `ggplot` objects. This means you can easily set up plot
 templates and conveniently explore different types of plots, so the above
 plot can also be generated with code like this:
 
-```{r, first-ggplot-with-plus, eval=FALSE, purl=FALSE}
+```{r}
 # Assign plot to a variable
 surveys_plot <- ggplot(data = surveys_complete, 
                        mapping = aes(x = weight, y = hindfoot_length))
 
 # Draw the plot
-surveys_plot + 
-    geom_point()
-```
-
-```{r, eval=FALSE, purl=TRUE, echo=FALSE, purl=FALSE}
-# Create a ggplot and draw it
-surveys_plot <- ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length))
 surveys_plot + 
     geom_point()
 ```
@@ -128,7 +123,7 @@ the *previous* layer. If, instead, the `+` sign is added at the beginning of the
 containing the new layer, **`ggplot2`** will not add the new layer and will return an 
 error message.
 
-```{r, ggplot-with-plus-position, eval=FALSE, purl=FALSE}
+```{r, eval=FALSE, purl=FALSE}
 # This is the correct syntax for adding layers
 surveys_plot +
   geom_point()
@@ -166,7 +161,7 @@ surveys_plot
 >   compared to a scatter plot? Examine the above scatter plot and compare it
 >   with the hexagonal bin plot that you created.
 
-```{r hexbin-challenge, echo=FALSE, eval=FALSE, purl=TRUE}
+```{r, echo=FALSE, eval=FALSE, purl=TRUE}
 ### Challenge with hexbin
 ##
 ## To use the hexagonal binning with **`ggplot2`**, first install the `hexbin`
@@ -189,7 +184,7 @@ surveys_plot +
 Building plots with **`ggplot2`** is typically an iterative process. We start by
 defining the dataset we'll use, lay out the axes, and choose a geom:
 
-```{r create-ggplot-object, purl=FALSE}
+```{r, eval=FALSE, purl=FALSE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
     geom_point()
 ```
@@ -197,14 +192,14 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 Then, we start modifying this plot to extract more information from it. For
 instance, we can add transparency (`alpha`) to avoid overplotting:
 
-```{r adding-transparency, purl=FALSE}
+```{r}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
     geom_point(alpha = 0.1)
 ```
 
 We can also add colors for all the points:
 
-```{r adding-colors, purl=FALSE}
+```{r adding-colors}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
     geom_point(alpha = 0.1, color = "blue")
 ```
