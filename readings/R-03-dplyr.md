@@ -2,6 +2,9 @@
 
 ------------------------------------------------------------------------
 
+If you need a refresher on working with data in R, go back and look over
+the [previous reading](../readings/R-02-starting-with-data).
+
 > ### Learning Objectives
 >
 > -   Describe the purpose of the **`dplyr`** and **`tidyr`** packages.
@@ -215,7 +218,9 @@ look like `%>%` and are made available via the **`magrittr`** package,
 installed automatically with **`dplyr`**. If you use RStudio, you can
 type the pipe with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if
 you have a PC or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you
-have a Mac.
+have a Mac. **(Make sure you've loaded the `tidyverse` package or just
+the `dplyr` package using the `library()` function before you use
+pipes!)**
 
 ``` {.r}
 surveys %>%
@@ -335,18 +340,6 @@ surveys %>%
   head()
 ```
 
-    ## # A tibble: 6 x 14
-    ##   record_id month   day  year plot_id species_id sex   hindfoot_length
-    ##       <int> <int> <int> <int>   <int> <chr>      <chr>           <int>
-    ## 1         1     7    16  1977       2 NL         M                  32
-    ## 2        72     8    19  1977       2 NL         M                  31
-    ## 3       224     9    13  1977       2 NL         <NA>               NA
-    ## 4       266    10    16  1977       2 NL         <NA>               NA
-    ## 5       349    11    12  1977       2 NL         <NA>               NA
-    ## 6       363    11    12  1977       2 NL         <NA>               NA
-    ## # ... with 6 more variables: weight <int>, genus <chr>, species <chr>,
-    ## #   taxa <chr>, plot_type <chr>, weight_kg <dbl>
-
 The first few rows of the output are full of `NA`s, so if we wanted to
 remove those we could insert a `filter()` in the chain:
 
@@ -357,26 +350,14 @@ surveys %>%
   head()
 ```
 
-    ## # A tibble: 6 x 14
-    ##   record_id month   day  year plot_id species_id sex   hindfoot_length
-    ##       <int> <int> <int> <int>   <int> <chr>      <chr>           <int>
-    ## 1       588     2    18  1978       2 NL         M                  NA
-    ## 2       845     5     6  1978       2 NL         M                  32
-    ## 3       990     6     9  1978       2 NL         M                  NA
-    ## 4      1164     8     5  1978       2 NL         M                  34
-    ## 5      1261     9     4  1978       2 NL         M                  32
-    ## 6      1453    11     5  1978       2 NL         M                  NA
-    ## # ... with 6 more variables: weight <int>, genus <chr>, species <chr>,
-    ## #   taxa <chr>, plot_type <chr>, weight_kg <dbl>
-
 `is.na()` is a function that determines whether something is an `NA`.
 The `!` symbol negates the result, so we're asking for every row where
 weight *is not* an `NA`.
 
 Don't forget that in the above code we didn't actually save this
-`filter`ed and `mutate`d data anywhere as a new data frame. To do that,
-you would need to start by defining a newly named data frame, for
-example `surveys_kg`.
+filtered and mutated data anywhere as a new data frame. To do that, you
+would need to start by defining a newly named data frame, for example
+`surveys_kg`.
 
 ``` {.r}
 surveys_kg <- surveys %>%
@@ -418,13 +399,6 @@ surveys %>%
   summarize(mean_weight = mean(weight, na.rm = TRUE))
 ```
 
-    ## # A tibble: 3 x 2
-    ##   sex   mean_weight
-    ##   <chr>       <dbl>
-    ## 1 F            42.2
-    ## 2 M            43.0
-    ## 3 <NA>         64.7
-
 You may also have noticed that the output from these calls doesn't run
 off the screen anymore. It's one of the advantages of `tbl_df` over data
 frame.
@@ -436,22 +410,6 @@ surveys %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight, na.rm = TRUE))
 ```
-
-    ## # A tibble: 92 x 3
-    ## # Groups:   sex [?]
-    ##    sex   species_id mean_weight
-    ##    <chr> <chr>            <dbl>
-    ##  1 F     BA                9.16
-    ##  2 F     DM               41.6 
-    ##  3 F     DO               48.5 
-    ##  4 F     DS              118.  
-    ##  5 F     NL              154.  
-    ##  6 F     OL               31.1 
-    ##  7 F     OT               24.8 
-    ##  8 F     OX               21   
-    ##  9 F     PB               30.2 
-    ## 10 F     PE               22.8 
-    ## # ... with 82 more rows
 
 When grouping both by `sex` and `species_id`, the last few rows are for
 animals that escaped before their sex could be determined and weighted.
@@ -468,22 +426,6 @@ surveys %>%
   summarize(mean_weight = mean(weight))
 ```
 
-    ## # A tibble: 64 x 3
-    ## # Groups:   sex [?]
-    ##    sex   species_id mean_weight
-    ##    <chr> <chr>            <dbl>
-    ##  1 F     BA                9.16
-    ##  2 F     DM               41.6 
-    ##  3 F     DO               48.5 
-    ##  4 F     DS              118.  
-    ##  5 F     NL              154.  
-    ##  6 F     OL               31.1 
-    ##  7 F     OT               24.8 
-    ##  8 F     OX               21   
-    ##  9 F     PB               30.2 
-    ## 10 F     PE               22.8 
-    ## # ... with 54 more rows
-
 Here, again, the output from these calls doesn't run off the screen
 anymore. If you want to display more data, you can use the `print()`
 function at the end of your chain with the argument `n` specifying the
@@ -496,27 +438,6 @@ surveys %>%
   summarize(mean_weight = mean(weight)) %>%
   print(n = 15)
 ```
-
-    ## # A tibble: 64 x 3
-    ## # Groups:   sex [?]
-    ##    sex   species_id mean_weight
-    ##    <chr> <chr>            <dbl>
-    ##  1 F     BA                9.16
-    ##  2 F     DM               41.6 
-    ##  3 F     DO               48.5 
-    ##  4 F     DS              118.  
-    ##  5 F     NL              154.  
-    ##  6 F     OL               31.1 
-    ##  7 F     OT               24.8 
-    ##  8 F     OX               21   
-    ##  9 F     PB               30.2 
-    ## 10 F     PE               22.8 
-    ## 11 F     PF                7.97
-    ## 12 F     PH               30.8 
-    ## 13 F     PL               19.3 
-    ## 14 F     PM               22.1 
-    ## 15 F     PP               17.2 
-    ## # ... with 49 more rows
 
 Once the data are grouped, you can also summarize multiple variables at
 the same time (and not necessarily on the same variable). For instance,
@@ -531,22 +452,6 @@ surveys %>%
             min_weight = min(weight))
 ```
 
-    ## # A tibble: 64 x 4
-    ## # Groups:   sex [?]
-    ##    sex   species_id mean_weight min_weight
-    ##    <chr> <chr>            <dbl>      <dbl>
-    ##  1 F     BA                9.16          6
-    ##  2 F     DM               41.6          10
-    ##  3 F     DO               48.5          12
-    ##  4 F     DS              118.           45
-    ##  5 F     NL              154.           32
-    ##  6 F     OL               31.1          10
-    ##  7 F     OT               24.8           5
-    ##  8 F     OX               21            20
-    ##  9 F     PB               30.2          12
-    ## 10 F     PE               22.8          11
-    ## # ... with 54 more rows
-
 It is sometimes useful to rearrange the result of a query to inspect the
 values. For instance, we can sort on `min_weight` to put the lighter
 species first:
@@ -560,22 +465,6 @@ surveys %>%
   arrange(min_weight)
 ```
 
-    ## # A tibble: 64 x 4
-    ## # Groups:   sex [3]
-    ##    sex   species_id mean_weight min_weight
-    ##    <chr> <chr>            <dbl>      <dbl>
-    ##  1 F     PF                7.97          4
-    ##  2 F     RM               11.1           4
-    ##  3 M     PF                7.89          4
-    ##  4 M     PP               17.2           4
-    ##  5 M     RM               10.1           4
-    ##  6 <NA>  PF                6             4
-    ##  7 F     OT               24.8           5
-    ##  8 F     PP               17.2           5
-    ##  9 F     BA                9.16          6
-    ## 10 M     BA                7.36          6
-    ## # ... with 54 more rows
-
 To sort in descending order, we need to add the `desc()` function. If we
 want to sort the results by decreasing order of mean weight:
 
@@ -587,22 +476,6 @@ surveys %>%
             min_weight = min(weight)) %>%
   arrange(desc(mean_weight))
 ```
-
-    ## # A tibble: 64 x 4
-    ## # Groups:   sex [3]
-    ##    sex   species_id mean_weight min_weight
-    ##    <chr> <chr>            <dbl>      <dbl>
-    ##  1 <NA>  NL               168.          83
-    ##  2 M     NL               166.          30
-    ##  3 F     NL               154.          32
-    ##  4 M     SS               130          130
-    ##  5 <NA>  SH               130          130
-    ##  6 M     DS               122.          12
-    ##  7 <NA>  DS               120           78
-    ##  8 F     DS               118.          45
-    ##  9 F     SH                78.8         30
-    ## 10 F     SF                69           46
-    ## # ... with 54 more rows
 
 #### Counting
 
@@ -634,26 +507,12 @@ surveys %>%
     summarise(count = n())
 ```
 
-    ## # A tibble: 3 x 2
-    ##   sex   count
-    ##   <chr> <int>
-    ## 1 F     15690
-    ## 2 M     17348
-    ## 3 <NA>   1748
-
 For convenience, `count()` provides the `sort` argument:
 
 ``` {.r}
 surveys %>%
     count(sex, sort = TRUE) 
 ```
-
-    ## # A tibble: 3 x 2
-    ##   sex       n
-    ##   <chr> <int>
-    ## 1 M     17348
-    ## 2 F     15690
-    ## 3 <NA>   1748
 
 Previous example shows the use of `count()` to count the number of
 rows/observations for *one* factor (i.e., `sex`). If we wanted to count
@@ -664,21 +523,6 @@ the first and the second factor as the arguments of `count()`:
 surveys %>%
   count(sex, species) 
 ```
-
-    ## # A tibble: 81 x 3
-    ##    sex   species         n
-    ##    <chr> <chr>       <int>
-    ##  1 F     albigula      675
-    ##  2 F     baileyi      1646
-    ##  3 F     eremicus      579
-    ##  4 F     flavus        757
-    ##  5 F     fulvescens     57
-    ##  6 F     fulviventer    17
-    ##  7 F     hispidus       99
-    ##  8 F     leucogaster   475
-    ##  9 F     leucopus       16
-    ## 10 F     maniculatus   382
-    ## # ... with 71 more rows
 
 With the above code, we can proceed with `arrange()` to sort the table
 according to a number of criteria so that we have a better comparison.
@@ -692,108 +536,30 @@ surveys %>%
   arrange(species, desc(n))
 ```
 
-    ## # A tibble: 81 x 3
-    ##    sex   species             n
-    ##    <chr> <chr>           <int>
-    ##  1 F     albigula          675
-    ##  2 M     albigula          502
-    ##  3 <NA>  albigula           75
-    ##  4 <NA>  audubonii          75
-    ##  5 F     baileyi          1646
-    ##  6 M     baileyi          1216
-    ##  7 <NA>  baileyi            29
-    ##  8 <NA>  bilineata         303
-    ##  9 <NA>  brunneicapillus    50
-    ## 10 <NA>  chlorurus          39
-    ## # ... with 71 more rows
-
 From the table above, we may learn that, for instance, there are 75
 observations of the *albigula* species that are not specified for its
 sex (i.e. `NA`).
 
-> ### Challenge {#challenge-2 .challenge}
+> ### Challenge
 >
 > 1.  How many animals were caught in each `plot_type` surveyed?
->
-> ``` {.r}
-> surveys %>%
->     count(plot_type) 
-> ```
->
->     ## # A tibble: 5 x 2
->     ##   plot_type                     n
->     ##   <chr>                     <int>
->     ## 1 Control                   15611
->     ## 2 Long-term Krat Exclosure   5118
->     ## 3 Rodent Exclosure           4233
->     ## 4 Short-term Krat Exclosure  5906
->     ## 5 Spectab exclosure          3918
 >
 > 2.  Use `group_by()` and `summarize()` to find the mean, min, and max
 >     hindfoot length for each species (using `species_id`). Also add
 >     the number of observations (hint: see `?n`).
 >
-> ``` {.r}
-> surveys %>%
->     filter(!is.na(hindfoot_length)) %>%
->     group_by(species_id) %>%
->     summarize(
->         mean_hindfoot_length = mean(hindfoot_length),
->         min_hindfoot_length = min(hindfoot_length),
->         max_hindfoot_length = max(hindfoot_length),
->         n = n()
->     )
-> ```
->
->     ## # A tibble: 25 x 5
->     ##    species_id mean_hindfoot_len~ min_hindfoot_len~ max_hindfoot_len~     n
->     ##    <chr>                   <dbl>             <dbl>             <dbl> <int>
->     ##  1 AH                       33                  31                35     2
->     ##  2 BA                       13                   6                16    45
->     ##  3 DM                       36.0                16                50  9972
->     ##  4 DO                       35.6                26                64  2887
->     ##  5 DS                       49.9                39                58  2132
->     ##  6 NL                       32.3                21                70  1074
->     ##  7 OL                       20.5                12                39   920
->     ##  8 OT                       20.3                13                50  2139
->     ##  9 OX                       19.1                13                21     8
->     ## 10 PB                       26.1                 2                47  2864
->     ## # ... with 15 more rows
->
 > 3.  What was the heaviest animal measured in each year? Return the
 >     columns `year`, `genus`, `species_id`, and `weight`.
 >
-> ``` {.r}
-> surveys %>%
->     filter(!is.na(weight)) %>%
->     group_by(year) %>%
->     filter(weight == max(weight)) %>%
->     select(year, genus, species, weight) %>%
->     arrange(year)
-> ```
->
->     ## # A tibble: 27 x 4
->     ## # Groups:   year [26]
->     ##     year genus     species     weight
->     ##    <int> <chr>     <chr>        <int>
->     ##  1  1977 Dipodomys spectabilis    149
->     ##  2  1978 Neotoma   albigula       232
->     ##  3  1978 Neotoma   albigula       232
->     ##  4  1979 Neotoma   albigula       274
->     ##  5  1980 Neotoma   albigula       243
->     ##  6  1981 Neotoma   albigula       264
->     ##  7  1982 Neotoma   albigula       252
->     ##  8  1983 Neotoma   albigula       256
->     ##  9  1984 Neotoma   albigula       259
->     ## 10  1985 Neotoma   albigula       225
->     ## # ... with 17 more rows
+> [Answers](../answers/R03C3)
 
 ### Reshaping with gather and spread
 
-In the [spreadsheet
-lesson](http://www.datacarpentry.org/spreadsheet-ecology-lesson/01-format-data/),
-we discussed how to structure our data leading to the four rules
-defining a tidy dataset:
+Keeping your data well-organized for analysis will save you headaches
+later on. There's a nice [Data Carpentry lesson
+here](http://www.datacarpentry.org/spreadsheet-ecology-lesson/01-format-data/).
+
+Here are four rules defining a tidy dataset:
 
 1.  Each variable has its own column
 2.  Each observation has its own row
@@ -919,7 +685,7 @@ str(surveys_spread)
     ##  $ Sigmodon       : num  NA 70.9 65.6 82 82.7 ...
     ##  $ Spermophilus   : num  NA NA NA NA NA NA NA NA NA NA ...
 
-![](../img/spread_data_R.png)
+![](../../img/spread_data_R.png)
 
 We could now plot comparisons between the weight of species in different
 plots, although we may wish to fill in the missing values first.
@@ -929,18 +695,6 @@ surveys_gw %>%
   spread(genus, mean_weight, fill = 0) %>%
   head()
 ```
-
-    ## # A tibble: 6 x 11
-    ##   plot_id Baiomys Chaetodipus Dipodomys Neotoma Onychomys Perognathus
-    ##     <int>   <dbl>       <dbl>     <dbl>   <dbl>     <dbl>       <dbl>
-    ## 1       1    7           22.2      60.2    156.      27.7        9.62
-    ## 2       2    6           25.1      55.7    169.      26.9        6.95
-    ## 3       3    8.61        24.6      52.0    158.      26.0        7.51
-    ## 4       4    0           23.0      57.5    164.      28.1        7.82
-    ## 5       5    7.75        18.0      51.1    190.      27.0        8.66
-    ## 6       6    0           24.9      58.6    180.      25.9        7.81
-    ## # ... with 4 more variables: Peromyscus <dbl>, Reithrodontomys <dbl>,
-    ## #   Sigmodon <dbl>, Spermophilus <dbl>
 
 #### Gathering
 
@@ -979,7 +733,7 @@ str(surveys_gather)
     ##  $ genus      : chr  "Baiomys" "Baiomys" "Baiomys" "Baiomys" ...
     ##  $ mean_weight: num  7 6 8.61 NA 7.75 ...
 
-![](../img/gather_data_R.png)
+![](../../img/gather_data_R.png)
 
 Note that now the `NA` genera are included in the re-gathered format.
 Spreading and then gathering can be a useful way to balance out a
@@ -1007,7 +761,7 @@ surveys_spread %>%
     ## 5       5 Baiomys        7.75
     ## 6       6 Baiomys       NA
 
-> ### Challenge {#challenge-3 .challenge}
+> ### Challenge
 >
 > 1.  Spread the `surveys` data frame with `year` as columns, `plot_id`
 >     as rows, and the number of genera per plot as the values. You will
@@ -1016,53 +770,8 @@ surveys_spread %>%
 >     particular chunk of data. It's a powerful function! See
 >     `?n_distinct` for more.
 >
-> ``` {.r}
-> rich_time <- surveys %>%
->   group_by(plot_id, year) %>%
->   summarize(n_genera = n_distinct(genus)) %>%
->   spread(year, n_genera)
->
-> head(rich_time)
-> ```
->
->     ## # A tibble: 6 x 27
->     ## # Groups:   plot_id [6]
->     ##   plot_id `1977` `1978` `1979` `1980` `1981` `1982` `1983` `1984` `1985`
->     ##     <int>  <int>  <int>  <int>  <int>  <int>  <int>  <int>  <int>  <int>
->     ## 1       1      2      3      4      7      5      6      7      6      4
->     ## 2       2      6      6      6      8      5      9      9      9      6
->     ## 3       3      5      6      4      6      6      8     10     11      7
->     ## 4       4      4      4      3      4      5      4      6      3      4
->     ## 5       5      4      3      2      5      4      6      7      7      3
->     ## 6       6      3      4      3      4      5      9      9      7      5
->     ## # ... with 17 more variables: `1986` <int>, `1987` <int>, `1988` <int>,
->     ## #   `1989` <int>, `1990` <int>, `1991` <int>, `1992` <int>, `1993` <int>,
->     ## #   `1994` <int>, `1995` <int>, `1996` <int>, `1997` <int>, `1998` <int>,
->     ## #   `1999` <int>, `2000` <int>, `2001` <int>, `2002` <int>
->
 > 2.  Now take that data frame and `gather()` it again, so each row is a
 >     unique `plot_id` by `year` combination.
->
-> ``` {.r}
-> rich_time %>%
->   gather(year, n_genera, -plot_id)
-> ```
->
->     ## # A tibble: 624 x 3
->     ## # Groups:   plot_id [24]
->     ##    plot_id year  n_genera
->     ##      <int> <chr>    <int>
->     ##  1       1 1977         2
->     ##  2       2 1977         6
->     ##  3       3 1977         5
->     ##  4       4 1977         4
->     ##  5       5 1977         4
->     ##  6       6 1977         3
->     ##  7       7 1977         3
->     ##  8       8 1977         2
->     ##  9       9 1977         3
->     ## 10      10 1977         1
->     ## # ... with 614 more rows
 >
 > 3.  The `surveys` data set has two measurement columns:
 >     `hindfoot_length` and `weight`. This makes it difficult to do
@@ -1074,39 +783,13 @@ surveys_spread %>%
 >     `hindfoot_length` or `weight`. *Hint*: You'll need to specify
 >     which columns are being gathered.
 >
-> ``` {.r}
-> surveys_long <- surveys %>%
->   gather(measurement, value, hindfoot_length, weight)
-> ```
->
 > 4.  With this new data set, calculate the average of each
 >     `measurement` in each `year` for each different `plot_type`. Then
 >     `spread()` them into a data set with a column for
 >     `hindfoot_length` and `weight`. *Hint*: You only need to specify
 >     the key and value columns for `spread()`.
 >
-> ``` {.r}
-> surveys_long %>%
->   group_by(year, measurement, plot_type) %>%
->   summarize(mean_value = mean(value, na.rm=TRUE)) %>%
->   spread(measurement, mean_value)
-> ```
->
->     ## # A tibble: 130 x 4
->     ## # Groups:   year [26]
->     ##     year plot_type                 hindfoot_length weight
->     ##    <int> <chr>                               <dbl>  <dbl>
->     ##  1  1977 Control                              36.1   50.4
->     ##  2  1977 Long-term Krat Exclosure             33.7   34.8
->     ##  3  1977 Rodent Exclosure                     39.1   48.2
->     ##  4  1977 Short-term Krat Exclosure            35.8   41.3
->     ##  5  1977 Spectab exclosure                    37.2   47.1
->     ##  6  1978 Control                              38.1   70.8
->     ##  7  1978 Long-term Krat Exclosure             22.6   35.9
->     ##  8  1978 Rodent Exclosure                     37.8   67.3
->     ##  9  1978 Short-term Krat Exclosure            36.9   63.8
->     ## 10  1978 Spectab exclosure                    42.3   80.1
->     ## # ... with 120 more rows
+> [Answers](../answers/R03C4)
 
 Exporting data
 ==============
@@ -1166,13 +849,14 @@ To make sure that everyone has the same data set, check that
 `dim(surveys_complete)`.
 
 Now that our data set is ready, we can save it as a CSV file in our
-`data_output` folder.
+`data_output` folder. You'll get an error message if the folder is not
+in your current working directory.
 
 ``` {.r}
 write_csv(surveys_complete, path = "data_output/surveys_complete.csv")
 ```
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 11:40:58
+Page built on: 2018-09-17 at 12:19:28
 </p>
 
