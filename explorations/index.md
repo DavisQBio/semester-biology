@@ -4,6 +4,6 @@ title: Explorations
 ---
 
 
-* [Visualizing Growth Rates](E-01-growth-rates)
-* [Exploring Growth Rate Models](E-02-growth-rate-models)
+* [Exploration 1: Visualizing growth rates](E-01-growth-rates)
+* [Exploration 2: Comparing growth rate models](E-02-growth-rate-models)
 
