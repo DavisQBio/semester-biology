@@ -763,17 +763,17 @@ surveys_spread %>%
 
 > ### Challenge
 >
-> 1.  Spread the `surveys` data frame with `year` as columns, `plot_id`
+> -   Spread the `surveys` data frame with `year` as columns, `plot_id`
 >     as rows, and the number of genera per plot as the values. You will
 >     need to summarize before reshaping, and use the function
 >     `n_distinct()` to get the number of unique genera within a
 >     particular chunk of data. It's a powerful function! See
 >     `?n_distinct` for more.
 >
-> 2.  Now take that data frame and `gather()` it again, so each row is a
+> -   Now take that data frame and `gather()` it again, so each row is a
 >     unique `plot_id` by `year` combination.
 >
-> 3.  The `surveys` data set has two measurement columns:
+> -   The `surveys` data set has two measurement columns:
 >     `hindfoot_length` and `weight`. This makes it difficult to do
 >     things like look at the relationship between mean values of each
 >     measurement per year in different plot types. Let's walk through a
@@ -783,7 +783,7 @@ surveys_spread %>%
 >     `hindfoot_length` or `weight`. *Hint*: You'll need to specify
 >     which columns are being gathered.
 >
-> 4.  With this new data set, calculate the average of each
+> -   With this new data set, calculate the average of each
 >     `measurement` in each `year` for each different `plot_type`. Then
 >     `spread()` them into a data set with a column for
 >     `hindfoot_length` and `weight`. *Hint*: You only need to specify
@@ -857,6 +857,6 @@ write_csv(surveys_complete, path = "data_output/surveys_complete.csv")
 ```
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 12:19:28
+Page built on: 2018-09-17 at 12:38:35
 </p>
 
