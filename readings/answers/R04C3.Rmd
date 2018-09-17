@@ -1,0 +1,32 @@
+---
+title: "R-04 Answers"
+layout: page
+output: 
+    md_document:
+        variant: markdown
+---
+
+```{r, echo=FALSE, purl=FALSE, message=FALSE,results=FALSE}
+suppressWarnings(library(tidyverse))
+surveys_complete <- read_csv(file = "../data_output/surveys_complete.csv", col_types = cols())
+knitr::opts_chunk$set(fig.cap="figure")
+```
+
+> ### Challenge
+>
+> Use what you just learned to create a plot that depicts how the average weight
+> of each species changes through the years.
+
+```{r average-weight-time-series}
+yearly_weight <- surveys_complete %>%
+    group_by(year, species_id) %>%
+    summarize(avg_weight = mean(weight))
+
+ggplot(data = yearly_weight, mapping = aes(x=year, y=avg_weight)) +
+    geom_line() +
+    facet_wrap(~ species_id) +
+    theme_bw()
+```
+
+
+[Back to reading](../../R-04-visualization-ggplot2)

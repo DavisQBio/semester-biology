@@ -85,7 +85,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
   geom_point()
 ```
 
-![figure](R-04-visualization-ggplot2_files/figure-markdown/unnamed-chunk-7-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/plot-basic-1.png)
 
 The `+` in the **`ggplot2`** package is particularly useful because it
 allows you to modify existing `ggplot` objects. This means you can
@@ -102,7 +102,7 @@ surveys_plot +
     geom_point()
 ```
 
-![figure](R-04-visualization-ggplot2_files/figure-markdown/unnamed-chunk-8-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/using-plus-1.png)
 
 **Notes**
 
@@ -175,7 +175,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
     geom_point(alpha = 0.1)
 ```
 
-![figure](R-04-visualization-ggplot2_files/figure-markdown/unnamed-chunk-14-1.png)
+![figure](R-04-visualization-ggplot2_files/figure-markdown/adding-alpha-1.png)
 
 We can also add colors for all the points:
 
@@ -204,12 +204,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 > `species_id` with the plot types showing in different colors. Is this
 > a good way to show this type of data?
 >
-> ``` {.r}
-> ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
->    geom_point(aes(color = plot_type))
-> ```
->
-> ![figure](R-04-visualization-ggplot2_files/figure-markdown/scatter-challenge-1.png)
+> [Answer](../answers/R04C2)
 
 Boxplot
 -------
@@ -368,7 +363,8 @@ Additionally, you can remove the grid:
 In addition to `theme_bw()`, which changes the plot background to white,
 **`ggplot2`** comes with several other themes which can be useful to
 quickly change the look of your visualization. The complete list of
-themes is available at <http://docs.ggplot2.org/current/ggtheme.html>.
+themes is available [on the tidyverse
+site](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 `theme_minimal()` and `theme_light()` are popular, and `theme_void()`
 can be useful as a starting point to create a new hand-crafted theme.
 
@@ -379,21 +375,11 @@ website](https://www.ggplot2-exts.org) provides a list of packages that
 extend the capabilities of **`ggplot2`**, including additional themes.
 
 > ### Challenge
-
+>
 > Use what you just learned to create a plot that depicts how the
 > average weight of each species changes through the years.
 >
-> ``` {.r}
-> yearly_weight <- surveys_complete %>%
->                 group_by(year, species_id) %>%
->                  summarize(avg_weight = mean(weight))
-> ggplot(data = yearly_weight, mapping = aes(x=year, y=avg_weight)) +
->    geom_line() +
->    facet_wrap(~ species_id) +
->    theme_bw()
-> ```
->
-> ![figure](R-04-visualization-ggplot2_files/figure-markdown/average-weight-time-series-1.png)
+> [Answer](../answers/R04C3)
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of
 dimensions to allow them to cleanly fit on one page. On the other hand,
@@ -485,7 +471,7 @@ ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
         y = "Number of species") +
     theme_bw() +
     theme(axis.text.x = element_text(colour = "grey20", size = 12, angle = 90, hjust = 0.5, vjust = 0.5),
-                        axis.text.y = element_text(colour = "grey20", size = 12),
+          axis.text.y = element_text(colour = "grey20", size = 12),
           text = element_text(size = 16))
 ```
 
@@ -497,8 +483,8 @@ plots you may create:
 
 ``` {.r}
 grey_theme <- theme(axis.text.x = element_text(colour = "grey20", size = 12, angle = 90, hjust = 0.5, vjust = 0.5),
-                          axis.text.y = element_text(colour = "grey20", size = 12),
-                          text = element_text(size = 16))
+                    axis.text.y = element_text(colour = "grey20", size = 12),
+                    text = element_text(size = 16))
 ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
     geom_boxplot() +
     grey_theme
@@ -591,6 +577,6 @@ Note: The parameters `width` and `height` also determine the font size
 in the saved plot.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 14:29:48
+Page built on: 2018-09-17 at 14:57:54
 </p>
 

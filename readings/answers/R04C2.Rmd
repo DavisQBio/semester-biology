@@ -1,0 +1,27 @@
+---
+title: "R-04 Answers"
+layout: page
+output: 
+    md_document:
+        variant: markdown
+---
+
+```{r, echo=FALSE, purl=FALSE, message=FALSE,results=FALSE}
+suppressWarnings(library(tidyverse))
+surveys_complete <- read_csv(file = "../data_output/surveys_complete.csv", col_types = cols())
+knitr::opts_chunk$set(fig.cap="figure")
+```
+
+> ### Challenge
+>
+> Use what you just learned to create a scatter plot of `weight` over
+> `species_id` with the plot types showing in different colors. Is this a good
+> way to show this type of data?
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
+    geom_point(aes(color = plot_type))
+```
+
+
+[Back to reading](../../R-04-visualization-ggplot2)
