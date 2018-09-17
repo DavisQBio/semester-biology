@@ -1,19 +1,21 @@
 ---
 title: Data visualization with ggplot2
-author: Data Carpentry contributors
-minutes: 60
+layout: page
+output: 
+    md_document:
+        variant: markdown
 ---
 
 
-```{r setup, echo=FALSE, purl=FALSE}
+```{r, echo=FALSE, purl=FALSE}
 source("setup.R")
+suppressWarnings(library(tidyverse))
 surveys_complete <- read_csv(file = "data_output/surveys_complete.csv", col_types = cols())
 ```
 
 ```{r, echo=FALSE, purl=TRUE}
 ### Data Visualization with ggplot2
 ```
-
 
 ------------
 
@@ -29,14 +31,15 @@ surveys_complete <- read_csv(file = "data_output/surveys_complete.csv", col_type
 
 We start by loading the required packages. **`ggplot2`** is included in the **`tidyverse`** package.
 
-```{r load-package, message=FALSE, purl=FALSE}
+```{r, eval=FALSE}
 library(tidyverse)
 ```
 
-If not still in the workspace, load the data we saved in the previous lesson.
+If not still in the workspace, let's load the data we saved in the previous reading,
+`surveys_complete`.
 
 
-```{r load-data, eval=FALSE, purl=FALSE}
+```{r, eval=FALSE}
 surveys_complete <- read_csv("data_output/surveys_complete.csv")
 ```
 
