@@ -542,13 +542,13 @@ sex (i.e. `NA`).
 
 > ### Challenge
 >
-> 1.  How many animals were caught in each `plot_type` surveyed?
+> -   How many animals were caught in each `plot_type` surveyed?
 >
-> 2.  Use `group_by()` and `summarize()` to find the mean, min, and max
+> -   Use `group_by()` and `summarize()` to find the mean, min, and max
 >     hindfoot length for each species (using `species_id`). Also add
 >     the number of observations (hint: see `?n`).
 >
-> 3.  What was the heaviest animal measured in each year? Return the
+> -   What was the heaviest animal measured in each year? Return the
 >     columns `year`, `genus`, `species_id`, and `weight`.
 >
 > [Answers](../answers/R03C3)
@@ -621,44 +621,6 @@ surveys_gw <- surveys %>%
 
 str(surveys_gw)
 ```
-
-    ## Classes 'grouped_df', 'tbl_df', 'tbl' and 'data.frame':  196 obs. of  3 variables:
-    ##  $ genus      : chr  "Baiomys" "Baiomys" "Baiomys" "Baiomys" ...
-    ##  $ plot_id    : int  1 2 3 5 18 19 20 21 1 2 ...
-    ##  $ mean_weight: num  7 6 8.61 7.75 9.5 ...
-    ##  - attr(*, "spec")=List of 2
-    ##   ..$ cols   :List of 13
-    ##   .. ..$ record_id      : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ month          : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ day            : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ year           : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ plot_id        : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ species_id     : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ sex            : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ hindfoot_length: list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ weight         : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ genus          : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ species        : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ taxa           : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ plot_type      : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   ..$ default: list()
-    ##   .. ..- attr(*, "class")= chr  "collector_guess" "collector"
-    ##   ..- attr(*, "class")= chr "col_spec"
-    ##  - attr(*, "vars")= chr "genus"
-    ##  - attr(*, "drop")= logi TRUE
 
 This yields `surveys_gw` where the observations for each plot are spread
 across multiple rows, 196 observations of 13 variables. Using `spread()`
@@ -857,6 +819,6 @@ write_csv(surveys_complete, path = "data_output/surveys_complete.csv")
 ```
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 12:38:35
+Page built on: 2018-09-17 at 12:45:35
 </p>
 

@@ -475,15 +475,15 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 
 > ### Challenge
 >
-> 1. How many animals were caught in each `plot_type` surveyed?
+> * How many animals were caught in each `plot_type` surveyed?
 >
 >
-> 2. Use `group_by()` and `summarize()` to find the mean, min, and max hindfoot
+> * Use `group_by()` and `summarize()` to find the mean, min, and max hindfoot
 > length for each species (using `species_id`). Also add the number of
 > observations (hint: see `?n`).
 >
 >
-> 3. What was the heaviest animal measured in each year? Return the columns `year`,
+> * What was the heaviest animal measured in each year? Return the columns `year`,
 > `genus`, `species_id`, and `weight`.
 >
 > [Answers](../answers/R03C3)
@@ -552,7 +552,7 @@ species in each plot over the entire survey period. We use `filter()`,
 interest, and create a new variable for the `mean_weight`. We use the pipe as 
 before too.
 
-```{r,result=FALSE}
+```{r,results=FALSE}
 surveys_gw <- surveys %>%
   filter(!is.na(weight)) %>%
   group_by(genus, plot_id) %>%
