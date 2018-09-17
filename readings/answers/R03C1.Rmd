@@ -1,0 +1,22 @@
+---
+title: "R-03 Answers"
+layout: page
+output: 
+    md_document:
+        variant: markdown
+---
+
+> ### Challenge
+>
+>  Using pipes, subset the `surveys` data to include animals collected before
+>  1995 and retain only the columns `year`, `sex`, and `weight`.
+> 
+
+
+```{r, eval=FALSE}
+surveys %>%
+    filter(year < 1995) %>%
+    select(year, sex, weight)
+```
+
+[Back to reading](../../R-03-dplyr)

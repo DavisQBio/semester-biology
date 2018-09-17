@@ -39,11 +39,11 @@ analysis.
 
 Packages in R are basically sets of additional functions that let you do
 more stuff. The functions we've been using so far, like `str()` or
-`data.frame()`, come built into R; packages give you access to more of
-them. Before you use a package for the first time you need to install it
-on your machine, and then you should import it in every subsequent R
-session when you need it. You should already now install the
-**`tidyverse`** package.
+`data.frame()`, come built into R; packages give you access to more
+functions. Before you use a package for the first time you need to
+install it on your machine, and then you should import it in every
+subsequent R session when you need it. You should now install the
+**`tidyverse`** package, if you haven't already done so.
 
 ``` {.r}
 ##Only run this if you haven't already installed it
@@ -57,8 +57,8 @@ data analysis which work together well such as **`tidyr`**, **`dplyr`**,
 The **`tidyverse`** package tries to address 3 common issues that arise
 when doing data analysis with some of functions that come with R:
 
-1.  The results from a base R function sometimes depend on the type
-    of data.
+1.  The results from a base R function sometimes depend on the type of
+    data.
 2.  Using R expressions in a non standard way, which can be confusing
     for new learners.
 3.  Hidden arguments, having default operations that new learners are
@@ -80,42 +80,35 @@ To load the package type:
 library("tidyverse")
 ```
 
-    ## Warning: package 'tidyverse' was built under R version 3.5.1
-
-    ## Warning: package 'readr' was built under R version 3.5.1
-
-    ## Warning: package 'forcats' was built under R version 3.5.1
-
 What are **`dplyr`** and **`tidyr`**?
 -------------------------------------
 
-The package **`dplyr`** provides easy tools for the most common data
-manipulation tasks. It is built to work directly with data frames, with
-many common tasks optimized by being written in a compiled language
-(C++). An additional feature is the ability to work directly with data
-stored in an external database. The benefits of doing this are that the
-data can be managed natively in a relational database, queries can be
-conducted on that database, and only the results of the query are
-returned.
+The package **`dplyr`**, contained in **`tidyverse`**, provides easy
+tools for the most common data manipulation tasks. It is built to work
+directly with data frames, with many common tasks optimized by being
+written in a compiled language (C++). An additional feature is the
+ability to work directly with data stored in an external database. The
+benefits of doing this are that the data can be managed natively in a
+relational database, queries can be conducted on that database, and only
+the results of the query are returned.
 
-This addresses a common problem with R in that all operations are
-conducted in-memory and thus the amount of data you can work with is
-limited by available memory. The database connections essentially remove
-that limitation in that you can connect to a database of many hundreds
-of GB, conduct queries on it directly, and pull back into R only what
-you need for analysis.
+This addresses a common problem with R -- all operations are conducted
+in-memory, so the amount of data you can work with is limited by
+available memory. The database connections essentially remove that
+limitation; you can connect to a database of many hundreds of GB,
+conduct queries on it directly, and pull back into R only what you need
+for analysis.
 
 The package **`tidyr`** addresses the common problem of wanting to
 reshape your data for plotting and use by different R functions.
 Sometimes we want data sets where we have one row per measurement.
 Sometimes we want a data frame where each measurement type has its own
-column, and rows are instead more aggregated groups - like plots or
-aquaria. Moving back and forth between these formats is nontrivial, and
-**`tidyr`** gives you tools for this and more sophisticated data
-manipulation.
+column, and rows are instead more aggregated groups. Moving back and
+forth between these formats is nontrivial, and **`tidyr`** gives you
+tools for this and more sophisticated data manipulation.
 
-To learn more about **`dplyr`** and **`tidyr`** after the workshop, you
-may want to check out this [handy data transformation with **`dplyr`**
+To learn more about **`dplyr`** and **`tidyr`** for future work, you may
+want to check out this [handy data transformation with **`dplyr`**
 cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
 and this [one about
 **`tidyr`**](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
@@ -125,82 +118,16 @@ tidyverse package **`readr`**, instead of `read.csv()`.
 
 ``` {.r}
 surveys <- read_csv("data/portal_data_joined.csv")
-```
 
-    ## Parsed with column specification:
-    ## cols(
-    ##   record_id = col_integer(),
-    ##   month = col_integer(),
-    ##   day = col_integer(),
-    ##   year = col_integer(),
-    ##   plot_id = col_integer(),
-    ##   species_id = col_character(),
-    ##   sex = col_character(),
-    ##   hindfoot_length = col_integer(),
-    ##   weight = col_integer(),
-    ##   genus = col_character(),
-    ##   species = col_character(),
-    ##   taxa = col_character(),
-    ##   plot_type = col_character()
-    ## )
-
-``` {.r}
 ## inspect the data
 str(surveys)
+
+## preview the data using R's excel-like data viewer
+View(surveys)
 ```
 
-    ## Classes 'tbl_df', 'tbl' and 'data.frame':    34786 obs. of  13 variables:
-    ##  $ record_id      : int  1 72 224 266 349 363 435 506 588 661 ...
-    ##  $ month          : int  7 8 9 10 11 11 12 1 2 3 ...
-    ##  $ day            : int  16 19 13 16 12 12 10 8 18 11 ...
-    ##  $ year           : int  1977 1977 1977 1977 1977 1977 1977 1978 1978 1978 ...
-    ##  $ plot_id        : int  2 2 2 2 2 2 2 2 2 2 ...
-    ##  $ species_id     : chr  "NL" "NL" "NL" "NL" ...
-    ##  $ sex            : chr  "M" "M" NA NA ...
-    ##  $ hindfoot_length: int  32 31 NA NA NA NA NA NA NA NA ...
-    ##  $ weight         : int  NA NA NA NA NA NA NA NA 218 NA ...
-    ##  $ genus          : chr  "Neotoma" "Neotoma" "Neotoma" "Neotoma" ...
-    ##  $ species        : chr  "albigula" "albigula" "albigula" "albigula" ...
-    ##  $ taxa           : chr  "Rodent" "Rodent" "Rodent" "Rodent" ...
-    ##  $ plot_type      : chr  "Control" "Control" "Control" "Control" ...
-    ##  - attr(*, "spec")=List of 2
-    ##   ..$ cols   :List of 13
-    ##   .. ..$ record_id      : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ month          : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ day            : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ year           : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ plot_id        : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ species_id     : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ sex            : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ hindfoot_length: list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ weight         : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_integer" "collector"
-    ##   .. ..$ genus          : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ species        : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ taxa           : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   .. ..$ plot_type      : list()
-    ##   .. .. ..- attr(*, "class")= chr  "collector_character" "collector"
-    ##   ..$ default: list()
-    ##   .. ..- attr(*, "class")= chr  "collector_guess" "collector"
-    ##   ..- attr(*, "class")= chr "col_spec"
-
-``` {.r}
-## preview the data
-# View(surveys)
-```
-
-Notice that the class of the data is now `tbl_df`
+When you run this code, you'll notice that the class of the data is now
+`tbl_df`.
 
 This is referred to as a "tibble". Tibbles tweak some of the behaviors
 of the data frame objects we introduced in the previous episode. The
@@ -212,7 +139,10 @@ only differences are that:
     columns as fit on one screen.
 2.  Columns of class `character` are never converted into factors.
 
-We're going to learn some of the most common **`dplyr`** functions:
+So don't really worry about it. Tibbles are just well-behaved data
+frames.
+
+Now we're going to learn some of the most common **`dplyr`** functions:
 
 -   `select()`: subset columns
 -   `filter()`: subset rows on conditions
@@ -227,8 +157,8 @@ Selecting columns and filtering rows
 ------------------------------------
 
 To select columns of a data frame, use `select()`. The first argument to
-this function is the data frame (`surveys`), and the subsequent
-arguments are the columns to keep.
+this function is the data frame (here it is `surveys`), and the
+subsequent arguments are the columns that you want to keep.
 
 ``` {.r}
 select(surveys, plot_id, species_id, weight)
@@ -240,25 +170,10 @@ To choose rows based on a specific criteria, use `filter()`:
 filter(surveys, year == 1995)
 ```
 
-    ## # A tibble: 1,180 x 13
-    ##    record_id month   day  year plot_id species_id sex   hindfoot_length
-    ##        <int> <int> <int> <int>   <int> <chr>      <chr>           <int>
-    ##  1     22314     6     7  1995       2 NL         M                  34
-    ##  2     22728     9    23  1995       2 NL         F                  32
-    ##  3     22899    10    28  1995       2 NL         F                  32
-    ##  4     23032    12     2  1995       2 NL         F                  33
-    ##  5     22003     1    11  1995       2 DM         M                  37
-    ##  6     22042     2     4  1995       2 DM         F                  36
-    ##  7     22044     2     4  1995       2 DM         M                  37
-    ##  8     22105     3     4  1995       2 DM         F                  37
-    ##  9     22109     3     4  1995       2 DM         M                  37
-    ## 10     22168     4     1  1995       2 DM         M                  36
-    ## # ... with 1,170 more rows, and 5 more variables: weight <int>,
-    ## #   genus <chr>, species <chr>, taxa <chr>, plot_type <chr>
-
-Note that in the examples above, you didn't actually define a new
-variable with the filtered or selected data. To do that, you'd need to
-go back to basics and use `<-`.
+Note that in the examples above, you didn't actually define a new data
+frame with the filtered or selected data. To do that, you'd need to go
+back to basics and use `<-` with a name for your new data frame. For
+example,
 
 ``` {.r}
 surveys_1995 <- filter(surveys, year == 1995)
@@ -270,8 +185,8 @@ Pipes
 What if you want to select and filter at the same time? There are three
 ways to do this: use intermediate steps, nested functions, or pipes.
 
-With intermediate steps, you create a temporary data frame and use that
-as input to the next function, like this:
+With *intermediate steps*, you create a temporary data frame and use
+that as input to the next function, like this:
 
 ``` {.r}
 surveys2 <- filter(surveys, weight < 5)
@@ -282,8 +197,8 @@ This is readable, but can clutter up your workspace with lots of objects
 that you have to name individually. With multiple steps, that can be
 hard to keep track of.
 
-You can also nest functions (i.e. one function inside of another), like
-this:
+You can also *nest functions* (i.e. one function inside of another),
+like this:
 
 ``` {.r}
 surveys_sml <- select(filter(surveys, weight < 5), species_id, sex, weight)
@@ -346,7 +261,8 @@ workflows with the pipe, we can accomplish more complex manipulations of
 data frames.
 
 If we want to create a new object with this smaller version of the data,
-we can assign it a new name:
+we can assign it a new name in the first row of our series of piped
+commands:
 
 ``` {.r}
 surveys_sml <- surveys %>%
@@ -379,16 +295,12 @@ surveys_sml
 
 Note that the final data frame is the leftmost part of this expression.
 
-> ### Challenge {#challenge .challenge}
+> ### Challenge
 >
 > Using pipes, subset the `surveys` data to include animals collected
 > before 1995 and retain only the columns `year`, `sex`, and `weight`.
 >
-> ``` {.r}
-> surveys %>%
->     filter(year < 1995) %>%
->     select(year, sex, weight)
-> ```
+> [Answer](../answers/R03C1)
 
 ### Mutate
 
@@ -403,23 +315,6 @@ surveys %>%
   mutate(weight_kg = weight / 1000)
 ```
 
-    ## # A tibble: 34,786 x 14
-    ##    record_id month   day  year plot_id species_id sex   hindfoot_length
-    ##        <int> <int> <int> <int>   <int> <chr>      <chr>           <int>
-    ##  1         1     7    16  1977       2 NL         M                  32
-    ##  2        72     8    19  1977       2 NL         M                  31
-    ##  3       224     9    13  1977       2 NL         <NA>               NA
-    ##  4       266    10    16  1977       2 NL         <NA>               NA
-    ##  5       349    11    12  1977       2 NL         <NA>               NA
-    ##  6       363    11    12  1977       2 NL         <NA>               NA
-    ##  7       435    12    10  1977       2 NL         <NA>               NA
-    ##  8       506     1     8  1978       2 NL         <NA>               NA
-    ##  9       588     2    18  1978       2 NL         M                  NA
-    ## 10       661     3    11  1978       2 NL         <NA>               NA
-    ## # ... with 34,776 more rows, and 6 more variables: weight <int>,
-    ## #   genus <chr>, species <chr>, taxa <chr>, plot_type <chr>,
-    ## #   weight_kg <dbl>
-
 You can also create a second new column based on the first new column
 within the same call of `mutate()`:
 
@@ -428,23 +323,6 @@ surveys %>%
   mutate(weight_kg = weight / 1000,
          weight_kg2 = weight_kg * 2)
 ```
-
-    ## # A tibble: 34,786 x 15
-    ##    record_id month   day  year plot_id species_id sex   hindfoot_length
-    ##        <int> <int> <int> <int>   <int> <chr>      <chr>           <int>
-    ##  1         1     7    16  1977       2 NL         M                  32
-    ##  2        72     8    19  1977       2 NL         M                  31
-    ##  3       224     9    13  1977       2 NL         <NA>               NA
-    ##  4       266    10    16  1977       2 NL         <NA>               NA
-    ##  5       349    11    12  1977       2 NL         <NA>               NA
-    ##  6       363    11    12  1977       2 NL         <NA>               NA
-    ##  7       435    12    10  1977       2 NL         <NA>               NA
-    ##  8       506     1     8  1978       2 NL         <NA>               NA
-    ##  9       588     2    18  1978       2 NL         M                  NA
-    ## 10       661     3    11  1978       2 NL         <NA>               NA
-    ## # ... with 34,776 more rows, and 7 more variables: weight <int>,
-    ## #   genus <chr>, species <chr>, taxa <chr>, plot_type <chr>,
-    ## #   weight_kg <dbl>, weight_kg2 <dbl>
 
 If this runs off your screen and you just want to see the first few
 rows, you can use a pipe to view the `head()` of the data. (Pipes work
@@ -495,7 +373,18 @@ surveys %>%
 The `!` symbol negates the result, so we're asking for every row where
 weight *is not* an `NA`.
 
-> ### Challenge {#challenge-1 .challenge}
+Don't forget that in the above code we didn't actually save this
+`filter`ed and `mutate`d data anywhere as a new data frame. To do that,
+you would need to start by defining a newly named data frame, for
+example `surveys_kg`.
+
+``` {.r}
+surveys_kg <- surveys %>%
+  filter(!is.na(weight)) %>%
+  mutate(weight_kg = weight / 1000)
+```
+
+> ### Challenge
 >
 > Create a new data frame from the `surveys` data that meets the
 > following criteria: contains only the `species_id` column and a new
@@ -506,13 +395,7 @@ weight *is not* an `NA`.
 > **Hint**: think about how the commands should be ordered to produce
 > this data frame!
 >
-> ``` {.r}
-> surveys_hindfoot_half <- surveys %>%
->     filter(!is.na(hindfoot_length)) %>%
->     mutate(hindfoot_half = hindfoot_length / 2) %>%
->     filter(hindfoot_half < 30) %>%
->     select(species_id, hindfoot_half)
-> ```
+> [Answer](../answers/R03C2)
 
 ### Split-apply-combine data analysis and the summarize() function
 
@@ -863,18 +746,18 @@ sex (i.e. `NA`).
 > ```
 >
 >     ## # A tibble: 25 x 5
->     ##    species_id mean_hindfoot_length min_hindfoot_le~ max_hindfoot_le~     n
->     ##    <chr>                     <dbl>            <dbl>            <dbl> <int>
->     ##  1 AH                         33                 31               35     2
->     ##  2 BA                         13                  6               16    45
->     ##  3 DM                         36.0               16               50  9972
->     ##  4 DO                         35.6               26               64  2887
->     ##  5 DS                         49.9               39               58  2132
->     ##  6 NL                         32.3               21               70  1074
->     ##  7 OL                         20.5               12               39   920
->     ##  8 OT                         20.3               13               50  2139
->     ##  9 OX                         19.1               13               21     8
->     ## 10 PB                         26.1                2               47  2864
+>     ##    species_id mean_hindfoot_len~ min_hindfoot_len~ max_hindfoot_len~     n
+>     ##    <chr>                   <dbl>             <dbl>             <dbl> <int>
+>     ##  1 AH                       33                  31                35     2
+>     ##  2 BA                       13                   6                16    45
+>     ##  3 DM                       36.0                16                50  9972
+>     ##  4 DO                       35.6                26                64  2887
+>     ##  5 DS                       49.9                39                58  2132
+>     ##  6 NL                       32.3                21                70  1074
+>     ##  7 OL                       20.5                12                39   920
+>     ##  8 OT                       20.3                13                50  2139
+>     ##  9 OX                       19.1                13                21     8
+>     ## 10 PB                       26.1                 2                47  2864
 >     ## # ... with 15 more rows
 >
 > 3.  What was the heaviest animal measured in each year? Return the
@@ -952,8 +835,8 @@ We can do both these of transformations with two `tidyr` functions,
 1.  the data
 2.  the *key* column variable whose values will become new column
     names.\
-3.  the *value* column variable whose values will fill the new
-    column variables.
+3.  the *value* column variable whose values will fill the new column
+    variables.
 
 Further arguments include `fill` which, if set, fills in missing values
 with the value provided.
@@ -1036,7 +919,7 @@ str(surveys_spread)
     ##  $ Sigmodon       : num  NA 70.9 65.6 82 82.7 ...
     ##  $ Spermophilus   : num  NA NA NA NA NA NA NA NA NA NA ...
 
-![](img/spread_data_R.png)
+![](../img/spread_data_R.png)
 
 We could now plot comparisons between the weight of species in different
 plots, although we may wish to fill in the missing values first.
@@ -1076,8 +959,8 @@ associated with the column names.
 2.  the *key* column variable we wish to create from column names.
 3.  the *values* column variable we wish to create and fill with values
     associated with the key.
-4.  the names of the columns we use to fill the key variable (or
-    to drop).
+4.  the names of the columns we use to fill the key variable (or to
+    drop).
 
 To recreate `surveys_gw` from `surveys_spread` we would create a key
 called `genus` and value called `mean_weight` and use all columns except
@@ -1096,7 +979,7 @@ str(surveys_gather)
     ##  $ genus      : chr  "Baiomys" "Baiomys" "Baiomys" "Baiomys" ...
     ##  $ mean_weight: num  7 6 8.61 NA 7.75 ...
 
-![](img/gather_data_R.png)
+![](../img/gather_data_R.png)
 
 Note that now the `NA` genera are included in the re-gathered format.
 Spreading and then gathering can be a useful way to balance out a
@@ -1290,6 +1173,6 @@ write_csv(surveys_complete, path = "data_output/surveys_complete.csv")
 ```
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-14 at 17:43:21
+Page built on: 2018-09-17 at 11:40:58
 </p>
 

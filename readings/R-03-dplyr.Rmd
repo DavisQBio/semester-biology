@@ -44,10 +44,10 @@ making tabular data manipulation easier. It pairs nicely with **`tidyr`** which 
 
 Packages in R are basically sets of additional functions that let you do more
 stuff. The functions we've been using so far, like `str()` or `data.frame()`,
-come built into R; packages give you access to more of them. Before you use a
+come built into R; packages give you access to more functions. Before you use a
 package for the first time you need to install it on your machine, and then you
 should import it in every subsequent R session when you need it. You should
-already now install the **`tidyverse`** package. 
+now install the **`tidyverse`** package, if you haven't already done so. 
 
 ```{r, eval=FALSE}
 ##Only run this if you haven't already installed it
@@ -74,46 +74,50 @@ This time will use the **`tidyverse`** package to read the data and avoid having
 To load the package type:
 
 
-```{r, message = FALSE}
+```{r,eval=FALSE}
 ## load the tidyverse packages, incl. dplyr
 library("tidyverse")
 ```
 
+```{r,echo=FALSE, results=FALSE, message=FALSE,purl=FALSE}
+## load the tidyverse packages, incl. dplyr
+suppressWarnings(library("tidyverse"))
+```
+
 ## What are **`dplyr`** and **`tidyr`**?
 
-The package **`dplyr`** provides easy tools for the most common data manipulation
-tasks. It is built to work directly with data frames, with many common tasks
+The package **`dplyr`**, contained in **`tidyverse`**, provides easy tools for the most common data manipulation tasks. It is built to work directly with data frames, with many common tasks
 optimized by being written in a compiled language (C++). An additional feature is the
 ability to work directly with data stored in an external database. The benefits of
 doing this are that the data can be managed natively in a relational database,
 queries can be conducted on that database, and only the results of the query are
 returned.
 
-This addresses a common problem with R in that all operations are conducted
-in-memory and thus the amount of data you can work with is limited by available
-memory. The database connections essentially remove that limitation in that you
+This addresses a common problem with R -- all operations are conducted
+in-memory, so the amount of data you can work with is limited by available
+memory. The database connections essentially remove that limitation; you
 can connect to a database of many hundreds of GB, conduct queries on it directly, and pull
 back into R only what you need for analysis.
 
-The package **`tidyr`** addresses the common problem of wanting to reshape your data for plotting and use by different R functions. Sometimes we want data sets where we have one row per measurement. Sometimes we want a data frame where each measurement type has its own column, and rows are instead more aggregated groups - like plots or aquaria. Moving back and forth between these formats is nontrivial, and **`tidyr`** gives you tools for this and more sophisticated  data manipulation.
+The package **`tidyr`** addresses the common problem of wanting to reshape your data for plotting and use by different R functions. Sometimes we want data sets where we have one row per measurement. Sometimes we want a data frame where each measurement type has its own column, and rows are instead more aggregated groups. Moving back and forth between these formats is nontrivial, and **`tidyr`** gives you tools for this and more sophisticated  data manipulation.
 
-To learn more about **`dplyr`** and **`tidyr`** after the workshop, you may want to check out this
+To learn more about **`dplyr`** and **`tidyr`** for future work, you may want to check out this
 [handy data transformation with **`dplyr`** cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and this [one about **`tidyr`**](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
 
 We'll read in our data using the `read_csv()` function, from the tidyverse package **`readr`**, instead of `read.csv()`.
 
 
-```{r}
+```{r,results=FALSE, message=FALSE}
 surveys <- read_csv("data/portal_data_joined.csv")
 
 ## inspect the data
 str(surveys)
 
-## preview the data
-# View(surveys)
+## preview the data using R's excel-like data viewer
+View(surveys)
 ```
 
-Notice that the class of the data is now `tbl_df`
+When you run this code, you'll notice that the class of the data is now `tbl_df`.
 
 This is referred to as a "tibble". Tibbles tweak some of the behaviors of the data frame objects we introduced in the previous episode. The data structure is very similar to a data frame. For our purposes the only differences are that:
 
@@ -123,20 +127,23 @@ This is referred to as a "tibble". Tibbles tweak some of the behaviors of the da
 2. Columns of class `character` are never converted into factors.
 
 
-We're going to learn some of the most common **`dplyr`** functions:
+So don't really worry about it. Tibbles are just well-behaved data frames.
 
-- `select()`: subset columns
-- `filter()`: subset rows on conditions
-- `mutate()`: create new columns by using information from other columns
-- `group_by()` and `summarize()`: create summary statisitcs on grouped data
-- `arrange()`: sort results
-- `count()`: count discrete values
+Now we're going to learn some of the most common **`dplyr`** functions:
+
+* `select()`: subset columns
+* `filter()`: subset rows on conditions
+* `mutate()`: create new columns by using information from other columns
+* `group_by()` and `summarize()`: create summary statisitcs on grouped data
+* `arrange()`: sort results
+* `count()`: count discrete values
 
 ## Selecting columns and filtering rows
 
 To select columns of a
 data frame, use `select()`. The first argument to this function is the data
-frame (`surveys`), and the subsequent arguments are the columns to keep.
+frame (here it is `surveys`), and the subsequent arguments are the columns 
+that you want to keep.
 
 ```{r, results = 'hide'}
 select(surveys, plot_id, species_id, weight)
@@ -144,13 +151,13 @@ select(surveys, plot_id, species_id, weight)
 
 To choose rows based on a specific criteria, use `filter()`:
 
-```{r}
+```{r, results = 'hide'}
 filter(surveys, year == 1995)
 ```
 
-Note that in the examples above, you didn't actually define a new variable
+Note that in the examples above, you didn't actually define a new data frame
 with the filtered or selected data.  To do that, you'd need to go back to basics
-and use `<-`.
+and use `<-` with a name for your new data frame.  For example,
 
 ```{r}
 surveys_1995 <- filter(surveys, year == 1995)
@@ -162,7 +169,7 @@ surveys_1995 <- filter(surveys, year == 1995)
 What if you want to select and filter at the same time? There are three
 ways to do this: use intermediate steps, nested functions, or pipes.
 
-With intermediate steps, you create a temporary data frame and use
+With *intermediate steps*, you create a temporary data frame and use
 that as input to the next function, like this:
 
 ```{r}
@@ -172,7 +179,7 @@ surveys_sml <- select(surveys2, species_id, sex, weight)
 
 This is readable, but can clutter up your workspace with lots of objects that you have to name individually. With multiple steps, that can be hard to keep track of.
 
-You can also nest functions (i.e. one function inside of another), like this:
+You can also *nest functions* (i.e. one function inside of another), like this:
 
 ```{r}
 surveys_sml <- select(filter(surveys, weight < 5), species_id, sex, weight)
@@ -210,7 +217,7 @@ but by combining them into linear workflows with the pipe, we can accomplish
 more complex manipulations of data frames.
 
 If we want to create a new object with this smaller version of the data, we
-can assign it a new name:
+can assign it a new name in the first row of our series of piped commands:
 
 ```{r}
 surveys_sml <- surveys %>%
@@ -222,17 +229,13 @@ surveys_sml
 
 Note that the final data frame is the leftmost part of this expression.
 
-> ### Challenge {.challenge}
+> ### Challenge
 >
 >  Using pipes, subset the `surveys` data to include animals collected before
 >  1995 and retain only the columns `year`, `sex`, and `weight`.
 > 
-> 
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
-> surveys %>%
->     filter(year < 1995) %>%
->     select(year, sex, weight)
-> ```
+> [Answer](../answers/R03C1)
+
 
 ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
 ## Pipes Challenge:
@@ -248,14 +251,14 @@ columns. For this we'll use `mutate()`.
 
 To create a new column of weight in kg:
 
-```{r}
+```{r,eval=FALSE}
 surveys %>%
   mutate(weight_kg = weight / 1000)
 ```
 
 You can also create a second new column based on the first new column within the same call of `mutate()`:
 
-```{r}
+```{r,eval=FALSE}
 surveys %>%
   mutate(weight_kg = weight / 1000,
          weight_kg2 = weight_kg * 2)
@@ -284,7 +287,17 @@ surveys %>%
 `is.na()` is a function that determines whether something is an `NA`. The `!`
 symbol negates the result, so we're asking for every row where weight *is not* an `NA`.
 
-> ### Challenge {.challenge}
+Don't forget that in the above code we didn't actually save this `filter`ed and 
+`mutate`d data anywhere as a new data frame.  To do that, you would need to
+start by defining a newly named data frame, for example `surveys_kg`.
+
+```{r}
+surveys_kg <- surveys %>%
+  filter(!is.na(weight)) %>%
+  mutate(weight_kg = weight / 1000)
+```
+
+> ### Challenge
 >
 >  Create a new data frame from the `surveys` data that meets the following
 >  criteria: contains only the `species_id` column and a new column called
@@ -294,13 +307,8 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >
 >  **Hint**: think about how the commands should be ordered to produce this data frame!
 > 
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
-> surveys_hindfoot_half <- surveys %>%
->     filter(!is.na(hindfoot_length)) %>%
->     mutate(hindfoot_half = hindfoot_length / 2) %>%
->     filter(hindfoot_half < 30) %>%
->     select(species_id, hindfoot_half)
-> ```
+> [Answer](../answers/R03C2)
+
  
 
 ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
@@ -313,6 +321,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 
 ##  Hint: think about how the commands should be ordered to produce this data frame!
 ```
+
 
 ### Split-apply-combine data analysis and the summarize() function
 
@@ -329,7 +338,7 @@ group into a single-row summary of that group.  `group_by()` takes as arguments
 the column names that contain the **categorical** variables for which you want
 to calculate the summary statistics. So to compute the mean `weight` by sex:
 
-```{r, purl = FALSE}
+```{r}
 surveys %>%
   group_by(sex) %>%
   summarize(mean_weight = mean(weight, na.rm = TRUE))
@@ -340,7 +349,7 @@ screen anymore. It's one of the advantages of `tbl_df` over data frame.
 
 You can also group by multiple columns:
 
-```{r, purl = FALSE}
+```{r}
 surveys %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight, na.rm = TRUE))
@@ -353,7 +362,7 @@ Number"). To avoid this, we can remove the missing values for weight before we
 attempt to calculate the summary statistics on weight. Because the missing
 values are removed first, we can omit `na.rm = TRUE` when computing the mean:
 
-```{r, purl = FALSE}
+```{r}
 surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
@@ -582,7 +591,7 @@ surveys_spread <- surveys_gw %>%
 str(surveys_spread)
 ```
 
-![](img/spread_data_R.png)
+![](../img/spread_data_R.png)
 
 We could now plot comparisons between the weight of species in different plots, 
 although we may wish to fill in the missing values first.
@@ -622,7 +631,7 @@ surveys_gather <- surveys_spread %>%
 str(surveys_gather)
 ```
 
-![](img/gather_data_R.png)
+![](../img/gather_data_R.png)
 
 Note that now the `NA` genera are included in the re-gathered format. Spreading
 and then gathering can be a useful way to balance out a dataset so every
