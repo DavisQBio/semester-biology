@@ -56,7 +56,7 @@ package](../../readings/R-03-dplyr) has a longer walkthrough of the
 functions like `filter()` and `mutate()` that we'll be using here.
 
 ``` {.r}
-suppressWarnings(library(dplyr))
+library(dplyr)
 antibiotic_0 <- filter(antibiotic, conc == 0)
 ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
 ```
@@ -270,6 +270,6 @@ the logistic growth equation multiple times.
 > [Some potential answers](../answers/E02C1)
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 15:53:12
+Page built on: 2018-09-18 at 15:56:55
 </p>
 

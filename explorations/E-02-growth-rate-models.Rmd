@@ -50,7 +50,7 @@ has a longer walkthrough of the functions like `filter()` and `mutate()` that we
 be using here.
 
 ```{r, message=FALSE}
-suppressWarnings(library(dplyr))
+library(dplyr)
 antibiotic_0 <- filter(antibiotic, conc == 0)
 ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
 ```
