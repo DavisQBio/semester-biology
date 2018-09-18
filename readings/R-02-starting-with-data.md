@@ -1,3 +1,8 @@
+---
+title: "Starting with data"
+layout: page
+---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
