@@ -150,8 +150,8 @@ creating an "R Project" for these lessons.
     convenient location for it. This will be your **working directory**
     for the rest of the day (e.g., `~/R-QBio`).
 4.  Click on `Create project`.
-5.  Download the [code handout](code-handout.R), place it in your
-    working directory and rename it (e.g., `data-carpentry-script.R`).
+5.  As you download R scripts and data later on, you will put them in
+    folders inside of your directory.
 
 ### Organizing your working directory
 
@@ -185,31 +185,15 @@ directory.
 ![Example of a working directory
 structure.](../img/working-directory-structure.png)
 
-For this workshop, we will need a `data/` folder to store our raw data,
+For these lessons, we will need a `data/` folder to store our raw data,
 and we will use `data_output/` for when we learn how to export data as
 CSV files, and `fig_output/` folder for the figures that we will save.
 
 -   Under the `Files` tab on the right of the screen, click on
     `New Folder` and create a folder named `data` within your newly
-    created working directory (e.g., `~/data-carpentry/data`).
-    (Alternatively, type `dir.create("data")` at your R console.) Repeat
-    these operations to create a `data_output/` and a `fig_output`
-    folders.
-
-We are going to keep the script in the root of our working directory
-because we are only going to use one file and it will make things
-easier.
-
-Your working directory should now look like this:
-
-<div class="figure" style="text-align: center">
-
-<img src="../img/r-starting-how-it-should-look-like.png" alt="How it should look like at the beginning of this lesson" width="100%" />
-<p class="caption">
-How it should look like at the beginning of this lesson
-</p>
-
-</div>
+    created working directory (e.g., `~/R-QBio/data`). (Alternatively,
+    type `dir.create("data")` at your R console.) Repeat these
+    operations to create a `data_output/` and a `fig_output` folders.
 
 ### The working directory
 
@@ -224,7 +208,9 @@ directory is set properly. If you need to check it, you can use
 `getwd()`. If for some reason your working directory is not what it
 should be, you can change it in the RStudio interface by navigating in
 the file browser where your working directory should be, and clicking on
-the blue gear icon "More", and select "Set As Working Directory".
+the blue gear icon "More", and select "Set As Working Directory". Or you
+can use find *"Set Working Directory"* in the *Session* tab at the top
+bar of RStudio.\
 Alternatively you can use `setwd("/path/to/working/directory")` to reset
 your working directory. However, your scripts should not include this
 line because it will fail on someone else's computer.
@@ -245,8 +231,8 @@ console pane (in RStudio, the bottom left panel) is the place where
 commands written in the R language can be typed and executed immediately
 by the computer. It is also where the results will be shown for commands
 that have been executed. You can type commands directly into the console
-and press `Enter` to execute those commands, but they will be forgotten
-when you close the session.
+and press <kbd>`Enter`</kbd> to execute those commands, but they will be
+forgotten when you close the session.
 
 Because we want our code and workflow to be reproducible, it is better
 to type the commands we want in the script editor, and save the script.
@@ -459,8 +445,8 @@ sessionInfo()
     ## loaded via a namespace (and not attached):
     ##  [1] compiler_3.5.1  backports_1.1.2 magrittr_1.5    rprojroot_1.3-2
     ##  [5] tools_3.5.1     htmltools_0.3.6 yaml_2.2.0      Rcpp_0.12.18   
-    ##  [9] stringi_1.1.7   rmarkdown_1.10  highr_0.7       knitr_1.20     
-    ## [13] stringr_1.3.1   digest_0.6.15   evaluate_0.11
+    ##  [9] stringi_1.1.7   rmarkdown_1.10  knitr_1.20      stringr_1.3.1  
+    ## [13] digest_0.6.15   evaluate_0.11
 
 ### Where to ask for help?
 
@@ -513,6 +499,6 @@ sessionInfo()
     the reprex package and of its philosophy.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 14:23:03
+Page built on: 2018-09-18 at 10:35:53
 </p>
 

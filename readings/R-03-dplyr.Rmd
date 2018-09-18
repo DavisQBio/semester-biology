@@ -1,5 +1,5 @@
 ---
-title: Manipulating, analyzing and exporting data with tidyverse
+title: Manipulating, analyzing, and exporting data with tidyverse
 layout: page
 output: 
     md_document:
