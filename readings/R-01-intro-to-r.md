@@ -1,5 +1,5 @@
 ---
-title: "Before we start"
+title: "Intro to R"
 layout: page
 ---
 
@@ -624,6 +624,6 @@ data structures, we are ready to start learn about data frames and start
 working with some data.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 11:17:49
+Page built on: 2018-09-18 at 11:19:07
 </p>
 

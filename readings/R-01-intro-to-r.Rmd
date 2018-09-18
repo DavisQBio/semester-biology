@@ -1,5 +1,5 @@
 ---
-title: "Before we start"
+title: "Intro to R"
 layout: page
 output: 
     md_document:
