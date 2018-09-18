@@ -407,7 +407,7 @@ head(sex)
 >   can you recreate the barplot such that 
 >   "undetermined" is last (after "male")?
 >
-> [Answers](R02C3)
+> [Answers](../answers/R02C3)
 
 
 
@@ -475,7 +475,7 @@ surveys$plot_type <- factor(surveys$plot_type)
 >       )
 >   ```
 >
-> [Answers](R02C4)
+> [Answers](../answers/R02C4)
 
 
 ```{r, eval=FALSE, purl=TRUE, echo=FALSE}

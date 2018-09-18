@@ -429,7 +429,7 @@ head(sex)
 >     you recreate the barplot such that "undetermined" is last (after
 >     "male")?
 >
-> [Answers](R02C3)
+> [Answers](../answers/R02C3)
 
 ### Using `stringsAsFactors=FALSE`
 
@@ -474,7 +474,7 @@ surveys$plot_type <- factor(surveys$plot_type)
 >
 > `r   country_climate <- data.frame(       country = c("Canada", "Panama", "South Africa", "Australia"),       climate = c("cold", "hot", "temperate", "hot/temperate"),       temperature = c(10, 30, 18, "15"),       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),       has_kangaroo = c(FALSE, FALSE, FALSE, 1)       )`
 >
-> [Answers](R02C4)
+> [Answers](../answers/R02C4)
 
 The automatic conversion of data type is sometimes a blessing, sometimes
 an annoyance. Be aware that it exists, learn the rules, and double check
@@ -631,6 +631,6 @@ Why did these dates fail to parse? If you had to use these data for your
 analyses, how would you deal with this situation?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 13:37:17
+Page built on: 2018-09-18 at 13:38:59
 </p>
 
