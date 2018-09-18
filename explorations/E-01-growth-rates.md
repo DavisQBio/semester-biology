@@ -12,7 +12,7 @@ Before we start
 
 To follow along without lots of copying and pasting, you can download [a
 script with nothing but the R code
-here](../scripts/E-01-growth-rates.R).
+here](../../scripts/E-01-growth-rates.R).
 
 ------------------------------------------------------------------------
 
@@ -218,6 +218,6 @@ well between the concentration gradients.
 > data?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 17:07:07
+Page built on: 2018-09-17 at 17:07:43
 </p>
 
