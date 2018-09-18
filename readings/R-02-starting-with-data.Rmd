@@ -3,7 +3,7 @@ title: "Starting with data"
 layout: page
 output: 
     md_document:
-        variant: markdown
+        variant: markdown_github
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE}
