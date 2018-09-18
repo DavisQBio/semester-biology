@@ -175,9 +175,9 @@ ggplot(antibiotic,aes(x=time,y=value))+geom_point()
 With one short line of code, we made a pretty nice plot. A few notes
 about what I entered into the `ggplot()` function. I first entered the
 data frame (our matrix, `antibiotic`). Then I entered the *aesthetics*
-using `aes()`, specifying that the x-axis\
-represents variable *time* and the y-axis represents *value*. These
-names need to exactly match the variable names from our data frame.
+using `aes()`, specifying that the x-axis represents the variable *time*
+and the y-axis represents *value*. These names need to exactly match the
+variable names from our data frame.
 
 So, it looks okay, but we've obscured the information about antibiotic
 concentration. We can also specify color using `aes()`. Let's represent
@@ -218,6 +218,6 @@ well between the concentration gradients.
 > data?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 17:04:55
+Page built on: 2018-09-17 at 17:07:07
 </p>
 
