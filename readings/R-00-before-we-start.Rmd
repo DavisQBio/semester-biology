@@ -195,8 +195,8 @@ will use `data_output/` for when we learn how to export data as CSV files, and
 * Under the `Files` tab on the right of the screen, click on `New Folder` and
   create a folder named `data` within your newly created working directory
   (e.g., `~/R-QBio/data`). (Alternatively, type `dir.create("data")` at
-  your R console.) Repeat these operations to create a `data_output/` and a
-  `fig_output` folders.
+  your R console.) Repeat these operations to create a `data_output/`, a
+  `fig_output/`, and a `scripts/` folder.
 
 
 ### The working directory

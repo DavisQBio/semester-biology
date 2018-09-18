@@ -1,3 +1,8 @@
+---
+title: "Before we start"
+layout: page
+---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -193,7 +198,8 @@ CSV files, and `fig_output/` folder for the figures that we will save.
     `New Folder` and create a folder named `data` within your newly
     created working directory (e.g., `~/R-QBio/data`). (Alternatively,
     type `dir.create("data")` at your R console.) Repeat these
-    operations to create a `data_output/` and a `fig_output` folders.
+    operations to create a `data_output/`, a `fig_output/`, and a
+    `scripts/` folder.
 
 ### The working directory
 
@@ -499,6 +505,6 @@ sessionInfo()
     the reprex package and of its philosophy.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 10:35:53
+Page built on: 2018-09-18 at 11:02:19
 </p>
 

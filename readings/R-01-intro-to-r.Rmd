@@ -23,6 +23,11 @@ output:
 
 ------------
 
+To follow along without lots of copying and pasting, you can download [a
+script with nothing but the R code here](../scripts/R-01-intro-to-r.R).
+As good organizational practice, make sure you save it to your `scripts/` folder 
+in your project directory for these lessons.
+
 ```{r, echo=FALSE, purl=FALSE, message = FALSE}
 source("setup.R")
 ```
@@ -466,6 +471,12 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 > * Can you figure out why `"four" > "five"` returns `TRUE`?
 >
 > [Answer](../answers/R01C2)
+
+```{r, echo=FALSE, eval=FALSE}
+## R logic Challenge (optional)
+
+## Can you figure out why `"four" > "five"` returns `TRUE`?
+```
 
 ## Missing data
 
