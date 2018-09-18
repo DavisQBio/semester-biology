@@ -38,7 +38,6 @@ p <- p + geom_line(aes(y=model_logistic_output), color = "red")
 p <- p + ylim(c(0,1))
 p
 
-## ---- child="../_page_built_on.Rmd"--------------------------------------
 
 
 
