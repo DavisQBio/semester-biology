@@ -212,12 +212,14 @@ well between the concentration gradients.
 
 > ### Challenge -- interpreting the data
 >
-> Let's interpret these graphs. \* How is concentration affecting growth
-> rates? Are there any outliers? \* Is this growth linear? Exponential?
-> How would you describe it? \* What conclusions can you draw from these
-> data?
+> Let's interpret these graphs.
+>
+> -   How is concentration affecting growth rates? Are there any
+>     outliers?
+> -   Is this growth linear? Exponential? How would you describe it?
+> -   What conclusions can you draw from these data?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 17:10:54
+Page built on: 2018-09-17 at 17:12:17
 </p>
 
