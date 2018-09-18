@@ -48,11 +48,12 @@ download.file("https://ndownloader.figshare.com/files/2292169",
 ```
 
 Watch out. We chose our destination as "data/portal\_data\_joined", but
-if you don't have a folder named "data" in your current working
+if you don't have a folder named `data/` in your current working
 directory, then you will get an error. You can either create a folder
-there, change your destination, or change your working directory to the
-place where you have your "data" folder for this project. Recall that
-you can use `getwd()` to see your current working directory.
+there, change your destination in the `download.file()` function, or
+change your working directory to the place where you have your `data/`
+folder for this project. Recall that you can use `getwd()` to see your
+current working directory.
 
 You are now ready to load the data:
 
@@ -666,6 +667,6 @@ Why did these dates fail to parse? If you had to use these data for your
 analyses, how would you deal with this situation?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-14 at 15:27:55
+Page built on: 2018-09-18 at 11:28:57
 </p>
 

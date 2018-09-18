@@ -7,7 +7,7 @@ permalink:        pretty
 
 # Setup
 title:            R for QBio
-description:      'Using R for biological analysis'
+description:      'Using R for quantitative biological analysis'
 url:              https://davisqbio.github.io/r_intro
 baseurl:          /r_intro
 email:            refurrow@ucdavis.edu
