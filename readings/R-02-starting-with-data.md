@@ -1,3 +1,8 @@
+---
+title: "Starting with data"
+layout: page
+---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -12,6 +17,10 @@
 > -   Format dates.
 
 ------------------------------------------------------------------------
+
+To follow along without lots of copying and pasting, you can download [a
+script with nothing but the R code
+here](../scripts/R-02-starting-with-data.R).
 
 Presentation of the Survey Data
 -------------------------------
@@ -394,7 +403,8 @@ factor level. Let's look at the number of males and females captured
 over the course of the experiment:
 
 ``` {.r}
-## bar plot of the number of females and males captured during the experiment:
+## bar plot of the number of females and males captured 
+## during the experiment:
 plot(surveys$sex)
 ```
 
@@ -411,31 +421,11 @@ data frame:
 ``` {.r}
 sex <- surveys$sex
 head(sex)
-```
-
-    ## [1] M M        
-    ## Levels:  F M
-
-``` {.r}
 levels(sex)
-```
-
-    ## [1] ""  "F" "M"
-
-``` {.r}
 levels(sex)[1] <- "undetermined"
 levels(sex)
-```
-
-    ## [1] "undetermined" "F"            "M"
-
-``` {.r}
 head(sex)
 ```
-
-    ## [1] M            M            undetermined undetermined undetermined
-    ## [6] undetermined
-    ## Levels: undetermined F M
 
 > ### Challenge
 >
@@ -444,21 +434,7 @@ head(sex)
 >     you recreate the barplot such that "undetermined" is last (after
 >     "male")?
 >
-> ``` {.r}
-> levels(sex)[2:3] <- c("female", "male")
-> sex <- factor(sex, levels = c("female", "male", "undetermined"))
-> plot(sex)
-> ```
->
-> ![figure](R-02-starting-with-data_files/figure-markdown/unnamed-chunk-21-1.png)
-
-``` {.r}
-## Challenges
-##
-## * Rename "F" and "M" to "female" and "male" respectively.
-## * Now that we have renamed the factor level to "undetermined", can you recreate the
-##   barplot such that "undetermined" is last (after "male")
-```
+> [Answers](R02C3)
 
 ### Using `stringsAsFactors=FALSE`
 
@@ -490,32 +466,21 @@ surveys$plot_type <- factor(surveys$plot_type)
 >     `data.frame`. Can you spot and fix them? Don't hesitate to
 >     experiment!
 >
->     ``` {.r}
->     animal_data <- data.frame(
->               animal = c(dog, cat, sea cucumber, sea urchin),
->               feel = c("furry", "squishy", "spiny"),
->               weight = c(45, 8 1.1, 0.8)
->               )
->     ```
+> `r   animal_data <- data.frame(       animal = c(dog, cat, sea cucumber, sea urchin),       feel = c("furry", "squishy", "spiny"),       weight = c(45, 8 1.1, 0.8)       )`
 >
 > 2.  Can you predict the class for each of the columns in the following
 >     example? Check your guesses using `str(country_climate)`:
->     -   Are they what you expected? Why? Why not?
->     -   What would have been different if we had added
->         `stringsAsFactors = FALSE` when creating the data frame?
->     -   What would you need to change to ensure that each column had
->         the accurate data type?
 >
->     ``` {.r}
->     country_climate <- data.frame(
->            country = c("Canada", "Panama", "South Africa", "Australia"),
->            climate = c("cold", "hot", "temperate", "hot/temperate"),
->            temperature = c(10, 30, 18, "15"),
->            northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
->            has_kangaroo = c(FALSE, FALSE, FALSE, 1)
->            )
->     ```
+> -   Are they what you expected? Why? Why not?
+> -   What would have been different if we had added
+>     `stringsAsFactors = FALSE` when creating the data frame?
+> -   What would you need to change to ensure that each column had the
+>     accurate data type?
 >
+> `r   country_climate <- data.frame(       country = c("Canada", "Panama", "South Africa", "Australia"),       climate = c("cold", "hot", "temperate", "hot/temperate"),       temperature = c(10, 30, 18, "15"),       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),       has_kangaroo = c(FALSE, FALSE, FALSE, 1)       )`
+>
+> [Answers](R02C4)
+
 The automatic conversion of data type is sometimes a blessing, sometimes
 an annoyance. Be aware that it exists, learn the rules, and double check
 that data you import in R are of the correct type within your data
@@ -551,6 +516,10 @@ belong to the core tidyverse, so you have to load it explicitly with
 `library(lubridate)`
 
 Start by loading the required package:
+
+``` {.r}
+suppressWarnings(library(lubridate))
+```
 
 ``` {.r}
 library(lubridate)
@@ -667,6 +636,6 @@ Why did these dates fail to parse? If you had to use these data for your
 analyses, how would you deal with this situation?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 11:28:57
+Page built on: 2018-09-18 at 13:34:35
 </p>
 

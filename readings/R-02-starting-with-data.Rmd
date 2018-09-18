@@ -26,6 +26,9 @@ knitr::opts_chunk$set(fig.cap="figure")
 
 ------------
 
+To follow along without lots of copying and pasting, you can download [a
+script with nothing but the R code here](../scripts/R-02-starting-with-data.R).
+
 ## Presentation of the Survey Data
 
 ```{r, echo=FALSE}
@@ -324,7 +327,7 @@ to specify the order because it is meaningful (e.g., "low", "medium", "high"),
 it improves your visualization, or it is required by a particular type of
 analysis. Here, one way to reorder our levels in the `sex` vector would be:
 
-```{r, results=TRUE, purl=FALSE}
+```{r, results=TRUE}
 sex # current order
 sex <- factor(sex, levels = c("male", "female"))
 sex # after re-ordering
@@ -342,7 +345,7 @@ this information built in. It is particularly helpful when there are many levels
 If you need to convert a factor to a character vector, you use
 `as.character(x)`.
 
-```{r, purl=FALSE}
+```{r}
 as.character(sex)
 ```
 
@@ -375,7 +378,8 @@ level. Let's look at the number of males and females captured over the course of
 the experiment:
 
 ```{r, purl=TRUE}
-## bar plot of the number of females and males captured during the experiment:
+## bar plot of the number of females and males captured 
+## during the experiment:
 plot(surveys$sex)
 ```
 
@@ -386,7 +390,7 @@ label to something more meaningful. Before doing that, we're going to pull out
 the data on sex and work with that data, so we're not modifying the working copy
 of the data frame:
 
-```{r, results=TRUE, purl=FALSE}
+```{r, results=FALSE, purl=FALSE}
 sex <- surveys$sex
 head(sex)
 levels(sex)
@@ -399,18 +403,16 @@ head(sex)
 > ### Challenge
 >
 > * Rename "F" and "M" to "female" and "male" respectively.
-> * Now that we have renamed the factor level to "undetermined", can you recreate the
->  barplot such that "undetermined" is last (after "male")?
+> * Now that we have renamed the factor level to "undetermined", 
+>   can you recreate the barplot such that 
+>   "undetermined" is last (after "male")?
 >
-> ```{r, answer=TRUE, purl=FALSE}
-> levels(sex)[2:3] <- c("female", "male")
-> sex <- factor(sex, levels = c("female", "male", "undetermined"))
-> plot(sex)
-> ``` 
+> [Answers](R02C3)
 
 
-```{r}
-## Challenges
+
+```{r, echo=FALSE}
+## Challenge
 ##
 ## * Rename "F" and "M" to "female" and "male" respectively.
 ## * Now that we have renamed the factor level to "undetermined", can you recreate the
@@ -448,71 +450,59 @@ surveys$plot_type <- factor(surveys$plot_type)
 >   a few mistakes in this hand-crafted `data.frame`. Can you spot and fix them?
 >   Don't hesitate to experiment!
 >
->     ```{r, eval=FALSE, purl=FALSE}
->     animal_data <- data.frame(
->               animal = c(dog, cat, sea cucumber, sea urchin),
->               feel = c("furry", "squishy", "spiny"),
->               weight = c(45, 8 1.1, 0.8)
->               )
->     ```
+>   ```{r, eval=FALSE, purl=FALSE}
+>   animal_data <- data.frame(
+>       animal = c(dog, cat, sea cucumber, sea urchin),
+>       feel = c("furry", "squishy", "spiny"),
+>       weight = c(45, 8 1.1, 0.8)
+>       )
+>   ```
 >
->     ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
->     ## Challenge:
->     ##  There are a few mistakes in this hand-crafted `data.frame`,
->     ##  can you spot and fix them? Don't hesitate to experiment!
->     animal_data <- data.frame(
->           animal = c(dog, cat, sea cucumber, sea urchin),
->           feel = c("furry", "squishy", "spiny"),
->           weight = c(45, 8 1.1, 0.8)
->           )
->     ```
 >
 > 2. Can you predict the class for each of the columns in the following example?
->    Check your guesses using `str(country_climate)`:
->      * Are they what you expected?  Why? Why not?
->      * What would have been different if we had added `stringsAsFactors = FALSE` when creating the data frame?
->      * What would you need to change to ensure that each column had the accurate data type?
+>   Check your guesses using `str(country_climate)`:
+>    * Are they what you expected?  Why? Why not?
+>    * What would have been different if we had added `stringsAsFactors = FALSE` when creating the data frame?
+>    * What would you need to change to ensure that each column had the accurate data type?
 >
->     ```{r, eval=FALSE, purl=FALSE}
->     country_climate <- data.frame(
->            country = c("Canada", "Panama", "South Africa", "Australia"),
->            climate = c("cold", "hot", "temperate", "hot/temperate"),
->            temperature = c(10, 30, 18, "15"),
->            northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
->            has_kangaroo = c(FALSE, FALSE, FALSE, 1)
->            )
->     ```
+>   ```{r, eval=FALSE, purl=FALSE}
+>   country_climate <- data.frame(
+>       country = c("Canada", "Panama", "South Africa", "Australia"),
+>       climate = c("cold", "hot", "temperate", "hot/temperate"),
+>       temperature = c(10, 30, 18, "15"),
+>       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+>       has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+>       )
+>   ```
 >
->    ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
->    ## Challenge:
->    ##   Can you predict the class for each of the columns in the following
->    ##   example?
->    ##   Check your guesses using `str(country_climate)`:
->    ##   * Are they what you expected? Why? why not?
->    ##   * What would have been different if we had added `stringsAsFactors = FALSE`
->    ##     when we created this data frame?
->    ##   * What would you need to change to ensure that each column had the
->    ##     accurate data type?
->    country_climate <- data.frame(country = c("Canada", "Panama", "South Africa", "Australia"),
->                                   climate = c("cold", "hot", "temperate", "hot/temperate"),
->                                   temperature = c(10, 30, 18, "15"),
->                                   northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
->                                   has_kangaroo = c(FALSE, FALSE, FALSE, 1))
->    ```
->
->    ```{text_answer, echo=FALSE, purl=FALSE}
->    * missing quotations around the names of the animals
->    * missing one entry in the "feel" column (probably for one of the furry animals)
->    * missing one comma in the weight column
->    * `country`, `climate`, `temperature`, and `northern_hemisphere` are
->       factors; `has_kangaroo` is numeric
->    * using `stringsAsFactors = FALSE` would have made them character instead of
->      factors
->    * removing the quotes in temperature and northern_hemisphere and replacing 1
->      by TRUE in the `has_kangaroo` column would give what was probably 
->      intended
->    ```
->
+> [Answers](R02C4)
+
+
+```{r, eval=FALSE, purl=TRUE, echo=FALSE}
+## Challenge:
+##  There are a few mistakes in this hand-crafted `data.frame`,
+##  can you spot and fix them? Don't hesitate to experiment!
+animal_data <- data.frame(
+    animal = c(dog, cat, sea cucumber, sea urchin),
+    feel = c("furry", "squishy", "spiny"),
+    weight = c(45, 8 1.1, 0.8)
+    )
+
+##   Can you predict the class for each of the columns in the following
+##   example?
+##   Check your guesses using `str(country_climate)`:
+##   * Are they what you expected? Why? why not?
+##   * What would have been different if we had added `stringsAsFactors = FALSE`
+##     when we created this data frame?
+##   * What would you need to change to ensure that each column had the
+##     accurate data type?
+country_climate <- data.frame(country = c("Canada", "Panama", "South Africa", "Australia"),
+                              climate = c("cold", "hot", "temperate", "hot/temperate"),
+                              temperature = c(10, 30, 18, "15"),
+                              northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+                              has_kangaroo = c(FALSE, FALSE, FALSE, 1))
+```
+
 
 The automatic conversion of data type is sometimes a blessing, sometimes an
 annoyance. Be aware that it exists, learn the rules, and double check that data
@@ -532,14 +522,18 @@ date is stored as a separate variable. Using `str()`, We can confirm that our
 data frame has a separate column for day, month, and year, and that each contains
 integer values.
 
-```{r, eval=FALSE, purl=FALSE}
+```{r, eval=FALSE}
 str(surveys)
 ```
 We are going to use the `ymd()` function from the package **`lubridate`** (which belongs to the **`tidyverse`**; learn more [here](https://www.tidyverse.org/)). . **`lubridate`** gets installed as part as the **`tidyverse`** installation. When you load  the **`tidyverse`** (`library(tidyverse)`), the core packages (the packages used in most data analyses) get loaded. **`lubridate`** however does not belong to the core tidyverse, so you have to load it explicitly with `library(lubridate)`
 
 Start by loading the required package:
 
-```{r load-package, message=FALSE, purl=FALSE}
+```{r, message=FALSE, purl=FALSE}
+suppressWarnings(library(lubridate))
+```
+
+```{r, eval=FALSE, purl=TRUE}
 library(lubridate)
 ```
 
@@ -595,7 +589,7 @@ Something went wrong: some dates have missing values. Let's investigate where th
 We can use the functions we saw previously to deal with missing data to identify
 the rows in our data frame that are failing. If we combine them with what we learned about subsetting data frames earlier, we can extract the columns "year, "month", "day" from the records that have `NA` in our new column `date`. We will also use `head()` so we don't clutter the output:
 
-```{r, results=TRUE, purl=FALSE}
+```{r, results=TRUE}
 is_missing_date <- is.na(surveys$date)
 date_columns <- c("year", "month", "day")
 missing_dates <- surveys[is_missing_date,  date_columns]
