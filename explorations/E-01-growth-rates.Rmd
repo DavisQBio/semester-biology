@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(fig.cap="figure")
 ```
 
-# Before we start
+## **Before we start**
 
 ------------
 
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(fig.cap="figure")
 > * Examine more complex growth data to challenge model assumptions.
 
 To follow along without lots of copying and pasting, you can download 
-[a script with nothing but the R code here](../../scripts/E-01-growth-rates.R).  
+[a script with nothing but the R code here](../scripts/E-01-growth-rates.R).  
 
 ------------
 
