@@ -531,7 +531,7 @@ We are going to use the `ymd()` function from the package **`lubridate`** (which
 
 Start by loading the required package:
 
-```{r, message=FALSE, purl=FALSE}
+```{r, echo=FALSE,message=FALSE, purl=FALSE}
 suppressWarnings(library(lubridate))
 ```
 
@@ -547,14 +547,14 @@ but, as a best practice, is a character vector formatted as "YYYY-MM-DD".
 
 Let's create a date object and inspect the structure:
 
-```{r, purl=FALSE}
+```{r}
 my_date <- ymd("2015-01-01")
 str(my_date)
 ```
 
 Now let's paste the year, month, and day separately - we get the same result:
 
-```{r, purl=FALSE}
+```{r}
 # sep indicates the character to use to separate each component
 my_date <- ymd(paste("2015", "1", "1", sep = "-")) 
 str(my_date)
@@ -563,26 +563,26 @@ str(my_date)
 Now we apply this function to the surveys dataset. Create a character vector from the `year`, `month`, and `day` columns of
 `surveys` using `paste()`:
 
-```{r, eval=FALSE}
+```{r}
 paste(surveys$year, surveys$month, surveys$day, sep = "-")
 ```
 
 This character vector can be used as the argument for `ymd()`:
 
-```{r, eval=FALSE}
+```{r}
 ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
 ```
 
 The resulting `Date` vector can be added to `surveys` as a new column called `date`:
 
-```{r, purl=FALSE}
+```{r, eval=FALSE}
 surveys$date <- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
 str(surveys) # notice the new column, with 'date' as the class
 ```
 
 Let's make sure everything worked correctly. One way to inspect the new column is to use `summary()`:
 
-```{r, results=TRUE, purl=FALSE}
+```{r, results=TRUE}
 summary(surveys$date)
 ```
 
