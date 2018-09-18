@@ -338,7 +338,7 @@ surveys$plot_type <- factor(surveys$plot_type)
 
 > ### Challenge
 >
-> 1.  We have seen how data frames are created when using `read.csv()`, but they can also be created by hand with the `data.frame()` function. There are a few mistakes in this hand-crafted `data.frame`. Can you spot and fix them? Don't hesitate to experiment!
+> -   We have seen how data frames are created when using `read.csv()`, but they can also be created by hand with the `data.frame()` function. There are a few mistakes in this hand-crafted `data.frame`. Can you spot and fix them? Don't hesitate to experiment!
 
 ``` r
 animal_data <- data.frame(
@@ -348,8 +348,7 @@ animal_data <- data.frame(
     )
 ```
 
-> 1.  Can you predict the class for each of the columns in the following example? Check your guesses using `str(country_climate)`:
->
+> -   Can you predict the class for each of the columns in the following example? Check your guesses using `str(country_climate)`:
 > -   Are they what you expected? Why? Why not?
 > -   What would have been different if we had added `stringsAsFactors = FALSE` when creating the data frame?
 > -   What would you need to change to ensure that each column had the accurate data type?
@@ -486,5 +485,5 @@ head(missing_dates)
 Why did these dates fail to parse? If you had to use these data for your analyses, how would you deal with this situation?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 13:42:35
+Page built on: 2018-09-18 at 13:44:26
 </p>
