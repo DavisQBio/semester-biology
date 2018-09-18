@@ -563,26 +563,26 @@ str(my_date)
 Now we apply this function to the surveys dataset. Create a character vector from the `year`, `month`, and `day` columns of
 `surveys` using `paste()`:
 
-```{r}
+```{r, eval=FALSE}
 paste(surveys$year, surveys$month, surveys$day, sep = "-")
 ```
 
 This character vector can be used as the argument for `ymd()`:
 
-```{r}
+```{r,eval=FALSE}
 ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
 ```
 
 The resulting `Date` vector can be added to `surveys` as a new column called `date`:
 
-```{r, eval=FALSE}
+```{r, results="hide"}
 surveys$date <- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
 str(surveys) # notice the new column, with 'date' as the class
 ```
 
 Let's make sure everything worked correctly. One way to inspect the new column is to use `summary()`:
 
-```{r, results=TRUE}
+```{r}
 summary(surveys$date)
 ```
 
