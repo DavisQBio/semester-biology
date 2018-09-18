@@ -148,9 +148,10 @@ helps check that they are getting consistent results.
 
 > ### Challenge -- sources of noise
 >
-> Based on the results from a single lab, would you be confident to draw
-> conclusions about the growth of this species in general? What are some
-> other sources of variation that might influence the growth rate data?
+> -   Based on the results from a single lab, would you be confident to
+>     draw conclusions about the growth of this species in general?\
+> -   What are some other sources of variation that might influence the
+>     growth rate data?
 
 Visualizing our data
 --------------------
@@ -220,6 +221,6 @@ well between the concentration gradients.
 > -   What conclusions can you draw from these data?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 17:12:17
+Page built on: 2018-09-17 at 17:14:45
 </p>
 

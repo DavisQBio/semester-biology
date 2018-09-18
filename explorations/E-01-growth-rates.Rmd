@@ -1,5 +1,4 @@
 ---
-title: "Before we start"
 layout: page
 output: 
     md_document:
@@ -135,9 +134,9 @@ consistent results.
 
 > ### Challenge -- sources of noise
 >
-> Based on the results from a single lab, would you be confident to draw
-> conclusions about the growth of this species in general?  What are some other sources 
-> of variation that might influence the growth rate data?
+> * Based on the results from a single lab, would you be confident to draw
+> conclusions about the growth of this species in general?  
+> * What are some other sources of variation that might influence the growth rate data?
 
 
 ## Visualizing our data
