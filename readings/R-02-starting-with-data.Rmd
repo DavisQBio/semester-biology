@@ -433,7 +433,8 @@ type.
 
 
 ```{r, eval=FALSE, purl=TRUE}
-## Compare the difference between our data read as `factor` vs `character`.
+## Compare the difference between our data 
+## read as `factor` vs `character`.
 surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = TRUE)
 str(surveys)
 surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = FALSE)
@@ -449,32 +450,33 @@ surveys$plot_type <- factor(surveys$plot_type)
 >   they can also be created by hand with the `data.frame()` function.  There are
 >   a few mistakes in this hand-crafted `data.frame`. Can you spot and fix them?
 >   Don't hesitate to experiment!
->
->   ```{r, eval=FALSE, purl=FALSE}
->   animal_data <- data.frame(
->       animal = c(dog, cat, sea cucumber, sea urchin),
->       feel = c("furry", "squishy", "spiny"),
->       weight = c(45, 8 1.1, 0.8)
->       )
->   ```
->
->
+
+```{r, eval=FALSE, purl=FALSE}
+animal_data <- data.frame(
+    animal = c(dog, cat, sea cucumber, sea urchin),
+    feel = c("furry", "squishy", "spiny"),
+    weight = c(45, 8 1.1, 0.8)
+    )
+```
+
+
 > 2. Can you predict the class for each of the columns in the following example?
 >   Check your guesses using `str(country_climate)`:
 >    * Are they what you expected?  Why? Why not?
 >    * What would have been different if we had added `stringsAsFactors = FALSE` when creating the data frame?
 >    * What would you need to change to ensure that each column had the accurate data type?
 >
->   ```{r, eval=FALSE, purl=FALSE}
->   country_climate <- data.frame(
->       country = c("Canada", "Panama", "South Africa", "Australia"),
->       climate = c("cold", "hot", "temperate", "hot/temperate"),
->       temperature = c(10, 30, 18, "15"),
->       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
->       has_kangaroo = c(FALSE, FALSE, FALSE, 1)
->       )
->   ```
->
+
+```{r, eval=FALSE, purl=FALSE}
+country_climate <- data.frame(
+    country = c("Canada", "Panama", "South Africa", "Australia"),
+    climate = c("cold", "hot", "temperate", "hot/temperate"),
+    temperature = c(10, 30, 18, "15"),
+    northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+    has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+    )
+```
+
 > [Answers](../answers/R02C4)
 
 

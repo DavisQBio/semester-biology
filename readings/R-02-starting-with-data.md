@@ -444,7 +444,8 @@ importing data and to convert as a factor only the columns that require
 this data type.
 
 ``` {.r}
-## Compare the difference between our data read as `factor` vs `character`.
+## Compare the difference between our data 
+## read as `factor` vs `character`.
 surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = TRUE)
 str(surveys)
 surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = FALSE)
@@ -460,9 +461,15 @@ surveys$plot_type <- factor(surveys$plot_type)
 >     function. There are a few mistakes in this hand-crafted
 >     `data.frame`. Can you spot and fix them? Don't hesitate to
 >     experiment!
->
-> `r   animal_data <- data.frame(       animal = c(dog, cat, sea cucumber, sea urchin),       feel = c("furry", "squishy", "spiny"),       weight = c(45, 8 1.1, 0.8)       )`
->
+
+``` {.r}
+animal_data <- data.frame(
+    animal = c(dog, cat, sea cucumber, sea urchin),
+    feel = c("furry", "squishy", "spiny"),
+    weight = c(45, 8 1.1, 0.8)
+    )
+```
+
 > 2.  Can you predict the class for each of the columns in the following
 >     example? Check your guesses using `str(country_climate)`:
 >
@@ -471,9 +478,17 @@ surveys$plot_type <- factor(surveys$plot_type)
 >     `stringsAsFactors = FALSE` when creating the data frame?
 > -   What would you need to change to ensure that each column had the
 >     accurate data type?
->
-> `r   country_climate <- data.frame(       country = c("Canada", "Panama", "South Africa", "Australia"),       climate = c("cold", "hot", "temperate", "hot/temperate"),       temperature = c(10, 30, 18, "15"),       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),       has_kangaroo = c(FALSE, FALSE, FALSE, 1)       )`
->
+
+``` {.r}
+country_climate <- data.frame(
+    country = c("Canada", "Panama", "South Africa", "Australia"),
+    climate = c("cold", "hot", "temperate", "hot/temperate"),
+    temperature = c(10, 30, 18, "15"),
+    northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+    has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+    )
+```
+
 > [Answers](../answers/R02C4)
 
 The automatic conversion of data type is sometimes a blessing, sometimes
@@ -631,6 +646,6 @@ Why did these dates fail to parse? If you had to use these data for your
 analyses, how would you deal with this situation?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 13:38:59
+Page built on: 2018-09-18 at 13:41:24
 </p>
 
