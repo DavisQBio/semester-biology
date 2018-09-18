@@ -1,8 +1,3 @@
----
-title: "Starting with data"
-layout: page
----
-
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -636,6 +631,6 @@ Why did these dates fail to parse? If you had to use these data for your
 analyses, how would you deal with this situation?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 13:34:35
+Page built on: 2018-09-18 at 13:37:17
 </p>
 
