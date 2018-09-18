@@ -103,7 +103,8 @@ When assigning a value to an object, R does not print anything. You can force R 
 
 ```{r}
 weight_kg <- 55    # doesn't print anything
-(weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
+(weight_kg <- 55)  # but putting parenthesis around the call prints the 
+                    #value of `weight_kg`
 weight_kg          # and so does typing the name of the object
 ```
 
@@ -326,7 +327,7 @@ An **atomic vector** is the simplest R **data type** and is a linear vector of a
 uses: `"character"` and `"numeric"` (or `"double"`). These are the basic building blocks that
 all R objects are built from. The other 4 **atomic vector** types are:
 
-* `"logical"` for `TRUE` and `FALSE` (the boolean data type)
+* `"logical"` for `TRUE` and `FALSE` data (the boolean data type)
 * `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
 * `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
   `1 + 4i`) and that's all we're going to say about them
@@ -466,7 +467,7 @@ animals %in% c("rat", "cat", "dog", "duck", "goat")
 animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 ```
 
-> ### Challenge (optional)
+> ### Challenge
 >
 > * Can you figure out why `"four" > "five"` returns `TRUE`?
 >
@@ -507,10 +508,12 @@ examples.
 ## Extract those elements which are not missing values.
 heights[!is.na(heights)]
 
-## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
+## Returns the object with incomplete cases removed. The returned 
+##object is an atomic vector of type `"numeric"` (or `"double"`).
 na.omit(heights)
 
-## Extract those elements which are complete cases. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
+## Extract those elements which are complete cases. The returned 
+##object is an atomic vector of type `"numeric"` (or `"double"`).
 heights[complete.cases(heights)]
 ```
 Recall that you can use the `typeof()` function to find the type of your atomic vector.
@@ -541,6 +544,8 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 ```
 
 Now that we have learned how to write scripts, and the basics of R's data
-structures, we are ready to start working with some data, and learn about data frames.
+structures, we are ready to start learn about data frames and start working 
+with some data.
+
 ```{r, child="_page_built_on.Rmd"}
 ```

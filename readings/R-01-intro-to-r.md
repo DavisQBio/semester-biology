@@ -1,3 +1,8 @@
+---
+title: "Before we start"
+layout: page
+---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -14,6 +19,11 @@
 > -   Analyze vectors with missing data.
 
 ------------------------------------------------------------------------
+
+To follow along without lots of copying and pasting, you can download [a
+script with nothing but the R code here](../scripts/R-01-intro-to-r.R).
+As good organizational practice, make sure you save it to your
+`scripts/` folder in your project directory for these lessons.
 
 Creating objects in R
 ---------------------
@@ -95,12 +105,13 @@ name:
 
 ``` {.r}
 weight_kg <- 55    # doesn't print anything
-(weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
+(weight_kg <- 55)  # but putting parenthesis around the call prints the 
 ```
 
     ## [1] 55
 
 ``` {.r}
+                    #value of `weight_kg`
 weight_kg          # and so does typing the name of the object
 ```
 
@@ -362,7 +373,7 @@ types that R uses: `"character"` and `"numeric"` (or `"double"`). These
 are the basic building blocks that all R objects are built from. The
 other 4 **atomic vector** types are:
 
--   `"logical"` for `TRUE` and `FALSE` (the boolean data type)
+-   `"logical"` for `TRUE` and `FALSE` data (the boolean data type)
 -   `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R
     that it's an integer)
 -   `"complex"` to represent complex numbers with real and imaginary
@@ -513,7 +524,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 
     ## [1] "rat" "dog" "cat"
 
-> ### Challenge (optional)
+> ### Challenge
 >
 > -   Can you figure out why `"four" > "five"` returns `TRUE`?
 >
@@ -569,7 +580,8 @@ heights[!is.na(heights)]
     ## [1] 2 4 4 6
 
 ``` {.r}
-## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
+## Returns the object with incomplete cases removed. The returned 
+##object is an atomic vector of type `"numeric"` (or `"double"`).
 na.omit(heights)
 ```
 
@@ -580,7 +592,8 @@ na.omit(heights)
     ## [1] "omit"
 
 ``` {.r}
-## Extract those elements which are complete cases. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
+## Extract those elements which are complete cases. The returned 
+##object is an atomic vector of type `"numeric"` (or `"double"`).
 heights[complete.cases(heights)]
 ```
 
@@ -607,10 +620,10 @@ atomic vector.
 > [Answers](../answers/R01C3)
 
 Now that we have learned how to write scripts, and the basics of R's
-data structures, we are ready to start working with some data, and learn
-about data frames.
+data structures, we are ready to start learn about data frames and start
+working with some data.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-13 at 14:43:20
+Page built on: 2018-09-18 at 11:17:49
 </p>
 

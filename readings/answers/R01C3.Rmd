@@ -1,8 +1,11 @@
 ---
 title: "R-01 Answers"
 layout: page
-output: md_document
+output: 
+    md_document:
+        variant: markdown
 ---
+
  1. Using this vector of heights in inches, create a new vector with the NAs removed.
     ```{r}
     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
@@ -32,3 +35,4 @@ heights_above_67 <- heights_no_na[heights_no_na > 67]
 length(heights_above_67)
 ```
 
+[Back to reading](../../R-01-intro-to-r)
