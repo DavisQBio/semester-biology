@@ -19,18 +19,10 @@ Loading the growth rate data
 ----------------------------
 
 You can remind yourself of these data by reviewing the [previous
-exploration](../E-01-growth-rates). Let's quickly load
-these data again.
+exploration](../E-01-growth-rates). Let's quickly load these data again.
 
 ``` {.r}
 library(growthrates)
-```
-
-    ## Loading required package: lattice
-
-    ## Loading required package: deSolve
-
-``` {.r}
 data(antibiotic)
 str(antibiotic)
 ```
@@ -64,21 +56,7 @@ package](../../readings/R-03-dplyr) has a longer walkthrough of the
 functions like `filter()` and `mutate()` that we'll be using here.
 
 ``` {.r}
-library(dplyr)
-```
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` {.r}
+suppressWarnings(library(dplyr))
 antibiotic_0 <- filter(antibiotic, conc == 0)
 ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
 ```
@@ -175,15 +153,21 @@ function from above. Note I used 0.01 as the $$N_0$$, based on a rough
 inspection of the data. And I used $$r = 0.57$$ because I explored and
 found that that value of $$r$$ fit the data well for early time steps.
 
-But... this model is definitely not fitting the data at later times.
+We also got a warning. In this case, it's nothing to be worried about.
+We set limits to the y-axis using `ylim()`. A lot of the values of
+`model_output` were much larger than 1, so they were dropped from the
+data when the plot was made. *Try making that plot without setting the
+limits and see what happens.*
+
+Regardless... this model is definitely not fitting the data well at
+later times.
 
 > ### Challenge -- model parameters
 >
 > We got the data to fit fairly well at early time steps, but then it
 > was way off for later times. Can you find $$r$$ and $$N_0$$ to fit the
 > data better? Explore a little bit by changing the value of the
-> varaibles $$r$$ and $$N0$$ in the R code above, and re-running the
-> plot.
+> variables `r` and `N0` in the R code above, and re-running the plot.
 >
 > -   I suspect you won't ever find a great fit. Why not?
 
@@ -200,8 +184,9 @@ down. There may be constraints on resources like food, water, or space
 that prevent never-ending population growth. A first take on this might
 start with our similar equation $$\frac{dN}{dt} = rN$$, but add a second
 factor that will take the population growth rate $$\frac{dN}{dt}$$
-towards 0 as $$N$$ reaches some maximum population size $$K$$. Note: in
+towards 0 as $$N$$ reaches some maximum population size $$K$$. In
 ecology this parameter $$K$$ is often called the *carrying capacity*.
+
 Let's try out this updated equation:
 $$\frac{dN}{dt} = rN(1-\frac{N}{K})$$. Now when $$N$$ is much smaller
 than $$K$$, then our new term is near 1, and we basically have the
@@ -210,11 +195,11 @@ then the term $$(1-\frac{N}{K})$$ gets close to 0, and population growth
 will slow to a halt.
 
 This is the population *growth* that's slowing. The population won't die
-out, it will just level off at a value of $$K$$. Okay, let's plot this.
-The solution to this equation is more complicated. Here's one way to
-represent the solution.
+out, it will just level off at population size $$K$$. Okay, let's plot
+this. The solution to this equation is more complicated. Here's one way
+to represent the solution.
 \begin{equation}
-  N(t) = \frac{KN_0}{N_0+(K-N_0e^{-rt}}
+  N(t) = \frac{KN_0}{N_0+(K-N_0e^{-rt})}
 \end{equation}
 We have three parameters to fit to our data now: the starting population
 size $$N_0$$, the carrying capacity $$K$$, and the "growth rate" $$r$$.
@@ -228,8 +213,8 @@ approximately exponential with rate $$r$$.
 >
 > To make it easy for us to try out different values of our three
 > parameters, I'm going to define a new function `log_growth`, that
-> takes an input `t` and parameters `K`, `r`, and `N0` and returns the
-> output `N`, the population size at the input time `t` that was chosen.
+> takes arguments `t`, `K`, `r`, and `N0` and returns the output `N`,
+> the population size at the input time `t` that was chosen.
 
 ``` {.r}
 log_growth <- function(t,K,r,N0)
@@ -248,10 +233,13 @@ reason why we did this will become clear as we try some plotting.
 K <- .75
 r <- .57
 N0 <- 0.01
-antibiotic_0 <- mutate(antibiotic_0, model_logistic_output = log_growth(time,K,r,N0))
+antibiotic_0 <- mutate(antibiotic_0, 
+                       model_logistic_output = log_growth(time,K,r,N0))
+
 p <- ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
 p <- p + geom_line(aes(y=model_logistic_output), color = "red")
 p <- p + ylim(c(0,1))
+
 p
 ```
 
@@ -267,7 +255,9 @@ Next, I used that `mutate()` function again. This time, I created a new
 column in the data called `model_logistic_output`. Instead of having to
 write out a whole equation, I used the function we just defined, taking
 the inputs as the column `time` from the data, as well as the parameters
-we just defined above.
+we just defined above. So defining that function made the later code
+easier to read and interpret, and will save us time if we need to use
+the logistic growth equation multiple times.
 
 > ### Challenge -- fitting the logistic equation
 >
@@ -280,6 +270,6 @@ we just defined above.
 > [Some potential answers](../answers/E02C1)
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 15:40:38
+Page built on: 2018-09-18 at 15:53:12
 </p>
 
