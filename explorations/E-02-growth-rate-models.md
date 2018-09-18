@@ -10,8 +10,10 @@ layout: page
 > -   Work with growth rate data to explore mathematical growth models.
 > -   Manipulate model parameters to build intuition.
 
-As always, you can download [a script with nothing but the R code here](../../scripts/E-02-growth-rate-models.R).
---------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+As always, you can download [a script with nothing but the R code
+here](../../scripts/E-02-growth-rate-models.R).
 
 Loading the growth rate data
 ----------------------------
@@ -278,6 +280,6 @@ we just defined above.
 > [Some potential answers](../answers/E02C1)
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 15:38:19
+Page built on: 2018-09-18 at 15:40:38
 </p>
 
