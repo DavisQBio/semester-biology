@@ -57,26 +57,8 @@ Wow... that was a lot of output. At least it means the data loaded properly. Let
 
 ``` r
 head(surveys)
-```
-
-    ##   record_id month day year plot_id species_id sex hindfoot_length weight
-    ## 1         1     7  16 1977       2         NL   M              32     NA
-    ## 2        72     8  19 1977       2         NL   M              31     NA
-    ## 3       224     9  13 1977       2         NL                  NA     NA
-    ## 4       266    10  16 1977       2         NL                  NA     NA
-    ## 5       349    11  12 1977       2         NL                  NA     NA
-    ## 6       363    11  12 1977       2         NL                  NA     NA
-    ##     genus  species   taxa plot_type
-    ## 1 Neotoma albigula Rodent   Control
-    ## 2 Neotoma albigula Rodent   Control
-    ## 3 Neotoma albigula Rodent   Control
-    ## 4 Neotoma albigula Rodent   Control
-    ## 5 Neotoma albigula Rodent   Control
-    ## 6 Neotoma albigula Rodent   Control
-
-``` r
 ## Try also
-## View(surveys)
+View(surveys)
 ```
 
 > ### Note
@@ -14373,5 +14355,5 @@ head(missing_dates)
 Why did these dates fail to parse? If you had to use these data for your analyses, how would you deal with this situation?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 13:48:04
+Page built on: 2018-09-18 at 13:49:20
 </p>

@@ -86,10 +86,10 @@ Wow... that was a lot of output. At least it means the data loaded
 properly. Let's check the top (the first 6 lines) of this data frame using the
 function `head()`:
 
-```{r, results='show', purl=FALSE}
+```{r, eval=FALSE}
 head(surveys)
 ## Try also
-## View(surveys)
+View(surveys)
 ```
 
 > ### Note
@@ -130,7 +130,7 @@ numeric, a character, and a logical vector.
 We can see this when inspecting the **str**ucture of a data frame
 with the function `str()`:
 
-```{r, purl=FALSE}
+```{r}
 str(surveys)
 ```
 
