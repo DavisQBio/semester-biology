@@ -1,8 +1,3 @@
----
-title: "Before we start"
-layout: page
----
-
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -12,11 +7,11 @@ layout: page
 > -   Implement growth rate models in R.
 > -   Examine more complex growth data to challenge model assumptions.
 
+------------------------------------------------------------------------
+
 To follow along without lots of copying and pasting, you can download [a
 script with nothing but the R code
-here](../scripts/E-01-growth-rates.R).
-
-------------------------------------------------------------------------
+here](../../scripts/E-01-growth-rates.R).
 
 Loading some growth rate data
 -----------------------------
@@ -223,6 +218,6 @@ well between the concentration gradients.
 > -   What conclusions can you draw from these data?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 17:21:44
+Page built on: 2018-09-18 at 15:41:26
 </p>
 

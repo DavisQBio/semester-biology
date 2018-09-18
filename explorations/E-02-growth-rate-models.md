@@ -19,7 +19,7 @@ Loading the growth rate data
 ----------------------------
 
 You can remind yourself of these data by reviewing the [previous
-exploration](../explorations/E-01-growth-rates). Let's quickly load
+exploration](../E-01-growth-rates). Let's quickly load
 these data again.
 
 ``` {.r}

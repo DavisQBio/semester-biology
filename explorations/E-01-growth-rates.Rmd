@@ -18,11 +18,10 @@ knitr::opts_chunk$set(fig.cap="figure")
 > * Implement growth rate models in R.
 > * Examine more complex growth data to challenge model assumptions.
 
-To follow along without lots of copying and pasting, you can download 
-[a script with nothing but the R code here](../scripts/E-01-growth-rates.R).  
-
 ------------
 
+To follow along without lots of copying and pasting, you can download 
+[a script with nothing but the R code here](../../scripts/E-01-growth-rates.R).  
 
 ## Loading some growth rate data
 
