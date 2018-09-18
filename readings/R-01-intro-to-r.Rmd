@@ -544,8 +544,8 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 ```
 
 Now that we have learned how to write scripts, and the basics of R's data
-structures, we are ready to start learn about data frames and start working 
-with some data.
+structures, we are ready to start learning about data frames and working 
+with data.
 
 ```{r, child="_page_built_on.Rmd"}
 ```

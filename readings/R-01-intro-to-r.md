@@ -620,10 +620,10 @@ atomic vector.
 > [Answers](../answers/R01C3)
 
 Now that we have learned how to write scripts, and the basics of R's
-data structures, we are ready to start learn about data frames and start
-working with some data.
+data structures, we are ready to start learning about data frames and
+working with data.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 11:19:07
+Page built on: 2018-09-18 at 11:22:31
 </p>
 
