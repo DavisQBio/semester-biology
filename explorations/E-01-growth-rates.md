@@ -10,7 +10,8 @@ Before we start
 > -   Implement growth rate models in R.
 > -   Examine more complex growth data to challenge model assumptions.
 
-As always, you can download [a script with nothing but the R code
+To follow along without lots of copying and pasting, you can download [a
+script with nothing but the R code
 here](../scripts/E-01-growth-rates.R).
 
 ------------------------------------------------------------------------
@@ -217,6 +218,6 @@ well between the concentration gradients.
 > data?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 16:55:36
+Page built on: 2018-09-17 at 17:04:55
 </p>
 

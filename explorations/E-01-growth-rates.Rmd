@@ -20,7 +20,8 @@ knitr::opts_chunk$set(fig.cap="figure")
 > * Implement growth rate models in R.
 > * Examine more complex growth data to challenge model assumptions.
 
-As always, you can download [a script with nothing but the R code here](../scripts/E-01-growth-rates.R).  
+To follow along without lots of copying and pasting, you can download 
+[a script with nothing but the R code here](../scripts/E-01-growth-rates.R).  
 
 ------------
 
@@ -196,5 +197,5 @@ gradients.
 > * What conclusions can you draw from these data?
 
 
-```{r, child="../_page_built_on.Rmd"}
+```{r, child="../_page_built_on.Rmd", purl=FALSE}
 ```
