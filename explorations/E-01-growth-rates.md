@@ -1,3 +1,8 @@
+---
+title: "Before we start"
+layout: page
+---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
