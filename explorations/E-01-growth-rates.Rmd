@@ -1,4 +1,5 @@
 ---
+title: "Before we start"
 layout: page
 output: 
     md_document:
@@ -8,8 +9,6 @@ output:
 ```{r, echo=FALSE, purl=FALSE}
 knitr::opts_chunk$set(fig.cap="figure")
 ```
-
-## **Before we start**
 
 ------------
 
