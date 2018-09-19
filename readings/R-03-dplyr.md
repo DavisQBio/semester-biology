@@ -1,9 +1,9 @@
-### Manipulating and analyzing data with dplyr
+---
+title: Manipulating, analyzing, and exporting data with tidyverse
+layout: page
+---
 
 ------------------------------------------------------------------------
-
-If you need a refresher on working with data in R, go back and look over
-the [previous reading](../readings/R-02-starting-with-data).
 
 > ### Learning Objectives
 >
@@ -29,8 +29,11 @@ the [previous reading](../readings/R-02-starting-with-data).
 
 ------------------------------------------------------------------------
 
+To follow along without lots of copying and pasting, you can download [a
+script with nothing but the R code here](../scripts/R-03-dplyr.R).
+
 Data Manipulation using **`dplyr`** and **`tidyr`**
-===================================================
+---------------------------------------------------
 
 The bracket subsetting we discussed in the [previous
 reading](../R-02-starting-with-data) is handy, but it can be cumbersome
@@ -332,7 +335,7 @@ surveys %>%
 If this runs off your screen and you just want to see the first few
 rows, you can use a pipe to view the `head()` of the data. (Pipes work
 with non-**`dplyr`** functions, too, as long as the **`dplyr`** or
-`magrittr` package is loaded).
+`magrittr` package is loaded.)
 
 ``` {.r}
 surveys %>%
@@ -498,7 +501,7 @@ surveys %>%
 
 The `count()` function is shorthand for something we've already seen:
 grouping by a variable, and summarizing it by counting the number of
-observations in that group. In other words, `surveys %>% count()` is
+observations in that group. In other words, `surveys %>% count(sex)` is
 equivalent to:
 
 ``` {.r}
@@ -556,7 +559,8 @@ sex (i.e. `NA`).
 ### Reshaping with gather and spread
 
 Keeping your data well-organized for analysis will save you headaches
-later on. There's a nice [Data Carpentry lesson
+later on. There's a nice Data Carpentry [lesson on spreadsheet data
+formatting
 here](http://www.datacarpentry.org/spreadsheet-ecology-lesson/01-format-data/).
 
 Here are four rules defining a tidy dataset:
@@ -573,7 +577,7 @@ In `surveys` , the rows of `surveys` contain the values of variables
 associated with each record (the unit), values such the weight or sex of
 each animal associated with each record. What if instead of comparing
 records, we wanted to compare the different mean weight of each species
-between plots? (Ignoring `plot_type` for simplicity).
+between plots? (Ignoring `plot_type` for simplicity.)
 
 We'd need to create a new table where each row (the unit) is comprise of
 values of variables associated with each plot. In practical terms this
@@ -819,6 +823,6 @@ write_csv(surveys_complete, path = "data_output/surveys_complete.csv")
 ```
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 12:45:35
+Page built on: 2018-09-19 at 14:05:45
 </p>
 
