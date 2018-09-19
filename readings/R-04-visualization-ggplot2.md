@@ -1,5 +1,7 @@
-Data Visualization with **`ggplot2`**
-=====================================
+---
+title: Data visualization with ggplot2
+layout: page
+---
 
 ------------------------------------------------------------------------
 
@@ -15,6 +17,10 @@ Data Visualization with **`ggplot2`**
 
 ------------------------------------------------------------------------
 
+To follow along without lots of copying and pasting, you can download [a
+script with nothing but the R code
+here](../scripts/R-04-visualization-ggplot2.R).
+
 We start by loading the required packages. **`ggplot2`** is included in
 the **`tidyverse`** package.
 
@@ -23,7 +29,7 @@ library(tidyverse)
 ```
 
 If not still in the workspace, let's load the data we saved in the
-previous reading, `surveys_complete`.
+[previous reading](../R-03-dplyr), `surveys_complete`.
 
 ``` {.r}
 surveys_complete <- read_csv("data_output/surveys_complete.csv")
@@ -104,18 +110,19 @@ surveys_plot +
 
 ![figure](R-04-visualization-ggplot2_files/figure-markdown/using-plus-1.png)
 
-**Notes**
-
--   Anything you put in the `ggplot()` function can be seen by any geom
-    layers that you add (i.e., these are universal plot settings). This
-    includes the x- and y-axis mapping you set up in `aes()`.
--   You can also specify mappings for a given geom independently of the
-    mappings defined globally in the `ggplot()` function.
--   The `+` sign used to add new layers must be placed at the end of the
-    line containing the *previous* layer. If, instead, the `+` sign is
-    added at the beginning of the line containing the new layer,
-    **`ggplot2`** will not add the new layer and will return an error
-    message.
+> **Notes**
+>
+> -   Anything you put in the `ggplot()` function can be seen by any
+>     geom layers that you add (i.e., these are universal plot
+>     settings). This includes the x- and y-axis mapping you set up in
+>     `aes()`.
+> -   You can also specify mappings for a given geom independently of
+>     the mappings defined globally in the `ggplot()` function.
+> -   The `+` sign used to add new layers must be placed at the end of
+>     the line containing the *previous* layer. If, instead, the `+`
+>     sign is added at the beginning of the line containing the new
+>     layer, **`ggplot2`** will not add the new layer and will return an
+>     error message.
 
 ``` {.r}
 # This is the correct syntax for adding layers
@@ -577,6 +584,6 @@ Note: The parameters `width` and `height` also determine the font size
 in the saved plot.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-17 at 14:57:54
+Page built on: 2018-09-19 at 14:54:32
 </p>
 

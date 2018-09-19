@@ -6,8 +6,6 @@ output:
         variant: markdown
 ---
 
-# Data Visualization with **`ggplot2`**
-
 ```{r, echo=FALSE, purl=FALSE, message=FALSE,results=FALSE}
 source("setup.R")
 suppressWarnings(library(tidyverse))
@@ -31,14 +29,17 @@ knitr::opts_chunk$set(fig.cap="figure")
 
 --------------
 
+To follow along without lots of copying and pasting, you can download [a
+script with nothing but the R code here](../scripts/R-04-visualization-ggplot2.R).
+
 We start by loading the required packages. **`ggplot2`** is included in the **`tidyverse`** package.
 
 ```{r, eval=FALSE}
 library(tidyverse)
 ```
 
-If not still in the workspace, let's load the data we saved in the previous reading,
-`surveys_complete`.
+If not still in the workspace, let's load the data we saved in the [previous 
+reading](../R-03-dplyr), `surveys_complete`.
 
 
 ```{r, eval=FALSE}
@@ -111,19 +112,19 @@ surveys_plot +
     geom_point()
 ```
 
-**Notes**
+> **Notes**
+>
+> * Anything you put in the `ggplot()` function can be seen by any geom layers
+>   that you add (i.e., these are universal plot settings). This includes the x- and
+>   y-axis mapping you set up in `aes()`.
+> * You can also specify mappings for a given geom independently of the
+>   mappings defined globally in the `ggplot()` function.
+> * The `+` sign used to add new layers must be placed at the end of the line containing
+>   the *previous* layer. If, instead, the `+` sign is added at the beginning of the line
+>   containing the new layer, **`ggplot2`** will not add the new layer and will return an 
+>   error message.
 
-- Anything you put in the `ggplot()` function can be seen by any geom layers
-  that you add (i.e., these are universal plot settings). This includes the x- and
-  y-axis mapping you set up in `aes()`.
-- You can also specify mappings for a given geom independently of the
-  mappings defined globally in the `ggplot()` function.
-- The `+` sign used to add new layers must be placed at the end of the line containing
-the *previous* layer. If, instead, the `+` sign is added at the beginning of the line
-containing the new layer, **`ggplot2`** will not add the new layer and will return an 
-error message.
-
-```{r, eval=FALSE, purl=FALSE}
+```{r, eval=FALSE}
 # This is the correct syntax for adding layers
 surveys_plot +
   geom_point()
