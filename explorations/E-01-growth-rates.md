@@ -154,7 +154,7 @@ with, flexible, and can quickly make high quality data visualizations.
 Let's load it and get started. Instead of explaining everything, you can
 try to fiddle with the code to start getting a feel for the syntax. If
 you've worked through [Reading 3: Manipulating and analyzing data with
-tidyverse](../readings/R-03-dplyr), you've already installed the
+tidyverse](../../readings/R-03-dplyr), you've already installed the
 **`tidyverse`** package, which includes **`ggplot2`**. If not, the code
 `install.packages("ggplot2")` can install just that package.
 
