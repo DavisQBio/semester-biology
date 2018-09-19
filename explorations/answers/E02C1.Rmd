@@ -8,7 +8,8 @@ output:
 > ### Challenge -- fitting the logistic equation
 >
 > * Take some time now to play around with those parameters. Can you come up with a 
->   better fit? 
+>   better fit? (Make sure you run the whole batch of code again, to get new
+>   values for the column `model_logistic_output`.)
 > * It seems clear that we can't quite get this perfect either.  Why not?
 >   Can you come up with any biological reasons why our logistic model isn't perfect?
 > 

@@ -8,7 +8,8 @@ layout: page
 > ### Learning Objectives
 >
 > -   Work with growth rate data to explore mathematical growth models.
-> -   Manipulate model parameters to build intuition.
+> -   Manipulate model parameters to build intuition about a biological
+>     system.
 
 ------------------------------------------------------------------------
 
@@ -57,6 +58,20 @@ functions like `filter()` and `mutate()` that we'll be using here.
 
 ``` {.r}
 library(dplyr)
+```
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` {.r}
 antibiotic_0 <- filter(antibiotic, conc == 0)
 ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
 ```
@@ -67,12 +82,12 @@ Okay, we have a few things to unpack. First, we got a suprise message
 when we loaded **`dplyr`**. It mentions some "objects" from other
 packages that are now "masked". This is because **`dplyr`** has
 functions named `filter`, `lag`, `intersect`, `setdiff`, etc. But
-functions with those names already exist in R.\
-So, when **`dplyr`** is loaded, it masks the other versions. Thus, when
-you call the function `filter()`, it will be the function from the
-**`dplyr`** package, not the basic function from the **`stats`**
-package. This is usually not a big deal, but it's something to remember
-if a function seems to be working oddly.
+functions with those names already exist in R. So, when **`dplyr`** is
+loaded, it masks the other versions. Thus, when you call the function
+`filter()`, it will be the function from the **`dplyr`** package, not
+the basic function from the **`stats`** package. This is usually not a
+big deal, but it's something to remember if a function seems to be
+working oddly.
 
 Second, we didn't define the *color* aesthetic this time. Why not? Well,
 because we are only looking at a single concentration level, so we don't
@@ -132,12 +147,20 @@ time points, and applying the function to each one. It feels confusing
 at first, but it's surprisingly simple to do.
 
 ``` {.r}
+## define some model parameters to try out
 r <- 0.57
 N0 <- 0.01
+## add a new column that calculates the model prediction 
+## at each time point
 antibiotic_0 <- mutate(antibiotic_0, model_output = exp(r*time)*N0)
+
+## build a plot, starting with our real data points
 p <- ggplot(antibiotic_0,aes(x=time,y=value))+geom_point()
+## add a red line that represents the model prediction
 p <- p + geom_line(aes(y=model_output), color = "red")
+## set the y-axis min and max to 0 and 1, respectively
 p <- p + ylim(c(0,1))
+## view the plot
 p
 ```
 
@@ -167,7 +190,7 @@ later times.
 > We got the data to fit fairly well at early time steps, but then it
 > was way off for later times. Can you find $$r$$ and $$N_0$$ to fit the
 > data better? Explore a little bit by changing the value of the
-> variables `r` and `N0` in the R code above, and re-running the plot.
+> parameters `r` and `N0` in the R code above, and re-running the plot.
 >
 > -   I suspect you won't ever find a great fit. Why not?
 
@@ -199,7 +222,7 @@ out, it will just level off at population size $$K$$. Okay, let's plot
 this. The solution to this equation is more complicated. Here's one way
 to represent the solution.
 \begin{equation}
-  N(t) = \frac{KN_0}{N_0+(K-N_0e^{-rt})}
+  N(t) = \frac{KN_0}{N_0+(K-N_0)e^{-rt}}
 \end{equation}
 We have three parameters to fit to our data now: the starting population
 size $$N_0$$, the carrying capacity $$K$$, and the "growth rate" $$r$$.
@@ -262,7 +285,9 @@ the logistic growth equation multiple times.
 > ### Challenge -- fitting the logistic equation
 >
 > -   Take some time now to play around with those parameters. Can you
->     come up with a better fit?
+>     come up with a better fit? (Make sure you run the whole batch of
+>     code again, to get new values for the column
+>     `model_logistic_output`.)
 > -   It seems clear that we can't quite get this perfect either. Why
 >     not? Can you come up with any biological reasons why our logistic
 >     model isn't perfect?
@@ -270,6 +295,6 @@ the logistic growth equation multiple times.
 > [Some potential answers](../answers/E02C1)
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 15:56:55
+Page built on: 2018-09-19 at 10:55:15
 </p>
 
