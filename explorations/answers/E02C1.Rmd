@@ -30,12 +30,12 @@ A few things to keep in mind to potentially explain this:
     an increasing number of dead cells floating around that are also being counted.
  * These microbes often have high DNA mutation rates, and some mutant 
     individuals might
-    arise that can continue to flourish even when $$N$$ is near $$K$$. Increasing
+    arise that can continue to flourish even when $$N$$ is near $$K$$. Continued
     population growth at this point could potentially reflect evolution in action.
  * Our logistic model imposes a particular mathematical relation on the rate of slowing.
     It's simple, but there's no reason to be sure that it's the best. 
     We might need more parameters or different relationships between variables
-    to be able to fit more realistic data.
+    in the model to be able to fit more realistic data.
  
 The [phases section](https://en.wikipedia.org/wiki/Bacterial_growth#Phases) of
 the "Bacterial growth" page on Wikipedia lays out another way to think about 

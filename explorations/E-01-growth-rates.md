@@ -1,11 +1,15 @@
+---
+title: "Loading and visualizing growth rate data"
+layout: page
+---
+
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
 >
-> -   Use R to practice loading, manipulating, and visualizing growth
->     rate data.
-> -   Implement growth rate models in R.
-> -   Examine more complex growth data to challenge model assumptions.
+> -   Use some of R's key functions for loading and understanding data
+>     sets
+> -   Explore the **`ggplot2`** package to visualize growth rate data
 
 ------------------------------------------------------------------------
 
@@ -18,10 +22,10 @@ Loading some growth rate data
 
 In this exploration we'll load some real experimental growth rate data
 into R. If you haven't already, the readings [introducing
-R](../readings/R-01-intro-to-r), [starting with
-data](../readings/R-02-starting-with-data), and [using
-ggplot2](../readings/R-04-visualization-ggplot2) provide some background
-to the coding we'll use here.
+R](../../readings/R-01-intro-to-r), [starting with
+data](../../readings/R-02-starting-with-data), and [using
+ggplot2](../../readings/R-04-visualization-ggplot2) provide some
+background to the coding we'll use here.
 
 In some cases we might start with data stored locally on our computer,
 or online via a link. But here we'll take advantage of a data set that
@@ -44,21 +48,10 @@ library(growthrates)
 
     ## Loading required package: deSolve
 
-> ### Advanced note -- checking for installed packages
->
-> If you were writing a script that needed a user to load a certain
-> package, it is better to check if they've installed it, then load or
-> install+load as necessary. Here's an example piece of code that does
-> it. Don't stress if this feels too advanced.
->
-> ``` {.r}
-> if(!require(growthrates)) install.packages("growthrates",repos = "http://cran.us.r-project.org")
-> ```
-
 Getting to know the new package and data
 ----------------------------------------
 
-Okay, so we've loaded the package. Let's used `?` to look at the help
+Okay, so we've loaded the package. Let's use `?` to look at the help
 file.
 
 ``` {.r}
@@ -99,7 +92,7 @@ data(antibiotic)
 
 > ### Advanced note -- the diverse outputs of a single function
 >
-> You may be surprised that the data() function could yield a list of
+> You may be surprised that the `data()` function could yield a list of
 > data, or load a particular data set, depending on the arguments you
 > enter. Many functions in R can take a range of arguments, and the
 > output many depend on what arguments you chose to specify. The help
@@ -137,7 +130,7 @@ size, but the relative change should still be useful for seeing the
 pattern of growth. *(Note: this assumes that the optical density changes
 linearly with the bacterial concentration.)*
 
-There are a few other variables `conc` tells us the concentration of
+There are a few other variables. `conc` tells us the concentration of
 tetracylcine used in each well, and `repl` tells us which replicate.
 They had four replicates. In other words, they repeated each growth
 experiment with the exact same antibiotic concentration 4 times. This
@@ -145,10 +138,12 @@ helps check that they are getting consistent results.
 
 > ### Challenge -- sources of noise
 >
-> -   Based on the results from a single lab, would you be confident to
->     draw conclusions about the growth of this species in general?\
+> -   Based on the results from a single lab, would you be confident
+>     drawing conclusions about the growth of this species in general?
 > -   What are some other sources of variation that might influence the
->     growth rate data?
+>     growth rate data? (To think about this, imagine all the decisions,
+>     explicit or implicit, made by the researchers as they set this
+>     up.)
 
 Visualizing our data
 --------------------
@@ -161,14 +156,14 @@ try to fiddle with the code to start getting a feel for the syntax. If
 you've worked through [Reading 3: Manipulating and analyzing data with
 tidyverse](../readings/R-03-dplyr), you've already installed the
 **`tidyverse`** package, which includes **`ggplot2`**. If not, the code
-`install.packages("ggplot2")` can install the package.
+`install.packages("ggplot2")` can install just that package.
 
 ``` {.r}
 library(ggplot2)
 ggplot(antibiotic,aes(x=time,y=value))+geom_point()
 ```
 
-![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-9-1.png)
+![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-8-1.png)
 
 With one short line of code, we made a pretty nice plot. A few notes
 about what I entered into the `ggplot()` function. I first entered the
@@ -185,7 +180,7 @@ the concentrations using different colors.
 ggplot(antibiotic,aes(x=time,y=value,color=conc))+geom_point()
 ```
 
-![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-10-1.png)
+![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-9-1.png)
 
 Hmmm, that doesn't look great. The automatic scale doesn't work well
 when some values are very close together while others are spread apart.
@@ -195,18 +190,30 @@ out that `ggplot()` works better in these cases when the variable is a
 discrete (or factor) scale, not a continuous scale. Don't stress if this
 feels confusing, but let's just try turning the concentrations into a
 discrete factor variable instead. *(If you need a refresher on factors,
-[Reading 2: Starting with data](../readings/R-02-starting-with-data)
+[Reading 2: Starting with data](../../readings/R-02-starting-with-data)
 explains what a factor is and how R works with them.)*
 
 ``` {.r}
 ggplot(antibiotic,aes(x=time,y=value,color=factor(conc)))+geom_point()
 ```
 
-![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-11-1.png)
+![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-10-1.png)
 
 That's a bit easier to read. Now we can clearly see the different
 replicates within a single concentration, and we can distinguish pretty
-well between the concentration gradients.
+well between the concentration gradients. As discussed in the [ggplot2
+reading](../readings/R-04-visualization-ggplot2), we can also use
+*facets*, making an individual plot for each antibiotic concentration.
+Data visualization experts sometimes call these *small multiples*, and
+they can be a nice way to view a lot of data at once.
+
+``` {.r}
+ggplot(antibiotic,aes(x=time,y=value)) +
+    geom_point() +
+    facet_wrap(~ conc)
+```
+
+![figure](E-01-growth-rates_files/figure-markdown/unnamed-chunk-11-1.png)
 
 > ### Challenge -- interpreting the data
 >
@@ -218,6 +225,6 @@ well between the concentration gradients.
 > -   What conclusions can you draw from these data?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 15:41:26
+Page built on: 2018-09-19 at 11:16:35
 </p>
 
