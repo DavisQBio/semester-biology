@@ -19,7 +19,7 @@ layout: page
 
 To follow along without lots of copying and pasting, you can download [a
 script with nothing but the R code
-here](../scripts/R-04-visualization-ggplot2.R).
+here](../../scripts/R-04-visualization-ggplot2.R).
 
 We start by loading the required packages. **`ggplot2`** is included in
 the **`tidyverse`** package.

@@ -27,7 +27,7 @@ knitr::opts_chunk$set(fig.cap="figure")
 ------------
 
 To follow along without lots of copying and pasting, you can download [a
-script with nothing but the R code here](../scripts/R-02-starting-with-data.R).
+script with nothing but the R code here](../../scripts/R-02-starting-with-data.R).
 
 ## Presentation of the Survey Data
 
