@@ -202,7 +202,7 @@ ggplot(antibiotic,aes(x=time,y=value,color=factor(conc)))+geom_point()
 That's a bit easier to read. Now we can clearly see the different
 replicates within a single concentration, and we can distinguish pretty
 well between the concentration gradients. As discussed in the [ggplot2
-reading](../readings/R-04-visualization-ggplot2), we can also use
+reading](../../readings/R-04-visualization-ggplot2), we can also use
 *facets*, making an individual plot for each antibiotic concentration.
 Data visualization experts sometimes call these *small multiples*, and
 they can be a nice way to view a lot of data at once.
@@ -225,6 +225,6 @@ ggplot(antibiotic,aes(x=time,y=value)) +
 > -   What conclusions can you draw from these data?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-19 at 11:16:35
+Page built on: 2018-09-21 at 13:30:53
 </p>
 
