@@ -8,7 +8,7 @@ permalink:        pretty
 # Setup
 title:            R for QBio
 description:      'Using R for quantitative biological analysis'
-url:              https://davisqbio.github.io/r_intro
+url:              https://davisqbio.github.io/r_intro/
 baseurl:          /r_intro
 email:            refurrow@ucdavis.edu
 feedbackurl:      
@@ -17,5 +17,7 @@ author:
   url:            
 
 github:
-  repo:           https://github.com/davisqbio/r_intro
+  repo:           https://github.com/davisqbio/r_intro/
+
+repository:       r_intro/davisqbio.github.io
   #               Be sure the 'Issues' feature is activated in 'Settings'
