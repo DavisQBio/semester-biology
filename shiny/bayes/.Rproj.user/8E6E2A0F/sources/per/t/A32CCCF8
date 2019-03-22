@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1538174611971.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3172231488",
+    "id" : "A32CCCF8",
+    "lastKnownWriteTime" : 1538520516,
+    "last_content_update" : 1538520516898,
+    "path" : "C:/Users/Rob Furrow/Dropbox/Davis/bayes/bayes_shiny/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "64,66",
+        "scrollLine" : "48",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
