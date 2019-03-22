@@ -1,8 +1,3 @@
----
-title: "Loading and visualizing growth rate data"
-layout: page
----
-
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -43,10 +38,6 @@ with library().
 ## loading the package
 library(growthrates)
 ```
-
-    ## Loading required package: lattice
-
-    ## Loading required package: deSolve
 
 Getting to know the new package and data
 ----------------------------------------
@@ -225,6 +216,6 @@ ggplot(antibiotic,aes(x=time,y=value)) +
 > -   What conclusions can you draw from these data?
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-21 at 13:30:53
+Page built on: 2019-03-22 at 14:54:34
 </p>
 
