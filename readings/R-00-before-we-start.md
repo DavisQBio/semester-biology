@@ -1,8 +1,3 @@
----
-title: "Before we start"
-layout: page
----
-
 ------------------------------------------------------------------------
 
 > ### Learning Objectives
@@ -449,10 +444,10 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] compiler_3.5.1  backports_1.1.2 magrittr_1.5    rprojroot_1.3-2
-    ##  [5] tools_3.5.1     htmltools_0.3.6 yaml_2.2.0      Rcpp_0.12.18   
-    ##  [9] stringi_1.1.7   rmarkdown_1.10  knitr_1.20      stringr_1.3.1  
-    ## [13] digest_0.6.15   evaluate_0.11
+    ##  [1] compiler_3.5.1  magrittr_1.5    tools_3.5.1     htmltools_0.3.6
+    ##  [5] yaml_2.2.0      Rcpp_1.0.0      stringi_1.3.1   rmarkdown_1.11 
+    ##  [9] knitr_1.21      stringr_1.4.0   xfun_0.5        digest_0.6.18  
+    ## [13] evaluate_0.13
 
 ### Where to ask for help?
 
@@ -505,6 +500,6 @@ sessionInfo()
     the reprex package and of its philosophy.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2018-09-18 at 11:02:19
+Page built on: 2019-03-31 at 16:07:18
 </p>
 
