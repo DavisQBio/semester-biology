@@ -252,5 +252,5 @@ sessionInfo()
 -   The [reprex](https://cran.rstudio.com/web/packages/reprex/) package is very helpful to create reproducible examples when asking for help. The rOpenSci community call "How to ask questions so they get answered", [Github link](https://github.com/ropensci/commcalls/issues/14) and [video recording](https://vimeo.com/208749032) includes a presentation of the reprex package and of its philosophy.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2019-03-31 at 19:58:43
+Page built on: 2019-03-31 at 20:03:50
 </p>
