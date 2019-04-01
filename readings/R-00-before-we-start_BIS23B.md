@@ -96,7 +96,7 @@ Using a consistent folder structure across your projects will help keep things o
 
 You may want additional directories or subdirectories depending on your project needs, but these should form the backbone of your working directory. If you click on the files tab in the **lower right** quadrant of R Studio, you should see the three folders listed above. Note that I use a dark background. You can adjust that in the "Global Options" in the "Tools"" tab at the top.
 
-![Example of a working directory structure.](../img/project-screenshot.png)
+![Example of a working directory structure.](../img/project-screenshot.PNG)
 
 ### The working directory
 
@@ -252,5 +252,5 @@ sessionInfo()
 -   The [reprex](https://cran.rstudio.com/web/packages/reprex/) package is very helpful to create reproducible examples when asking for help. The rOpenSci community call "How to ask questions so they get answered", [Github link](https://github.com/ropensci/commcalls/issues/14) and [video recording](https://vimeo.com/208749032) includes a presentation of the reprex package and of its philosophy.
 
 <p style="text-align: right; font-size: small;">
-Page built on: 2019-03-31 at 20:03:50
+Page built on: 2019-03-31 at 20:06:41
 </p>
