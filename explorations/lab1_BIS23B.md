@@ -12,17 +12,20 @@ Week 1 Lab
 >
 > -   Download and install R and RStudio: <https://davisqbio.github.io/r_intro/computer-setup/>.
 > -   Read over and try out the basics in R:
-> -   -   <https://davisqbio.github.io/r_intro/readings/R-00-before-we-start_BIS23B/>
->
-> -   -   <https://davisqbio.github.io/r_intro/readings/R-01-intro-to-r/>.
->
+>     -   <https://davisqbio.github.io/r_intro/readings/R-00-before-we-start_BIS23B/>
+>     -   <https://davisqbio.github.io/r_intro/readings/R-01-intro-to-r/>.
 > -   Make sure you **set up an R project**, as discussed in the "Before we start" reading.
->
+> -   To save your lab files as pdfs, you'll need to install LaTeX. The easiest way to do this with R is to open RStudio and run these two lines in the console.
+
+``` r
+install.packages('tinytex')
+tinytex::install_tinytex()
+```
+
 > ### Homework for Next Week
 >
 > -   Fill in all of the answer blocks.
-> -   Complete the writing assignment in the Homework section.
-> -   Complete the coding assignment in the Homework section.
+> -   Complete all tasks in the Homework section (bottom of the Rmd)
 > -   Read this short news piece from some UC Davis faculty: <https://biology.ucdavis.edu/news/language-biology-how-heck-do-scientists-assemble-genome>
 > -   Install the `tidyverse`, `BiocManager`, and `Biostrings` packages. See code at the bottom for instructions (installing `Biostrings` is a different process).
 > -   Download the zip file of all of the sequences from Canvas, and unzip it in the "raw" folder inside of your "data" folder in your R Project. The individual files should be sitting directly inside of the raw folder, not nested deeper inside of other folders.
@@ -62,7 +65,9 @@ We (your instructors) will hand out some short "reads" of text. Each read here i
 
 ------------------------------------------------------------------------
 
-Pause here for instructions before going on. \*\*\*
+**Pause here for instructions before going on.**
+
+------------------------------------------------------------------------
 
 #### Your objective: assemble this text
 
@@ -301,7 +306,9 @@ bird <- "chirp_chirp_i_am_a_bird_chirp"
 
 ------------------------------------------------------------------------
 
-Pause here and wait for instructions on the next step. \*\*\*
+**Pause here and wait for instructions on the next step.**
+
+------------------------------------------------------------------------
 
 #### A first step into bioinformatics
 
@@ -437,6 +444,8 @@ Make sure that any short responses or coding snippets above have been filled in 
 In 200-300 words, write out a detailed algorithm for how you would assemble a set of reads into a genome. Keep in mind the concepts we discussed regarding algorithms, including quality control, validation, and conditional statements.
 
 In addition, in a few sentences (keeping the article in mind, <https://biology.ucdavis.edu/news/language-biology-how-heck-do-scientists-assemble-genome>), explain why it might be helpful to have the genome sequences of more than one individual of a particular species.
+
+#### Your response here
 
 ------------------------------------------------------------------------
 
