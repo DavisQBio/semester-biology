@@ -9,5 +9,4 @@ title: Explorations
 
 ## BIS 23B Labs
 
-[](* [Lab 1: Assembly and getting cozy with R](lab1_BIS23B)
-)
+* [Lab 1: Assembly and getting cozy with R](lab1_BIS23B)
