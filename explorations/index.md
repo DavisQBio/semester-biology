@@ -10,3 +10,4 @@ title: Explorations
 ## BIS 23B Labs
 
 * [Lab 1: Assembly and getting cozy with R](lab1_BIS23B)
+* [Lab 2: Assembly, functions, and databases](lab2_BIS23B)
