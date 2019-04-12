@@ -163,7 +163,7 @@ contig_num <- function(assembly)
     
     # the number of contigs is the number of different strings
     # in the vector, which is given by the length() function
-    len <- length(contig_num)
+    len <- length(assembly)
     
     # at the end of a function, either just put name of the output, (here 
     # it's len), or use return() with your output
