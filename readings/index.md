@@ -8,7 +8,8 @@ title: Readings
 * [Reading 1: Intro to R](R-01-intro-to-r)
 
 
-## Readings for ecology (from [R for Data Analysis and Visualization of Ecological Data](https://datacarpentry.org/R-ecology-lesson/))
+## Readings for ecology 
+(From [R for Data Analysis and Visualization of Ecological Data](https://datacarpentry.org/R-ecology-lesson/))
 * [Before we start](R-00-before-we-start)
 * [Intro to R](R-01-intro-to-r)
 * [Starting with data](R-02-starting-with-data)
