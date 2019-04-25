@@ -1,3 +1,8 @@
+---
+title: "Lab 4 write-up"
+layout: page
+---
+
 Week 4 Lab
 ----------
 
