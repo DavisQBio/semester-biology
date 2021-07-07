@@ -8,7 +8,7 @@ title: Additional Q-Bio CURE details
 The [explorations here](../explorations) have been used in some course labs or homeworks.
 
 
-### References for the Q-Bio CURE poster presented at the Gordon Research Conference on Undergraduate Biology Education Research (Summer 2019)
+### References for the Q-Bio CURE poster presented at BIOME 2021
 
 1. Wachsmuth LP, Runyon CR, Drake JM, Dolan EL. Do biology students really hate math? Empirical insights into undergraduate life science majors' emotions about mathematics. CBE-Life Sciences Education. 2017;16(3):ar49.
 2. Ashcraft MH. Math anxiety: Personal, educational, and cognitive consequences. Current directions in psychological science. 2002 Oct;11(5):181-5.
@@ -26,7 +26,7 @@ The [explorations here](../explorations) have been used in some course labs or h
 14. https://swirlstats.com/
 
 
-### Sources for the poster icons (GRC, Summer 2019)
+### Sources for the poster icons
 
 Rubric: <https://www.pinclipart.com/pindetail/xmxbwh_rubrics-assessment-rubric-icon-clipart/>
 
