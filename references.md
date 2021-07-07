@@ -3,9 +3,9 @@ layout: page
 title: Additional Q-Bio CURE details
 ---
 
-### Selected course materials
+### Course materials
 
-The [explorations here](/explorations) have been used in some course labs or homeworks.
+The bulk of the course is [publicly available here.](https://bookdown.org/joelrome88/bis23b/)
 
 
 ### References for the Q-Bio CURE poster presented at BIOME 2021
