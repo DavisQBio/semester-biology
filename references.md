@@ -5,7 +5,7 @@ title: Additional Q-Bio CURE details
 
 ### Selected course materials
 
-The [explorations here](../explorations) have been used in some course labs or homeworks.
+The [explorations here](../../explorations) have been used in some course labs or homeworks.
 
 
 ### References for the Q-Bio CURE poster presented at BIOME 2021
